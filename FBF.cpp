@@ -1,14 +1,28 @@
-
+/*
+ * Header files
+ */
 #include<iostream>
 #include<time.h>
 
+
+/*
+ * Bloom Filter library
+ */ 
 #include "bloom_filter.hpp"
 
+
+/* 
+ * Macros
+ */
 #define FAILURE -1
 #define SUCCESS 0
 #define NUM_ARGS 3
 #define FP_CHECK_MULTIPLIER 5
 
+
+/* 
+ * Timer class
+ */
 class Timer {
 
 private: 
@@ -27,8 +41,12 @@ public:
     return seconds >= elapsedTime();
   }
 
-};
+}; // End of class Timer
 
+
+/* 
+ * Main function
+ */
 int main(int argc, char *argv[]) { 
 
   if ( argc != NUM_ARGS ) {
@@ -43,8 +61,13 @@ int main(int argc, char *argv[]) {
   unsigned long FPCountDFBF = 0;
   unsigned long FPCountSFBF = 0;
 
+  double DFBFfalsePositiveRate = 0.0;
+  double SFBFfalsePositiveRate = 0.0;
+
   Timer t;
 
+  // Bloom filter parameters 
+  // Common ground for both the BFs
   bloom_parameters parameters;
 
   // Set how many elements we expect to insert
@@ -61,6 +84,7 @@ int main(int argc, char *argv[]) {
     return FAILURE;
   }
 
+  // Determine optimal parameters based on the above settings
   parameters.compute_optimal_parameters();
 
   /////////////////////////////
@@ -73,6 +97,9 @@ int main(int argc, char *argv[]) {
   bloom_filter pastBF(parameters);
   bloom_filter presentBF(parameters);
   bloom_filter futureBF(parameters);
+
+  // Empty BF to do an intersection with the future BF 
+  // and the resultant future BF becomes empty
   bloom_filter newBF(parameters);
 
   // Start the timer
@@ -80,13 +107,15 @@ int main(int argc, char *argv[]) {
 
   std::cout<<"Timer started..." <<std::endl;
 
-  // Insert some numbers into the bloom filter 
+  /*
+   * Insert some numbers into the bloom filter 
+   */
   /////////////////////////
   // When an insert is done it is done both into 
   // the present as well as the future BF
   // Numbers are inserted from 0 to n
   ////////////////////////
-  for ( int i = 0; i < numElements; i++ ) {
+  for ( int i = 0; i < numElements; i++ ) { 
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached. Copying BFs " <<std::endl;
       // copy BFs
@@ -94,11 +123,14 @@ int main(int argc, char *argv[]) {
       presentBF = futureBF;
       futureBF &= newBF;
       t.start();
-    }
+    } // End of if (t.elapsedTime() >= seconds)
     presentBF.insert(i);
     futureBF.insert(i);
-  }
+  } // End of for ( int i = 0; i < numElements; i++ )
 
+  /* 
+   * Check for false positives in the smart FBF
+   */
   for ( int i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
     if ( (pastBF.contains(i) && futureBF.contains(i)) || (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;
@@ -106,8 +138,14 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  // Print results  
   std::cout<<"The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
+  SFBFfalsePositiveRate = (double)(FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements));
+  std::cout<<"The FPR of the SMART FBF is : " <<SFBFfalsePositiveRate <<std::endl;
 
+  /* 
+   * Check for false positives in the dumb FBF
+   */
   for ( int i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
     if ( pastBF.contains(i) || presentBF.contains(i) || futureBF.contains(i) ) {
         //std::cout<<"FOUND FP"<<std::endl;
@@ -115,6 +153,9 @@ int main(int argc, char *argv[]) {
     }
   }
 
+  // Print results
   std::cout<<"The number of FPs in a Dumb FBF : " <<FPCountDFBF <<std::endl;
+  DFBFfalsePositiveRate = (double)(FPCountDFBF/(FP_CHECK_MULTIPLIER*numElements));
+  std::cout<<"The FPR of the DUMB FBF is : " <<DFBFfalsePositiveRate <<std::endl;
 
 } // End of main()
