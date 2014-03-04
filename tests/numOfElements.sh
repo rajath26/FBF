@@ -2,30 +2,31 @@
 
 help_syntax()
 {
-  echo -e "\n [ERROR] USAGE: ./$0 -f <FILE> -t <TIMEOUT> \n" 
+  echo -e "\n [ERROR] USAGE: $0 -f <FILE> -t <TIMEOUT> \n" 
   echo -e "Exiting from the script.... ... .. . ."
   exit 1
 }
 
-if [ $# -ne 2 ] 
+if [ $# -ne 4 ] 
 then 
   help_syntax
 fi
 
-while getopts f: opt
+while getopts f:t: opt
 do 
   case $opt in 
     f) 
       # file name 
       FILE=${OPTARG}
-      echo -e "\n [INFO] FILE NAME: ${FILE} \n"
+      echo -e "\n [INFO] FILE NAME: ${FILE} \n";;
     t) 
       # timeout for refresh
       REFRESH=${OPTARG}
-      echo -e "\n [INFO] REFRESH TIME: ${REFRESH} \n"
+      echo -e "\n [INFO] REFRESH TIME: ${REFRESH} \n";;
     ?)
       # invalid
       echo -e "\n [ERROR] Invalid option \n"
+      help_syntax;;
   esac
 done
 
@@ -58,7 +59,9 @@ exec 5< ${FILE}
 
 while read -u5 line
 do 
-  cd ${SCRIPT_PATH}
-  cd ..
-  ./FBF ${REFRESH} ${line} >> ${SCRIPT_PATH}/${OUTPUT}
+  #cd ${SCRIPT_PATH}
+  #cd ..
+  echo -e "\n [INFO] TESTING FOR ${REFRESH} time and ${line} elements\n"
+  ./../FBF ${REFRESH} ${line} >> ${OUTPUT}
+  echo -e "\n---------------------------------\n" >> ${OUTPUT}
 done

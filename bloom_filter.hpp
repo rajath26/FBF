@@ -145,11 +145,18 @@ public:
       else if (optp.number_of_hashes > maximum_number_of_hashes)
          optp.number_of_hashes = maximum_number_of_hashes;
 
+      optp.number_of_hashes = 13;
+
+      std::cout<<std::endl<<"OPTIMAL NUMBER OF HASH CHOSEN : " <<optp.number_of_hashes <<std::endl;
+
       if (optp.table_size < minimum_size)
          optp.table_size = minimum_size;
       else if (optp.table_size > maximum_size)
          optp.table_size = maximum_size;
 
+      optp.table_size = 1900000;
+
+      std::cout<<std::endl<<"OPTIMAL TABLE SIZE CHOSEN : " <<optp.table_size <<std::endl;
       return true;
    }
 

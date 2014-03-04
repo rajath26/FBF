@@ -3,6 +3,7 @@
  */
 #include<iostream>
 #include<time.h>
+#include<unistd.h>
 
 
 /*
@@ -55,11 +56,14 @@ int main(int argc, char *argv[]) {
     return FAILURE;
   }
 
-  unsigned long seconds = (long) atoi(argv[1]);
-  unsigned long numElements = (long) atoi(argv[2]);
+  unsigned long seconds = (unsigned long) atoi(argv[1]);
+  unsigned long long numElements = (unsigned long long) atoi(argv[2]);
 
-  unsigned long FPCountDFBF = 0;
-  unsigned long FPCountSFBF = 0;
+  std::cout<<" INFO :: REFRESH TIME: " <<seconds <<std::endl;
+  std::cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<std::endl;
+
+  unsigned long long FPCountDFBF = 0;
+  unsigned long long FPCountSFBF = 0;
 
   double DFBFfalsePositiveRate = 0.0;
   double SFBFfalsePositiveRate = 0.0;
@@ -115,7 +119,7 @@ int main(int argc, char *argv[]) {
   // the present as well as the future BF
   // Numbers are inserted from 0 to n
   ////////////////////////
-  for ( int i = 0; i < numElements; i++ ) { 
+  for ( unsigned long long i = 0; i < numElements; i++ ) { 
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached. Copying BFs " <<std::endl;
       // copy BFs
@@ -124,14 +128,21 @@ int main(int argc, char *argv[]) {
       futureBF &= newBF;
       t.start();
     } // End of if (t.elapsedTime() >= seconds)
+
     presentBF.insert(i);
     futureBF.insert(i);
+
+    // For every 1000th element induce a sleep(1)
+    /*if (0 == i%1000) {
+      sleep(1);
+    }*/
+
   } // End of for ( int i = 0; i < numElements; i++ )
 
   /* 
    * Check for false positives in the smart FBF
    */
-  for ( int i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+  for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
     if ( (pastBF.contains(i) && futureBF.contains(i)) || (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;
       FPCountSFBF++;
@@ -140,13 +151,13 @@ int main(int argc, char *argv[]) {
 
   // Print results  
   std::cout<<"The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
-  SFBFfalsePositiveRate = (double)(FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements));
-  std::cout<<"The FPR of the SMART FBF is : " <<SFBFfalsePositiveRate <<std::endl;
+  //SFBFfalsePositiveRate = FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements;
+  //std::cout<<"The FPR of the SMART FBF is : " <<SFBFfalsePositiveRate <<std::endl;
 
   /* 
    * Check for false positives in the dumb FBF
    */
-  for ( int i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+  for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
     if ( pastBF.contains(i) || presentBF.contains(i) || futureBF.contains(i) ) {
         //std::cout<<"FOUND FP"<<std::endl;
         FPCountDFBF++;
@@ -155,7 +166,7 @@ int main(int argc, char *argv[]) {
 
   // Print results
   std::cout<<"The number of FPs in a Dumb FBF : " <<FPCountDFBF <<std::endl;
-  DFBFfalsePositiveRate = (double)(FPCountDFBF/(FP_CHECK_MULTIPLIER*numElements));
-  std::cout<<"The FPR of the DUMB FBF is : " <<DFBFfalsePositiveRate <<std::endl;
+  //DFBFfalsePositiveRate = FPCountDFBF/(FP_CHECK_MULTIPLIER*numElements);
+  //std::cout<<"The FPR of the DUMB FBF is : " <<DFBFfalsePositiveRate <<std::endl;
 
 } // End of main()
