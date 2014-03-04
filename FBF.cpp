@@ -40,15 +40,15 @@ int main(int argc, char *argv[]) {
   unsigned long seconds = (long) atoi(argv[1]);
   unsigned long numElements = (long) atoi(argv[2]);
 
-  int FPCountDFBF = 0;
-  int FPCountSFBF = 0;
+  unsigned long FPCountDFBF = 0;
+  unsigned long FPCountSFBF = 0;
 
   Timer t;
 
   bloom_parameters parameters;
 
   // Set how many elements we expect to insert
-  parameters.projected_element_count = 1000;
+  parameters.projected_element_count = numElements/10;
 
   // Maximum tolerable false positive probability ? (0,1)
   parameters.false_positive_probability = 0.0001;
