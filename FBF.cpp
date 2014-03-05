@@ -143,10 +143,17 @@ int main(int argc, char *argv[]) {
    * Check for false positives in the smart FBF
    */
   for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
-    if ( (pastBF.contains(i) && futureBF.contains(i)) || (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
+    if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;
       FPCountSFBF++;
     }
+    else if ( (pastBF.contains(i) && !presentBF.contains(i) && !futureBF.contains(i)) ) {
+      FPCountSFBF++;
+    }
+    else if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
+      FPCountSFBF++;
+    }
+
   }
 
   // Print results  
