@@ -1,0 +1,62 @@
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 3
+
+OPTIMAL TABLE SIZE CHOSEN : 1900000
+Timer started...
+ INFO :: Timeout reached. Copying BFs 
+The number of FPs in a Smart FBF : 10138686
+The number of FPs in a Dumb FBF : 10458693
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 8
+
+OPTIMAL TABLE SIZE CHOSEN : 1900000
+Timer started...
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+The number of FPs in a Smart FBF : 11994676
+The number of FPs in a Dumb FBF : 11999340
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 13
+
+OPTIMAL TABLE SIZE CHOSEN : 1900000
+Timer started...
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+The number of FPs in a Smart FBF : 11997418
+The number of FPs in a Dumb FBF : 11999461
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 18
+
+OPTIMAL TABLE SIZE CHOSEN : 1900000
+Timer started...
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+The number of FPs in a Smart FBF : 11986339
+The number of FPs in a Dumb FBF : 11992649
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 23
+
+OPTIMAL TABLE SIZE CHOSEN : 1900000
+Timer started...
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+ INFO :: Timeout reached. Copying BFs 
+The number of FPs in a Smart FBF : 11994239
+The number of FPs in a Dumb FBF : 11998550

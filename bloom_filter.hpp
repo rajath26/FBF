@@ -154,7 +154,7 @@ public:
       else if (optp.table_size > maximum_size)
          optp.table_size = maximum_size;
 
-      optp.table_size = 1900000;
+      optp.table_size = 2500000;
 
       std::cout<<std::endl<<"OPTIMAL TABLE SIZE CHOSEN : " <<optp.table_size <<std::endl;
       return true;
