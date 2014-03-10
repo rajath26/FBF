@@ -17,8 +17,9 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define NUM_ARGS 3
+#define NUM_ARGS 4 
 #define FP_CHECK_MULTIPLIER 5
+#define SLEEP_TIME 1
 
 
 /* 
@@ -52,12 +53,13 @@ int main(int argc, char *argv[]) {
 
   if ( argc != NUM_ARGS ) {
     std::cout<< "ERROR :: Invalid number of arguments" <<std::endl;
-    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <num_of_elements>" <<std::endl;
+    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <num_of_elements> <batch_ops>" <<std::endl;
     return FAILURE;
   }
 
   unsigned long seconds = (unsigned long) atoi(argv[1]);
   unsigned long long numElements = (unsigned long long) atoi(argv[2]);
+  unsigned long long batchOps = (unsigned long long) atoi(argv[3]);
 
   std::cout<<" INFO :: REFRESH TIME: " <<seconds <<std::endl;
   std::cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<std::endl;
@@ -121,7 +123,7 @@ int main(int argc, char *argv[]) {
   ////////////////////////
   for ( unsigned long long i = 0; i < numElements; i++ ) { 
     if (t.elapsedTime() >= seconds) {
-      std::cout<<" INFO :: Timeout reached. Copying BFs " <<std::endl;
+      std::cout<<" INFO :: Timeout reached while inserting. Copying BFs " <<std::endl;
       // copy BFs
       pastBF = presentBF;
       presentBF = futureBF;
@@ -129,13 +131,13 @@ int main(int argc, char *argv[]) {
       t.start();
     } // End of if (t.elapsedTime() >= seconds)
 
+    // For every batchOps number of inserts induce a sleep of 1s
+    if ( 0 == i % batchOps ) { 
+        sleep(SLEEP_TIME);
+    }
+
     presentBF.insert(i);
     futureBF.insert(i);
-
-    // For every 1000th element induce a sleep(1)
-    /*if (0 == i%1000) {
-      sleep(1);
-    }*/
 
   } // End of for ( int i = 0; i < numElements; i++ )
 
@@ -143,6 +145,13 @@ int main(int argc, char *argv[]) {
    * Check for false positives in the smart FBF
    */
   for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+    if (t.elapsedTime() >= seconds) {
+      std::cout<<" INFO :: Timeout reached while testing FPs. Copying BFs " <<std::endl;
+      pastBF = presentBF;
+      presentBF = futureBF;
+      futureBF &= newBF;
+      t.start();
+    }  
     if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;
       FPCountSFBF++;
@@ -153,27 +162,44 @@ int main(int argc, char *argv[]) {
     else if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
       FPCountSFBF++;
     }
+    else if ( pastBF.contains(i) && futureBF.contains(i) ) { 
+      FPCountSFBF++;
+    }
+
+    if ( 0 == i % batchOps ) { 
+      sleep(SLEEP_TIME);
+    }
 
   }
 
   // Print results  
   std::cout<<"The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
-  //SFBFfalsePositiveRate = FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements;
-  //std::cout<<"The FPR of the SMART FBF is : " <<SFBFfalsePositiveRate <<std::endl;
-
+  
   /* 
    * Check for false positives in the dumb FBF
    */
   for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+    if (t.elapsedTime() >= seconds) {
+      std::cout<<" INFO :: Timeout reached while testing FPs. Copying BFs " <<std::endl;
+      pastBF = presentBF;
+      presentBF = futureBF;
+      futureBF &= newBF;
+      t.start();
+    }  
+
     if ( pastBF.contains(i) || presentBF.contains(i) || futureBF.contains(i) ) {
         //std::cout<<"FOUND FP"<<std::endl;
         FPCountDFBF++;
+    }
+   
+    if ( 0 == i % batchOps ) { 
+      sleep(SLEEP_TIME);
     }
   }
 
   // Print results
   std::cout<<"The number of FPs in a Dumb FBF : " <<FPCountDFBF <<std::endl;
-  //DFBFfalsePositiveRate = FPCountDFBF/(FP_CHECK_MULTIPLIER*numElements);
-  //std::cout<<"The FPR of the DUMB FBF is : " <<DFBFfalsePositiveRate <<std::endl;
+
+  return 0;
 
 } // End of main()
