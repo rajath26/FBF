@@ -1,0 +1,202 @@
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 2.00048
+ INFO :: Rate of insertion: 249.94per second
+ INFO :: The number of FPs in a Smart FBF : 7
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0028
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 1000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 2.00081
+ INFO :: Rate of insertion: 499.798per second
+ INFO :: The number of FPs in a Smart FBF : 191
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0382
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 1500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 2.00147
+ INFO :: Rate of insertion: 749.45per second
+ INFO :: The number of FPs in a Smart FBF : 954
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1272
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 2000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 4.00178
+ INFO :: Rate of insertion: 499.778per second
+ INFO :: The number of FPs in a Smart FBF : 1579
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1579
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 2500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 4.00199
+ INFO :: Rate of insertion: 624.69per second
+ INFO :: The number of FPs in a Smart FBF : 2295
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1836
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 4.00256
+ INFO :: Rate of insertion: 749.521per second
+ INFO :: The number of FPs in a Smart FBF : 3750
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.25
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00358
+ INFO :: Rate of insertion: 582.985per second
+ INFO :: The number of FPs in a Smart FBF : 9706
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.554629
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 4000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00276
+ INFO :: Rate of insertion: 666.36per second
+ INFO :: The number of FPs in a Smart FBF : 11242
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.5621
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 4500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00377
+ INFO :: Rate of insertion: 749.529per second
+ INFO :: The number of FPs in a Smart FBF : 13125
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.583333
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 8.00475
+ INFO :: Rate of insertion: 624.629per second
+ INFO :: The number of FPs in a Smart FBF : 13482
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.53928
+
+---------------------------------
+

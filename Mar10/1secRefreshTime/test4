@@ -1,0 +1,219 @@
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 500
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 2.00131
+ INFO :: Rate of insertion: 249.837per second
+ INFO :: The number of FPs in a Smart FBF : 7
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0028
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 1000
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 4.00224
+ INFO :: Rate of insertion: 249.86per second
+ INFO :: The number of FPs in a Smart FBF : 78
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0156
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 1500
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 4.00261
+ INFO :: Rate of insertion: 374.755per second
+ INFO :: The number of FPs in a Smart FBF : 197
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0262667
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 2000
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00299
+ INFO :: Rate of insertion: 333.167per second
+ INFO :: The number of FPs in a Smart FBF : 1577
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1577
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 2500
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 8.00396
+ INFO :: Rate of insertion: 312.345per second
+ INFO :: The number of FPs in a Smart FBF : 2033
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.16264
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 8.00481
+ INFO :: Rate of insertion: 374.775per second
+ INFO :: The number of FPs in a Smart FBF : 2514
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1676
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 3500
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 10.0054
+ INFO :: Rate of insertion: 349.812per second
+ INFO :: The number of FPs in a Smart FBF : 2875
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.164286
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 4000
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 10.005
+ INFO :: Rate of insertion: 399.801per second
+ INFO :: The number of FPs in a Smart FBF : 3593
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.17965
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 4500
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 12.0066
+ INFO :: Rate of insertion: 374.794per second
+ INFO :: The number of FPs in a Smart FBF : 3448
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.153244
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: BATCH OPERATIONS: 800
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 14.0079
+ INFO :: Rate of insertion: 356.942per second
+ INFO :: The number of FPs in a Smart FBF : 3940
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.1576
+
+---------------------------------
+

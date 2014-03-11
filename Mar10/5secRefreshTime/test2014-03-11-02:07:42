@@ -1,0 +1,184 @@
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 2.00088
+ INFO :: Rate of insertion: 249.89per second
+ INFO :: The number of FPs in a Smart FBF : 7
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0028
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 1000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 2.00146
+ INFO :: Rate of insertion: 499.634per second
+ INFO :: The number of FPs in a Smart FBF : 191
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.0382
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 1500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 2.00087
+ INFO :: Rate of insertion: 749.673per second
+ INFO :: The number of FPs in a Smart FBF : 955
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.127333
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 2000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 4.00236
+ INFO :: Rate of insertion: 499.705per second
+ INFO :: The number of FPs in a Smart FBF : 2699
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.2699
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 2500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 4.00243
+ INFO :: Rate of insertion: 624.62per second
+ INFO :: The number of FPs in a Smart FBF : 4953
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.39624
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 4.00246
+ INFO :: Rate of insertion: 749.539per second
+ INFO :: The number of FPs in a Smart FBF : 7653
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.5102
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 3500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00347
+ INFO :: Rate of insertion: 582.997per second
+ INFO :: The number of FPs in a Smart FBF : 9706
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.554629
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 4000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00315
+ INFO :: Rate of insertion: 666.316per second
+ INFO :: The number of FPs in a Smart FBF : 11242
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.5621
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 4500
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 6.00515
+ INFO :: Rate of insertion: 749.357per second
+ INFO :: The number of FPs in a Smart FBF : 13125
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.583333
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 5
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: BATCH OPERATIONS: 1600
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Time elapses in for loop: 8.00455
+ INFO :: Rate of insertion: 624.644per second
+ INFO :: The number of FPs in a Smart FBF : 15547
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.62188
+
+---------------------------------
+

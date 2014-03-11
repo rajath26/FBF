@@ -154,7 +154,7 @@ public:
       else if (optp.table_size > maximum_size)
          optp.table_size = maximum_size;
 
-      optp.table_size = 12500;
+      optp.table_size = 6250;
 
       std::cout<<std::endl<<"TABLE SIZE: "<<sizeof(unsigned long long int)*optp.table_size <<std::endl;
 

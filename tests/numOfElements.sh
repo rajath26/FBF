@@ -2,17 +2,17 @@
 
 help_syntax()
 {
-  echo -e "\n [ERROR] USAGE: $0 -f <FILE> -t <TIMEOUT> \n" 
+  echo -e "\n [ERROR] USAGE: $0 -f <FILE> -t <TIMEOUT> -b <BATCHOPS> \n" 
   echo -e "Exiting from the script.... ... .. . ."
   exit 1
 }
 
-if [ $# -ne 4 ] 
+if [ $# -ne 6 ] 
 then 
   help_syntax
 fi
 
-while getopts f:t: opt
+while getopts f:t:b: opt
 do 
   case $opt in 
     f) 
@@ -23,6 +23,10 @@ do
       # timeout for refresh
       REFRESH=${OPTARG}
       echo -e "\n [INFO] REFRESH TIME: ${REFRESH} \n";;
+    b) 
+      # no of batch operations 
+      BATCHOPS=${OPTARG}
+      echo -e "\n[INFO] BATCH OPERATIONS: ${BATCHOPS} \n";;
     ?)
       # invalid
       echo -e "\n [ERROR] Invalid option \n"
@@ -30,27 +34,16 @@ do
   esac
 done
 
-#
-# get the script path
-#
-
-# variable stores the absolute path of the script
-SCRIPT_PATH="$( dirname "$( which "$0" )" )"
-# check the return code
-if [ $? -ne 0 ]
-then
-    echo -e "[ERROR]  Unable to get the path of this script"
-    echo -e "Exiting from the script.... ... .. . ."
-    exit 1
-fi
-
-echo -e "\n [INFO] The script path is: ${SCRIPT_PATH}\n"
-
 if [ ! -f "${FILE}" ] 
 then 
   echo -e "\n [ERROR] Invalid file passed \n"
   exit 1
 fi
+
+echo -e "\n [INFO] Compiling again ... \n"
+cd ..
+./compile.sh
+cd tests
 
 TIMESTAMP=`date +"%F-%T"`
 OUTPUT="test${TIMESTAMP}"
@@ -62,6 +55,10 @@ do
   #cd ${SCRIPT_PATH}
   #cd ..
   echo -e "\n [INFO] TESTING FOR ${REFRESH} time and ${line} elements\n"
-  ./../FBF ${REFRESH} ${line} >> ${OUTPUT}
+  ./../FBF ${REFRESH} ${line} ${BATCHOPS}>> ${OUTPUT}
   echo -e "\n---------------------------------\n" >> ${OUTPUT}
 done
+
+##
+# END OF SCRIPT 
+##

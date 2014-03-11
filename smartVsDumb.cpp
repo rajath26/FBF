@@ -20,6 +20,31 @@
 #define FP_CHECK_MULTIPLIER 5
 #define SLEEP_TIME 2
 
+/* 
+ * Timer class
+ */
+/*
+class Timer {
+
+private: 
+  unsigned long startTime;
+
+public:
+  void start() {
+    startTime = clock();
+  }
+
+  unsigned long elapsedTime() {
+    return ((unsigned long) clock() - startTime) / CLOCKS_PER_SEC;
+  }
+
+  bool isTimeOut(unsigned long seconds) { 
+    return seconds >= elapsedTime();
+  }
+
+}; // End of class Timer
+*/
+
 /*
  * Timer Class
  */
@@ -71,7 +96,6 @@ int main(int argc, char *argv[]) {
   double SFBFfalsePositiveRate = 0.0;
 
   Timer t;
-  Timer s;
 
   // Bloom filter parameters 
   // Common ground for both the BFs
@@ -122,7 +146,6 @@ int main(int argc, char *argv[]) {
   // the present as well as the future BF
   // Numbers are inserted from 0 to n
   ////////////////////////
-  s.start();
   for ( unsigned long long i = 0; i < numElements; i++ ) { 
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached while inserting. Copying BFs " <<std::endl;
@@ -139,18 +162,24 @@ int main(int argc, char *argv[]) {
       sleep(SLEEP_TIME);
     }
 
+    //std::cout<< " INFO :: Inserting " <<i <<std::endl;
     presentBF.insert(i);
     futureBF.insert(i);
 
   } // End of for ( int i = 0; i < numElements; i++ )
-  double elapTime = s.elapsedTime();
-  std::cout<< " INFO :: Time elapses in for loop: " <<elapTime <<std::endl;
-  std::cout<< " INFO :: Rate of insertion: " <<numElements/elapTime << "per second" <<std::endl;
 
   /* 
    * Check for false positives in the smart FBF
    */
   for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+    /*
+    if (t.elapsedTime() >= seconds) {
+      std::cout<<" INFO :: Timeout reached while testing FPs. Copying BFs " <<std::endl;
+      pastBF = presentBF;
+      presentBF = futureBF;
+      futureBF &= newBF;
+      t.start();
+    } */ 
     if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;
       FPCountSFBF++;
@@ -164,12 +193,45 @@ int main(int argc, char *argv[]) {
     else if ( pastBF.contains(i) && futureBF.contains(i) ) { 
       FPCountSFBF++;
     }
+    /*
+    if ( 0 == i % batchOps ) { 
+      sleep(SLEEP_TIME);
+    }
+    */
+
   }
 
   // Print results  
-  std::cout<< " INFO :: The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
-  std::cout<< " INFO :: The FPR (False Positive Rate) of the SMART FBF is : " <<(double)FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements) <<std::endl;
+  std::cout<<"The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
   
+  /* 
+   * Check for false positives in the dumb FBF
+   */
+  for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ) {
+    /*
+    if (t.elapsedTime() >= seconds) {
+      std::cout<<" INFO :: Timeout reached while testing FPs. Copying BFs " <<std::endl;
+      pastBF = presentBF;
+      presentBF = futureBF;
+      futureBF &= newBF;
+      t.start();
+    }  
+    */
+
+    if ( pastBF.contains(i) || presentBF.contains(i) || futureBF.contains(i) ) {
+        //std::cout<<"FOUND FP"<<std::endl;
+        FPCountDFBF++;
+    }
+    /*
+    if ( 0 == i % batchOps ) { 
+      sleep(SLEEP_TIME);
+    }
+    */
+  }
+
+  // Print results
+  std::cout<<"The number of FPs in a Dumb FBF : " <<FPCountDFBF <<std::endl;
+
   return 0;
 
 } // End of main()
