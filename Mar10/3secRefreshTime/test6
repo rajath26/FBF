@@ -1,0 +1,33 @@
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ ./FBF 3 3000 3000 
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 3
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: BATCH OPERATIONS: 3000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 2.00196
+ INFO :: Rate of insertion: 1498.53per second
+ INFO :: The number of FPs in a Smart FBF : 7653
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.5102
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ ./FBF 3 20000 22000
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 3
+ INFO :: NUMBER OF ELEMENTS: 20000
+ INFO :: BATCH OPERATIONS: 22000
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+Timer started...
+ INFO :: Time elapses in for loop: 2.02761
+ INFO :: Rate of insertion: 9863.82per second
+ INFO :: The number of FPs in a Smart FBF : 80000
+ INFO :: The FPR (False Positive Rate) of the SMART FBF is : 0.8
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ 
