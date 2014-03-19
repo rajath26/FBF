@@ -17,7 +17,7 @@
 #define FAILURE -1
 #define SUCCESS 0
 #define NUM_ARGS 4 
-#define FP_CHECK_MULTIPLIER 5 
+#define FP_CHECK_MULTIPLIER 5
 #define SLEEP_TIME 2
 #define ELEMENTS_AFTER_TRY 5000
 
@@ -102,6 +102,7 @@ int main(int argc, char *argv[]) {
   // 2) Present BF
   // 3) Future BF
   ////////////////////////////
+  bloom_filter past1BF(parameters);
   bloom_filter pastBF(parameters);
   bloom_filter presentBF(parameters);
   bloom_filter futureBF(parameters);
@@ -128,6 +129,7 @@ int main(int argc, char *argv[]) {
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached while inserting. Copying BFs " <<std::endl;
       // copy BFs
+      past1BF = pastBF;
       pastBF = presentBF;
       presentBF = futureBF;
       futureBF &= newBF;
@@ -153,17 +155,16 @@ int main(int argc, char *argv[]) {
    */
   for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
     /*
-    if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
-      //std::cout<<"FOUND FP"<<std::endl;
+  	if ( (future1BF.contains(i) && futureBF.contains(i) && presentBF.contains(i) && !pastBF.contains(i)) ) {
+  		FPCountSFBF++;
+  	}
+  	else if ( (futureBF.contains(i) && presentBF.contains(i) && pastBF.contains(i) && !future1BF.contains(i)) ) {
+  		FPCountSFBF++;
+  	}
+    else if ( (presentBF.contains(i) && pastBF.contains(i) && !futureBF.contains(i) && !future1BF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( (pastBF.contains(i) && !presentBF.contains(i) && !futureBF.contains(i)) ) {
-      FPCountSFBF++;
-    }
-    else if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
-      FPCountSFBF++;
-    }
-    else if ( pastBF.contains(i) && futureBF.contains(i) ) { 
+    else if ( (pastBF.contains(i) && !presentBF.contains(i) && !futureBF.contains(i) && !future1BF.contains(i)) ) { 
       FPCountSFBF++;
     }
     */
@@ -173,7 +174,10 @@ int main(int argc, char *argv[]) {
     else if ( presentBF.contains(i) && pastBF.contains(i) ) {
       FPCountSFBF++;
     }
-    else if ( pastBF.contains(i) ) {
+    else if ( pastBF.contains(i) && past1BF.contains(i) ) {
+      FPCountSFBF++;
+    }
+    else if ( past1BF.contains(i) ) {
       FPCountSFBF++;
     }
   }

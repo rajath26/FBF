@@ -17,8 +17,8 @@
 #define FAILURE -1
 #define SUCCESS 0
 #define NUM_ARGS 4 
-#define FP_CHECK_MULTIPLIER 5 
-#define SLEEP_TIME 2
+#define FP_CHECK_MULTIPLIER 5
+#define SLEEP_TIME 3
 #define ELEMENTS_AFTER_TRY 5000
 
 /*
@@ -105,6 +105,8 @@ int main(int argc, char *argv[]) {
   bloom_filter pastBF(parameters);
   bloom_filter presentBF(parameters);
   bloom_filter futureBF(parameters);
+  bloom_filter future1BF(parameters);
+  bloom_filter future2BF(parameters);
 
   // Empty BF to do an intersection with the future BF 
   // and the resultant future BF becomes empty
@@ -130,7 +132,9 @@ int main(int argc, char *argv[]) {
       // copy BFs
       pastBF = presentBF;
       presentBF = futureBF;
-      futureBF &= newBF;
+      futureBF = future1BF;
+      future1BF = future2BF;
+      future2BF &= newBF;
       t.start();
     } // End of if (t.elapsedTime() >= seconds)
 
@@ -142,6 +146,8 @@ int main(int argc, char *argv[]) {
 
     presentBF.insert(i);
     futureBF.insert(i);
+    future1BF.insert(i);
+    future2BF.insert(i);
 
   } // End of for ( int i = 0; i < numElements; i++ )
   double elapTime = s.elapsedTime();
@@ -153,27 +159,35 @@ int main(int argc, char *argv[]) {
    */
   for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
     /*
-    if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
-      //std::cout<<"FOUND FP"<<std::endl;
+    if ( (future2BF.contains(i) && future1BF.contains(i) && futureBF.contains(i) && presentBF.contains(i) && !pastBF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( (pastBF.contains(i) && !presentBF.contains(i) && !futureBF.contains(i)) ) {
+    else if ( (future1BF.contains(i) && futureBF.contains(i) && presentBF.contains(i) && pastBF.contains(i) && !future2BF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
+    else if ( (futureBF.contains(i) && presentBF.contains(i) && pastBF.contains(i) && !future1BF.contains(i) && !future2BF.contains(i)) ){
       FPCountSFBF++;
     }
-    else if ( pastBF.contains(i) && futureBF.contains(i) ) { 
+    else if ( (presentBF.contains(i) && pastBF.contains(i) && !futureBF.contains(i) && !future1BF.contains(i) && !future2BF.contains(i)) ) {
+      FPCountSFBF++;
+    }
+    else if ( (pastBF.contains(i) && !presentBF.contains(i) &&  !futureBF.contains(i) && !future1BF.contains(i) && !future2BF.contains(i)) ) { 
       FPCountSFBF++;
     }
     */
-    if ( futureBF.contains(i) && presentBF.contains(i) ) {
+    if ( (future2BF.contains(i) && future1BF.contains(i) && futureBF.contains(i) && presentBF.contains(i)) ) {
       FPCountSFBF++;
     }
-    else if ( presentBF.contains(i) && pastBF.contains(i) ) {
+    else if ( (future1BF.contains(i) && futureBF.contains(i) && presentBF.contains(i) && pastBF.contains(i)) ) {
       FPCountSFBF++;
     }
-    else if ( pastBF.contains(i) ) {
+    else if ( (futureBF.contains(i) && presentBF.contains(i) && pastBF.contains(i)) ){
+      FPCountSFBF++;
+    }
+    else if ( (presentBF.contains(i) && pastBF.contains(i)) ) {
+      FPCountSFBF++;
+    }
+    else if ( (pastBF.contains(i)) ) {
       FPCountSFBF++;
     }
   }

@@ -17,8 +17,8 @@
 #define FAILURE -1
 #define SUCCESS 0
 #define NUM_ARGS 4 
-#define FP_CHECK_MULTIPLIER 5 
-#define SLEEP_TIME 2
+#define FP_CHECK_MULTIPLIER 5
+#define SLEEP_TIME 3
 #define ELEMENTS_AFTER_TRY 5000
 
 /*
@@ -52,34 +52,33 @@ int main(int argc, char *argv[]) {
 
   if ( argc != NUM_ARGS ) {
     std::cout<< "ERROR :: Invalid number of arguments" <<std::endl;
-    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <num_of_elements> <batch_ops>" <<std::endl;
+    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <batch_ops> <loop_time>" <<std::endl;
     return FAILURE;
   }
 
   unsigned long seconds = (unsigned long) atoi(argv[1]);
-  unsigned long long numElements = (unsigned long long) atoi(argv[2]);
-  unsigned long long batchOps = (unsigned long long) atoi(argv[3]);
+  unsigned long long batchOps = (unsigned long long) atoi(argv[2]);
+  double timeToRun = (double) atoi(argv[3]);
 
   std::cout<<" INFO :: PROGRAM RUN PARAMETERS: " <<std::endl;
   std::cout<<" INFO :: REFRESH TIME: " <<seconds <<std::endl;
-  std::cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<std::endl;
   std::cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<std::endl;
+  std::cout<<" INFO :: TIME TO RUN LOOP: " <<timeToRun <<std::endl;
 
-  unsigned long long FPCountDFBF = 0;
   unsigned long long FPCountSFBF = 0;
 
-  double DFBFfalsePositiveRate = 0.0;
   double SFBFfalsePositiveRate = 0.0;
 
   Timer t;
-  Timer s;
+  Timer s; 
+  Timer loopTime;
 
   // Bloom filter parameters 
   // Common ground for both the BFs
   bloom_parameters parameters;
 
   // Set how many elements we expect to insert
-  parameters.projected_element_count = numElements/10;
+  //parameters.projected_element_count = numElements/10;
 
   // Maximum tolerable false positive probability ? (0,1)
   parameters.false_positive_probability = 0.0001;
@@ -102,6 +101,8 @@ int main(int argc, char *argv[]) {
   // 2) Present BF
   // 3) Future BF
   ////////////////////////////
+  bloom_filter past2BF(parameters);
+  bloom_filter past1BF(parameters);
   bloom_filter pastBF(parameters);
   bloom_filter presentBF(parameters);
   bloom_filter futureBF(parameters);
@@ -124,10 +125,14 @@ int main(int argc, char *argv[]) {
   // Numbers are inserted from 0 to n
   ////////////////////////
   s.start();
-  for ( unsigned long long i = 0; i < numElements; i++ ) { 
+  loopTime.start();
+  unsigned long long i = 0;
+  while ( loopTime.elapsedTime() <= timeToRun ) {
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached while inserting. Copying BFs " <<std::endl;
       // copy BFs
+      past2BF = past1BF;
+      past1BF = pastBF;
       pastBF = presentBF;
       presentBF = futureBF;
       futureBF &= newBF;
@@ -142,38 +147,36 @@ int main(int argc, char *argv[]) {
 
     presentBF.insert(i);
     futureBF.insert(i);
+    i++;
+  } 
 
-  } // End of for ( int i = 0; i < numElements; i++ )
   double elapTime = s.elapsedTime();
   std::cout<< " INFO :: Time elapses in for loop: " <<elapTime <<std::endl;
-  std::cout<< " INFO :: Rate of insertion: " <<numElements/elapTime << "per second" <<std::endl;
+  std::cout<< " INFO :: Rate of insertion: " <<i/elapTime << "per second" <<std::endl;
+ 
+  unsigned long long int elementsInserted = i;
+  unsigned long long int elementsUptoTry = elementsInserted + ELEMENTS_AFTER_TRY;
+  unsigned long long int FPElementsTried = elementsUptoTry - elementsInserted;
+
+  std::cout<< " INFO :: Elements inserted into the FBF: " <<elementsInserted <<std::endl;
 
   /* 
    * Check for false positives in the smart FBF
    */
-  for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
-    /*
-    if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
-      //std::cout<<"FOUND FP"<<std::endl;
+  for ( unsigned long long i = elementsInserted + 1; i < elementsUptoTry; i++ ) {
+    if ( (futureBF.contains(i) && presentBF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( (pastBF.contains(i) && !presentBF.contains(i) && !futureBF.contains(i)) ) {
+    else if ( (presentBF.contains(i) && pastBF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
+    else if ( (pastBF.contains(i) && past1BF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    else if ( pastBF.contains(i) && futureBF.contains(i) ) { 
+    else if ( (past1BF.contains(i) && past2BF.contains(i)) ) { 
       FPCountSFBF++;
     }
-    */
-    if ( futureBF.contains(i) && presentBF.contains(i) ) {
-      FPCountSFBF++;
-    }
-    else if ( presentBF.contains(i) && pastBF.contains(i) ) {
-      FPCountSFBF++;
-    }
-    else if ( pastBF.contains(i) ) {
+    else if ( (past2BF.contains(i)) ) {
       FPCountSFBF++;
     }
   }

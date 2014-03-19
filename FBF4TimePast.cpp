@@ -16,12 +16,10 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define NUM_ARGS 5
+#define NUM_ARGS 4 
 #define FP_CHECK_MULTIPLIER 5
-#define SLEEP_TIME 2
-#define NUM_OF_BF 10
-#define PRESENT 1
-#define PAST 0
+#define SLEEP_TIME 3
+#define ELEMENTS_AFTER_TRY 5000
 
 /*
  * Timer Class
@@ -54,37 +52,33 @@ int main(int argc, char *argv[]) {
 
   if ( argc != NUM_ARGS ) {
     std::cout<< "ERROR :: Invalid number of arguments" <<std::endl;
-    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <num_of_elements> <batch_ops> <num_of_bloom_filters>" <<std::endl;
+    std::cout<< "USAGE :: " <<argv[0] <<" <refresh time> <batch_ops> <loop_time>" <<std::endl;
     return FAILURE;
   }
 
   unsigned long seconds = (unsigned long) atoi(argv[1]);
-  unsigned long long numElements = (unsigned long long) atoi(argv[2]);
-  unsigned long long batchOps = (unsigned long long) atoi(argv[3]);
-  unsigned int numBFs = (unsigned int) atoi(argv[4]);
+  unsigned long long batchOps = (unsigned long long) atoi(argv[2]);
+  double timeToRun = (double) atoi(argv[3]);
 
   std::cout<<" INFO :: PROGRAM RUN PARAMETERS: " <<std::endl;
   std::cout<<" INFO :: REFRESH TIME: " <<seconds <<std::endl;
-  std::cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<std::endl;
   std::cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<std::endl;
+  std::cout<<" INFO :: LOOP RUNNING TIME: " <<timeToRun <<std::endl;
 
-  unsigned long long FPCountDFBF = 0;
   unsigned long long FPCountSFBF = 0;
 
-  double DFBFfalsePositiveRate = 0.0;
   double SFBFfalsePositiveRate = 0.0;
 
   Timer t;
   Timer s;
-
-  int j;
+  Timer loopTime;
 
   // Bloom filter parameters 
   // Common ground for both the BFs
   bloom_parameters parameters;
 
   // Set how many elements we expect to insert
-  parameters.projected_element_count = numElements/10;
+  //parameters.projected_element_count = numElements/10;
 
   // Maximum tolerable false positive probability ? (0,1)
   parameters.false_positive_probability = 0.0001;
@@ -107,15 +101,10 @@ int main(int argc, char *argv[]) {
   // 2) Present BF
   // 3) Future BF
   ////////////////////////////
-
-  bloom_filter baseBF(parameters);
-
-  bloom_filter fbf[NUM_OF_BF];
-
-  //create an array of bloom filters. Initially always 10
-  for ( int counter = 0; counter < NUM_OF_BF; counter++ ) { 
-    fbf[counter] = baseBF;
-  }
+  bloom_filter past1BF(parameters);
+  bloom_filter pastBF(parameters);
+  bloom_filter presentBF(parameters);
+  bloom_filter futureBF(parameters);
 
   // Empty BF to do an intersection with the future BF 
   // and the resultant future BF becomes empty
@@ -135,89 +124,76 @@ int main(int argc, char *argv[]) {
   // Numbers are inserted from 0 to n
   ////////////////////////
   s.start();
-  for ( unsigned long long i = 0; i < numElements; i++ ) { 
+  loopTime.start();
+  unsigned long long i = 0;
+  while ( loopTime.elapsedTime() <= timeToRun ) {
     if (t.elapsedTime() >= seconds) {
       std::cout<<" INFO :: Timeout reached while inserting. Copying BFs " <<std::endl;
       // copy BFs
-      for(j = 0; j < numBFs-1; j++) { 
-       if (j+1 < numBFs) {
-       	fbf[j] = fbf[j+1];
-       }
-      }
-      fbf[numBFs - 1] &= newBF;
+      past1BF = pastBF;
+      pastBF = presentBF;
+      presentBF = futureBF;
+      futureBF &= newBF;
       t.start();
     } // End of if (t.elapsedTime() >= seconds)
 
     // For every batchOps number of inserts induce a sleep of 1s
     if ( 0 == i % batchOps ) { 
-      //std::cout<< " INFO :: Batch number of ops reached. Sleeping " <<std::endl;
       sleep(SLEEP_TIME);
     }
 
-    // Insert into the bloom filter i.e. into the present 
-    // and the future bloom filters 
-    for ( int k = PRESENT; k < numBFs; k++ ) { 
-      fbf[k].insert(i);
-    }
-
-  } // End of for ( int i = 0; i < numElements; i++ )
+    presentBF.insert(i);
+    futureBF.insert(i);
+    i++;
+  } 
 
   double elapTime = s.elapsedTime();
   std::cout<< " INFO :: Time elapses in for loop: " <<elapTime <<std::endl;
-  std::cout<< " INFO :: Rate of insertion: " <<numElements/elapTime << "per second" <<std::endl;
+  std::cout<< " INFO :: Rate of insertion: " <<i/elapTime << "per second" <<std::endl;
+
+  unsigned long long int elementsInserted = i;
+  unsigned long long int elementsUptoTry = elementsInserted + ELEMENTS_AFTER_TRY;
+  unsigned long long int FPelementsTried = elementsUptoTry - elementsInserted;
+
+  std::cout<< " INFO :: Elements inserted into the FBF: " <<elementsInserted <<std::endl;
 
   /* 
    * Check for false positives in the smart FBF
    */
-  for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ ){ 
-
-    if ( fbf[PAST].contains(i) && fbf[numBFs - 1].contains(i) ) { 
+  for ( unsigned long long i = elementsInserted + 1; i < elementsUptoTry; i++ ) {
+  
+    if ( futureBF.contains(i) && presentBF.contains(i) ) {
       FPCountSFBF++;
     }
-
-    int count = 0;
-    for ( int j = 1; j <= (numBFs - 2); j++ ) {
-      if ( fbf[numBFs - j].contains(i) ) { 
-        count = 0;
-	for ( int k = (numBFs - j - 1); k >= PRESENT; k-- ) {
-	  if ( fbf[k].contains(i) )
-	    count++;
-	}
-        if ( count == (numBFs - j - 1) ) 
-	  FPCountSFBF++;
+    else if ( presentBF.contains(i) && pastBF.contains(i) ) { 
+      FPCountSFBF++;
+    }
+    else if ( pastBF.contains(i) && past1BF.contains(i) ) { 
+      FPCountSFBF++;
+    }
+    else if ( past1BF.contains(i) ) {
+      FPCountSFBF++;
+    }
+    
+    /*
+    if ( past1BF.contains(i) || pastBF.contains(i) || presentBF.contains(i) || futureBF.contains(i) ) {
+      FPCountSFBF++;
+      if ( past1BF.contains(i) && presentBF.contains(i) ) { 
+        FPCountSFBF--;
+      } 
+      else if ( pastBF.contains(i) && futureBF.contains(i) ) {
+        FPCountSFBF--;
       }
-    } 
-
-    if ( fbf[PRESENT].contains(i) ) {
-      if ( fbf[PAST].contains(i) ) 
-	FPCountSFBF++;
-      else {
-	for ( int r = PRESENT + 1; r <= (numBFs - 1); r++ ) { 
-	  if ( fbf[r].contains(i) ) { 
-	    FPCountSFBF++;
-	    break;
-	  }
-	} 
+      else if ( futureBF.contains(i) && past1BF.contains(i) ) {
+        FPCountSFBF--;
       }
     }
-
-    int flagContains = 0;
-    if ( fbf[PAST].contains(i) ) {
-      for ( int s = PRESENT; s <= (numBFs - 1); s++ ) {
-	if ( fbf[s].contains(i) ) { 
-	  flagContains = 1;
-          break;
-	}
-      }
-      if ( 0 == flagContains ) 
-	FPCountSFBF++;
-    }
-
-  } // End of for ( unsigned long long i = numElements; i < FP_CHECK_MULTIPLIER*numElements; i++ )
+    */
+  }
 
   // Print results  
   std::cout<< " INFO :: The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
-  std::cout<< " INFO :: The FPR (False Positive Rate) of the SMART FBF is : " <<(double)FPCountSFBF/(FP_CHECK_MULTIPLIER*numElements) <<std::endl;
+  std::cout<< " INFO :: The FPR (False Positive Rate) of the SMART FBF is : " <<(double)FPCountSFBF/ELEMENTS_AFTER_TRY <<std::endl;
   
   return 0;
 
