@@ -145,7 +145,7 @@ public:
       else if (optp.number_of_hashes > maximum_number_of_hashes)
          optp.number_of_hashes = maximum_number_of_hashes;
 
-      optp.number_of_hashes = 5;
+      optp.number_of_hashes = 3;
 
       std::cout<<std::endl<<"OPTIMAL NUMBER OF HASH CHOSEN : " <<optp.number_of_hashes <<std::endl;
 

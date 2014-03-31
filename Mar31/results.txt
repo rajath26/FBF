@@ -1,0 +1,304 @@
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ ./dynamic 0.0001
+
+OPTIMAL NUMBER OF HASH CHOSEN : 3
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+ INFO:: FBFs initialized 
+ INFO:: Target FPR to meet: 0.0001
+ INFO :: Timer started 
+ INFO:: i value: -1
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -2000
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.0005
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Increasing BFs in FBF to: 4
+ INFO:: Decreasing refresh time to: 9
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -3999
+ INFO:: FP: 2
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 4
+ INFO:: Current refres time: 9
+ INFO:: Increasing BFs in FBF to: 5
+ INFO:: Decreasing refresh time to: 8
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -5998
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.0005
+ INFO:: Current FBF size: 5
+ INFO:: Current refres time: 8
+ INFO:: Increasing BFs in FBF to: 6
+ INFO:: Decreasing refresh time to: 7
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -7997
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 6
+ INFO:: Current refres time: 7
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -9996
+ INFO:: FP: 2
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 6
+ INFO:: Current refres time: 7
+ INFO:: Increasing BFs in FBF to: 7
+ INFO:: Decreasing refresh time to: 6
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -11995
+ INFO:: FP: 2
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 7
+ INFO:: Current refres time: 6
+ INFO:: Increasing BFs in FBF to: 8
+ INFO:: Decreasing refresh time to: 5
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -13994
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 8
+ INFO:: Current refres time: 5
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -15993
+ INFO:: FP: 2
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 8
+ INFO:: Current refres time: 5
+ INFO:: Increasing BFs in FBF to: 9
+ INFO:: Decreasing refresh time to: 4
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -17992
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 9
+ INFO:: Current refres time: 4
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ 
+
+
+--------------------------------------------------------------------------------
+
+
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ ./dynamic 0.0001
+
+OPTIMAL NUMBER OF HASH CHOSEN : 3
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+ INFO:: FBFs initialized 
+ INFO:: Target FPR to meet: 0.0001
+ INFO :: Timer started 
+ INFO:: i value: -1
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -1000
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -1999
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -2998
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -3997
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -4996
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 10
+ INFO:: Increasing BFs in FBF to: 4
+ INFO:: Decreasing refresh time to: 9
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -5995
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 4
+ INFO:: Current refres time: 9
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -6994
+ INFO:: FP: 3
+ INFO:: Current FPR: 0.003
+ INFO:: Current FBF size: 4
+ INFO:: Current refres time: 9
+ INFO:: Increasing BFs in FBF to: 5
+ INFO:: Decreasing refresh time to: 8
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -7993
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 5
+ INFO:: Current refres time: 8
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -8992
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 5
+ INFO:: Current refres time: 8
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ 
+
+-------------------------------------------------------------------------------------
+
+
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ ./dynamic 0.0001
+OPTIMAL NUMBER OF HASH CHOSEN : 3
+
+TABLE SIZE: 50000
+
+OPTIMAL TABLE SIZE CHOSEN : 6250
+ INFO:: FBFs initialized 
+ INFO:: Target FPR to meet: 0.0001
+ INFO :: Timer started 
+ INFO:: i value: -1
+ INFO:: FP: 0
+ INFO:: Current FPR: 0
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 20
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -2000
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.0005
+ INFO:: Current FBF size: 3
+ INFO:: Current refres time: 20
+ INFO:: Increasing BFs in FBF to: 6
+ INFO:: Decreasing refresh time to: 10
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -3999
+ INFO:: FP: 2
+ INFO:: Current FPR: 0.001
+ INFO:: Current FBF size: 6
+ INFO:: Current refres time: 10
+ INFO:: Increasing BFs in FBF to: 12
+ INFO:: Decreasing refresh time to: 5
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -5998
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.0005
+ INFO:: Current FBF size: 12
+ INFO:: Current refres time: 5
+ INFO:: Decreasing refresh time to: 2
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: Refreshed FBF 
+ INFO:: i value: -7997
+ INFO:: FP: 1
+ INFO:: Current FPR: 0.0005
+ INFO:: Current FBF size: 12
+ INFO:: Current refres time: 2
+ INFO:: Unable to adjust FBF size or refresh time. Break 
+rajatsub@ubuntu:~/Documents/UIUC/RA/Cassandra/gitProject/FBF$ 
+
+--------------------------------------------------------------------------------
