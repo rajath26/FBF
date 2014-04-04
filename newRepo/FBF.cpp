@@ -21,6 +21,7 @@ using namespace std;
  * FBF class
  */
 /*******************************************************************
+ *******************************************************************
  ** CLASS NAME: FBF (Forgetful Bloom Filter)
  **
  ** NOTE: This class implements the basic FBF ie it contains the 
@@ -29,15 +30,39 @@ using namespace std;
  **       ii) Present BF
  **       iii) Future BF
  **
- **       The class is mainly used to compare a smart FBF v/s 
- **       dumb/naive FBF
+ ** The class is mainly used to compare a smart FBF v/s 
+ ** dumb/naive FBF
+ *******************************************************************
  *******************************************************************/
 class FBF { 
 
 public:
+  /* 
+   * Bloom Filter parameters 
+   */
   bloom_parameters parameters;
+  /* 
+   * Constituent BFs of the FBF
+   * Past, Present and Future BFs
+   */
   bloom_filter fbf[MINIMUM_NUM_OF_BFS];
+  /* 
+   * New BF to create a new future BF 
+   * after each refresh time
+   */
+  bloom_filter newBF;
 
+  unsigned int future = 0;
+  unsigned int present = future + 1;
+  unsigned int past = MINIMUM_NUM_OF_BFS - 1;
+
+  /************************************************************ 
+   * FUNCTION NAME: FBF 
+   *
+   * Constructor of the FBF class
+   * 
+   * RETURNS: NA 
+   ************************************************************/
   FBF(unsigned long long int tableSize, unsigned int numOfHashes) { 
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
@@ -47,6 +72,7 @@ public:
     }
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
+    cout<<" INFO :: NUMBER OF CONSTITUENT BFs in FBF: " <<MINIMUM_NUM_OF_BFS <<endl;
     for ( int counter = 0; counter < MINIMUM_NUM_OF_BFS; counter++ ) { 
       fbf[counter] = baseBF;
     }
@@ -54,6 +80,50 @@ public:
     cout<<" INFO :: FBFs initialized " <<endl;
   }
 
+  /************************************************************
+   * FUNCTION NAME: ~FBF
+   * 
+   * Destructor of the FBF class
+   *
+   * RETURNS: NA
+   ************************************************************/
   ~FBF() {}
 
+  /************************************************************
+   * FUNCTION NAME: refresh
+   * 
+   * This function refreshes the FBF
+   * 
+   * RETURNS: void 
+   ************************************************************/
+  void refresh() { 
+    unsigned int j;
+    for ( j = (past); j > future; j-- ) { 
+      fbf[j] = fbf[j - 1];
+    }
+    fbf[j] &= newBF;
+
+    cout<<" INFO :: Refreshed FBF" <<endl;
+  }
+
+  /************************************************************
+   * FUNCTION NAME: insert
+   * 
+   * This function inserts into the FBF
+   * NOTE: When elements are inserted into the FBF they are 
+   *       inserted into the following constituent BFs:
+   *       i) present BF
+   *       ii) future BF
+   * 
+   * RETURNS: void
+   ************************************************************/
+  void insert(unsigned long long int element) { 
+    fbf[present].insert(element);
+    fbf[future].insert(element);
+  }
+
 }; // End of FBF class
+
+/* 
+ * EOF
+ */
