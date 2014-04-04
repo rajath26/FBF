@@ -24,9 +24,11 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define NUM_OF_ARGS 2
-#define DEFAULT_NUM_OF_HASH_FUNCTIONS 3
-#define DEFAULT_TABLE_SIZE 6250
+#define DEF_TABLE_SIZE 6250
+#define DEF_NUM_OF_HASH 3
+#define DEF_REFRESH_RATE 5
+#define DEF_BATCH_OPS 200
+#define DEF_NUM_INVALIDS 5000
 
 using namespace std;
 
@@ -125,16 +127,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
  */
 int main(int argc, char *argv[]) { 
 
-  if ( argc != NUM_OF_ARGS ) { 
-    cout<<" ERROR :: Usage: " <<argv[0] <<" <number_of_elements> " <<endl;
-    return FAILURE;
-  }
-
-  unsigned long long int numElements;
-  numElements = (unsigned long long int) atoi(argv[1]);
-  cout<<" INFO :: Number of elements to be inserted: " <<numElements <<endl;
-
-  FBF oFBF(numElements, DEFAULT_NUM_OF_HASH_FUNCTIONS);
+  smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, 
 
 } // End of main()
 
