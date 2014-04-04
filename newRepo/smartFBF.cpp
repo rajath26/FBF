@@ -25,7 +25,7 @@
 #define FAILURE -1
 #define SUCCESS 0
 #define SLEEP_TIME 2
-#define DEF_NUM_INSERTS 1000
+#define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 12500 
 #define DEF_NUM_OF_HASH 3
 #define DEF_REFRESH_RATE 5
@@ -157,7 +157,7 @@ void varyNumElements() {
 /******************************************************************************
  * FUNCTION NAME: varyBFsize
  * 
- * This function runs the test case where the the constituent BF size are varied 
+ * This function runs the test case where the constituent BF size are varied 
  * ie increased while the number of elements inserted and the number of hash
  * functions are kept constant. The insertion rate is also kept constant. 
  * 
@@ -177,9 +177,28 @@ void varyBFsize() {
   smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(2000, 62500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
- 
+ }
 
-}
+/******************************************************************************
+ * FUNCTION NAME: varyHashes
+ * 
+ * This function runs the test case where the number of hashes are varied 
+ * ie increased while the number of elements inserted and the constituent
+ * BF size are kept constant. The insertion rate is also kept constant. 
+ * 
+ * RETURNS: void
+ ******************************************************************************/
+void varyHashes() {
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 2, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 3, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 4, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 5, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 6, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 7, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 8, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 9, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, 10, DEF_REFRESH_RATE, 500, 1000);
+ }
 
 /*
  * Main function
@@ -187,7 +206,8 @@ void varyBFsize() {
 int main(int argc, char *argv[]) { 
 
   //varyNumElements();
-  varyBFsize();
+  //varyBFsize();
+  varyHashes();
 
   return SUCCESS;
 
