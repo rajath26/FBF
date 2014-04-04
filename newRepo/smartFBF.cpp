@@ -46,6 +46,8 @@ using namespace std;
  *                         refreshed
  *            batchOps: number of inserts after which a sleep should be 
  *                      induced to simulate real world scenario
+ *            numberOfInvalids: number of invalid membership checks to 
+ *                              be made
  *            
  * RETURNS: void
  ***********************************************************************/
@@ -53,7 +55,8 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
                        unsigned long long int tableSize,
 		       unsigned int numOfHashes,
 		       unsigned long refreshRate,
-		       unsigned long long int batchOps) { 
+		       unsigned long long int batchOps
+		       unsigned long long int numberOfInvalids) { 
 
   cout<<" INFO :: Test Execution Info " <<endl;
   cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<endl;
@@ -108,7 +111,12 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   /* 
    * STEP 3: Check for False Positives (FPs) using smart rules 
    */ 
-  simpleFBF.checkSmartFBF_FPR();
+  simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
+
+  /* 
+   * STEP 4: Check for False Positives (FPs) using dumb rules
+   */ 
+  simpleFBF.checkDumbFBF_FPR(numberOfInvalids);
 
 } // End of smartFBFvsDumbFBFvarNumElements()
 

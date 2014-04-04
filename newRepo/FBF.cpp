@@ -159,10 +159,44 @@ public:
       counter++;
     }
 
-    smartFPR = (double) FP/numberOfInvalids;
+    smartFPR = (double) smartFP/numberOfInvalids;
 
     cout<<" RESULT :: SMART FP = " <<smartFP <<endl;
     cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
+  }
+
+  /************************************************************
+   * FUNCTION NAME: checkDumbFBF_FPR
+   * 
+   * This function checks the False Positives (FPs) and the 
+   * False Positive Rate (FPR) of the FBF using NAIVE RULES
+   * 
+   * PARAMETERS: 
+   *            numberOfInvalids: Number of invalid membership 
+   *                              checks to be made
+   * 
+   * RETURNS: void
+   ***********************************************************/
+  void checkDumbFBF_FPR(unsigned long long int numberOfInvalids) { 
+    unsigned long long int dumbFP = 0;
+    double dumbFPR = 0.0;
+    unsigned int counter = 0;
+    long long int i = -1;
+    unsigned int j;
+
+    while ( counter != numberOfInvalids ) { 
+      if ( (fbf[past].contains(i) || fbf[present].contains(i) || fbf[future].contains(i)) ) {
+	dumbFP++;
+      }
+
+      i--;
+      counter++;
+    }
+
+    dumbFPR = (double) dumbFP/numberOfInvalids;
+
+    cout<<" RESULT :: DUMB FP = " <<dumbFP <<endl;
+    cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
   }
 
 }; // End of FBF class
