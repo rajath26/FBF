@@ -54,7 +54,7 @@ public:
 
   unsigned int future = 0;
   unsigned int present = future + 1;
-  unsigned int past = MINIMUM_NUM_OF_BFS - 1;
+  unsigned int past = MINIMUM_NUM_OF_BFS - 1; // or present + 1
 
   /************************************************************ 
    * FUNCTION NAME: FBF 
@@ -114,12 +114,55 @@ public:
    *       inserted into the following constituent BFs:
    *       i) present BF
    *       ii) future BF
+   *
+   * PARAMETERS: 
+   *            element: element to be inserted into the FBF
    * 
    * RETURNS: void
    ************************************************************/
   void insert(unsigned long long int element) { 
     fbf[present].insert(element);
     fbf[future].insert(element);
+  }
+
+  /************************************************************
+   * FUNCTION NAME: checkSmartFBF_FPR
+   * 
+   * This function checks the False Positives (FPs) and the 
+   * False Positive Rate (FPR) of the FBF using SMART RULES
+   * 
+   * PARAMETERS: 
+   *            numberOfInvalids: Number of invalid membership 
+   *                              checks to be made
+   * 
+   * RETURNS: void
+   ***********************************************************/
+  void checkSmartFBF_FPR(unsigned long long int numberOfInvalids) { 
+    unsigned long long int smartFP = 0;
+    double smartFPR = 0.0;
+    unsigned int counter = 0;
+    long long int i = -1;
+    unsigned int j;
+
+    while ( counter != numberOfInvalids ) { 
+      if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) {
+	smartFP++;
+      }
+      else if ( (fbf[present].contains(i) && fbf[past].contains(i)) ) {
+	smartFP++;
+      }
+      else if ( (fbf[past].contains(i)) ) {
+	smartFP++;
+      }
+
+      i--;
+      counter++;
+    }
+
+    smartFPR = (double) FP/numberOfInvalids;
+
+    cout<<" RESULT :: SMART FP = " <<smartFP <<endl;
+    cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
   }
 
 }; // End of FBF class
