@@ -98,8 +98,10 @@ public:
    * RETURNS: void 
    ************************************************************/
   void refresh() { 
+    //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
-    for ( j = (past); j > future; j-- ) { 
+    for ( j = (MINIMUM_NUM_OF_BFS - 1); j > 0; j-- ) { 
+      //cout<<" DEBUG :: Inside for loop. Iteration number: " <<j <<endl;
       fbf[j] = fbf[j - 1];
     }
     fbf[j] &= newBF;

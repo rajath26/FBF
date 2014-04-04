@@ -28,7 +28,7 @@
 #define DEF_NUM_INSERTS 1000
 #define DEF_TABLE_SIZE 12500 
 #define DEF_NUM_OF_HASH 3
-#define DEF_REFRESH_RATE 3
+#define DEF_REFRESH_RATE 5
 #define DEF_BATCH_OPS 200
 #define DEF_NUM_INVALIDS 2500
 
@@ -93,6 +93,8 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
      * Check for elapsed time and refresh the FBF
      */
     if ( t.getElapsedTime() >= refreshRate ) { 
+      //cout<<" DEBUG :: Yes I am inside the refresh if condition " <<endl;
+      //cout<<" DEBUG :: Calling refresh function " <<endl;
       simpleFBF.refresh();
       // Restart the timer
       t.start();
@@ -162,19 +164,21 @@ void varyNumElements() {
  * RETURNS: void
  ******************************************************************************/
 void varyBFsize() {
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 125, 500);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 250, 1000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 375, 1500);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 2000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 750, 3000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 875, 3500);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1000, 4000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 5000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1500, 6000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1750, 7000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2000, 8000);
-  smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2250, 9000);
-  smartFBFvsDumbFBF(20000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2500, 10000);
+  smartFBFvsDumbFBF(2000, 1250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  //smartFBFvsDumbFBF(2000, 2500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 3750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 5000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 6250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 8750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 10000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 11250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 12500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 18750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(2000, 62500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+ 
+
 }
 
 /*
@@ -182,8 +186,8 @@ void varyBFsize() {
  */
 int main(int argc, char *argv[]) { 
 
-  varyNumElements();
-  //varyBFsize();
+  //varyNumElements();
+  varyBFsize();
 
   return SUCCESS;
 
