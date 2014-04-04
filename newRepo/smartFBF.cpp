@@ -24,6 +24,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
+#define DEF_NUM_INSERTS 10000
 #define DEF_TABLE_SIZE 6250
 #define DEF_NUM_OF_HASH 3
 #define DEF_REFRESH_RATE 5
@@ -127,7 +128,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
  */
 int main(int argc, char *argv[]) { 
 
-  smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, 
+  smartFBFvsDumbFBF(DEF_NUM_INSERTS, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, DEF_BATCH_OPS, DEF_NUM_INVALIDS);
 
 } // End of main()
 
