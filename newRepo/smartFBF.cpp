@@ -24,7 +24,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 2
+#define SLEEP_TIME 3 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -130,6 +130,104 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
 } // End of smartFBFvsDumbFBFvarNumElements()
 
 /******************************************************************************
+ * FUNCTION NAME: refreshRateVsOpsPerSec
+ * 
+ * This function maps the false positive rate for a given refresh rate and 
+ * also keeps a tab on the operations per second
+ * 
+ * PARAMETERS: 
+ *            numElements: Number of elements to be inserted into the
+ *                         FBF
+ *            tableSize: constituent BFs size i.e. number of bits 
+ *            numOfHashes: Number of hashes in each constituent BFs in 
+ *                         FBF
+ *            refreshRate: time in seconds after which the FBF is 
+ *                         refreshed
+ *            batchOps: number of inserts after which a sleep should be 
+ *                      induced to simulate real world scenario
+ *            numberOfInvalids: number of invalid membership checks to 
+ *                              be made
+ *
+ * RETURNS: void
+ ******************************************************************************/
+void refreshRateVsOpsPerSec(unsigned long long int numElements, 
+                            unsigned long long int tableSize,
+		            unsigned int numOfHashes,
+		            unsigned long refreshRate,
+		            unsigned long long int batchOps,
+		            unsigned long long int numberOfInvalids) { 
+
+  cout<<" ----------------------------------------------------------- " <<endl;
+  cout<<" INFO :: Test Execution Info " <<endl;
+  cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<endl;
+  // Table size and number of hash functions printed by compute_optimal function
+  // in FBF constructor. Dont print here 
+  cout<<" INFO :: REFRESH RATE: " <<refreshRate <<endl;
+  cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<endl;
+
+  // Timer to refresh the constituent BFs in FBF
+  Timer t;
+  // Timer to keep a tab on the operations per second
+  Timer loopTime;
+
+  unsigned long long int i;
+
+  /* 
+   * STEP 1: CREATE THE FBF
+   */
+  FBF simpleFBF(tableSize, numOfHashes);
+
+  // Start the timer
+  t.start();
+  cout<<" INFO :: Timer started " <<endl;
+
+  /* 
+   * STEP 2: Insert some numbers into the FBF
+   */
+  loopTime.start();
+  for ( i = 0; i < numElements; i++ ) {
+    
+    /* 
+     * Check for elapsed time and refresh the FBF
+     */
+    if ( t.getElapsedTime() >= refreshRate ) {
+      simpleFBF.refresh();
+      // Restart the timer after the refresh
+      t.start();
+    }
+
+    /*
+     * For every batch operations done induce some 
+     * sleep time
+     */
+    if ( 0 == i % batchOps ) {
+      sleep(SLEEP_TIME);
+    }
+
+    /* 
+     * Insert number into the FBF 
+     */
+    simpleFBF.insert(i);
+
+  } // End of for that inserts elements into the FBF
+
+  /* 
+   * STEP 3: Measure the operations per second done
+   */
+  double elapsedLoopTime = loopTime.getElapsedTime();
+  cout<<" INFO :: Time elapsed in for loop: " <<elapsedLoopTime <<endl;
+  cout<<" INFO :: Rate of insertion: " <<(double)numElements/elapsedLoopTime <<"per second" <<endl;
+
+  /* 
+   * STEP 4: Check for FPR using smart rules
+   */
+  simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
+
+  cout<<" -----------------------------------------------------------" <<endl <<endl;
+
+}
+
+/******************************************************************************
  * FUNCTION NAME: varyNumElements
  * 
  * This function runs the test case where the number of elements are varied 
@@ -177,7 +275,7 @@ void varyBFsize() {
   smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(2000, 62500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
- }
+}
 
 /******************************************************************************
  * FUNCTION NAME: varyHashes
@@ -195,7 +293,25 @@ void varyHashes() {
   smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, 12, DEF_REFRESH_RATE, 250, 500);
   smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, 15, DEF_REFRESH_RATE, 250, 500);
   smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, 18, DEF_REFRESH_RATE, 250, 500);
- }
+}
+
+/******************************************************************************
+ * FUNCTION NAME: varyRefreshRate 
+ *
+ * This function runs the test case where the operations per second is varied 
+ * while the rest is kept constant. This is to check how false positive rate 
+ * reacts for different refresh rates
+ * 
+ * RETURNS: void
+ ******************************************************************************/
+void varyRefreshRate() {
+  refreshRateVsOpsPerSec(1000, 6250, 3, 20, 325, 500);
+  refreshRateVsOpsPerSec(1000, 6250, 3, 10, 325, 500);
+  refreshRateVsOpsPerSec(1000, 6250, 3, 5, 325, 500);
+  refreshRateVsOpsPerSec(1000, 6250, 3, 3, 325, 500);
+  refreshRateVsOpsPerSec(1000, 6250, 3, 2, 325, 500);
+  refreshRateVsOpsPerSec(1000, 6250, 3, 1, 325, 500);
+}
 
 /*
  * Main function
@@ -204,7 +320,8 @@ int main(int argc, char *argv[]) {
 
   //varyNumElements();
   //varyBFsize();
-  varyHashes();
+  //varyHashes();
+  varyRefreshRate();
 
   return SUCCESS;
 
