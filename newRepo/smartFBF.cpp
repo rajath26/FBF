@@ -68,7 +68,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   unsigned long long int i;
 
   /*
-   * Create the FBF 
+   * STEP 1: Create the FBF 
    */
   FBF simpleFBF(tableSize, numOfHashes);
 
@@ -77,7 +77,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   cout<<" INFO :: Timer started " <<endl;
 
   /* 
-   * Insert some numbers into the FBF
+   * STEP 2: Insert some numbers into the FBF
    */
   for ( i = 0; i < numElements; i++ ) { 
 
@@ -101,10 +101,14 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
     /* 
      * Insert number into the FBF
      */
-    smartFBF.insert(i);
+    simpleFBF.insert(i);
 
   } // End of for that inserts elements into the FBF
 
+  /* 
+   * STEP 3: Check for False Positives (FPs) using smart rules 
+   */ 
+  simpleFBF.checkSmartFBF_FPR();
 
 } // End of smartFBFvsDumbFBFvarNumElements()
 
