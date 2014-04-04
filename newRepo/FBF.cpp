@@ -61,9 +61,16 @@ public:
    *
    * Constructor of the FBF class
    * 
+   * PARAMETERS: 
+   *            tableSize: Gives the number of bits in the 
+   *                       constituent BFs of the FBF
+   *            numOfHashes: gives the number of hashes to be
+   *                         used by the constituent BFs
+   *
    * RETURNS: NA 
    ************************************************************/
-  FBF(unsigned long long int tableSize, unsigned int numOfHashes) { 
+  FBF(unsigned long long int tableSize, 
+      unsigned int numOfHashes) { 
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;

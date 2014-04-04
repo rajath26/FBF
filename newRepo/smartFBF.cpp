@@ -13,6 +13,7 @@
  * FBF classes
  */
 #include "FBF.cpp"
+#include "dynFBF.cpp"
 
 /* 
  * Timer class
@@ -352,21 +353,53 @@ void varyRefreshRate() {
   /*
    * 1000
    */
+  /*
   refreshRateVsOpsPerSec(40000, 250000, 3, 20, 5500, 40000);
   refreshRateVsOpsPerSec(40000, 250000, 3, 10, 5500, 40000);
   refreshRateVsOpsPerSec(40000, 250000, 3, 5, 5500, 40000);
   refreshRateVsOpsPerSec(40000, 250000, 3, 3, 5500, 40000);
   refreshRateVsOpsPerSec(40000, 250000, 3, 2, 5500, 40000);
   refreshRateVsOpsPerSec(40000, 250000, 3, 1, 5500, 40000);
+  */
   /*
    * 10000
    */
+  /*
   refreshRateVsOpsPerSec(200000, 250000, 3, 20, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 10, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 5, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 3, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 2, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 1, 50000, 100000);
+  */
+
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 500, 25000);
+
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 5000, 25000);
+
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 25000, 25000);
+
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 50000, 25000);
 }
 
 /*
