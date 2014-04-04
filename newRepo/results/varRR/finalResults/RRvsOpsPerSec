@@ -1,0 +1,962 @@
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 20
+ INFO :: BATCH OPERATIONS: 250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 200.015
+ INFO :: Rate of insertion: 49.9961per second
+ RESULT :: SMART FP = 5
+ RESULT :: SMART FPR = 0.001
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 200.014
+ INFO :: Rate of insertion: 49.9964per second
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 5
+ INFO :: BATCH OPERATIONS: 250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 200.017
+ INFO :: Rate of insertion: 49.9958per second
+ RESULT :: SMART FP = 0
+ RESULT :: SMART FPR = 0
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 200.023
+ INFO :: Rate of insertion: 49.9943per second
+ RESULT :: SMART FP = 0
+ RESULT :: SMART FPR = 0
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 200.016
+ INFO :: Rate of insertion: 49.9961per second
+ RESULT :: SMART FP = 0
+ RESULT :: SMART FPR = 0
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 1
+ INFO :: BATCH OPERATIONS: 300
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 170.019
+ INFO :: Rate of insertion: 58.8168per second
+ RESULT :: SMART FP = 0
+ RESULT :: SMART FPR = 0
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 20
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.022
+ INFO :: Rate of insertion: 99.9783per second
+ RESULT :: SMART FP = 37
+ RESULT :: SMART FPR = 0.0074
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.015
+ INFO :: Rate of insertion: 99.9855per second
+ RESULT :: SMART FP = 4
+ RESULT :: SMART FPR = 0.0008
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 5
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.013
+ INFO :: Rate of insertion: 99.987per second
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.013
+ INFO :: Rate of insertion: 99.9867per second
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.016
+ INFO :: Rate of insertion: 99.9841per second
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 1
+ INFO :: BATCH OPERATIONS: 500
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 100.012
+ INFO :: Rate of insertion: 99.9879per second
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 20
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0124
+ INFO :: Rate of insertion: 199.95per second
+ RESULT :: SMART FP = 143
+ RESULT :: SMART FPR = 0.0286
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0127
+ INFO :: Rate of insertion: 199.949per second
+ RESULT :: SMART FP = 39
+ RESULT :: SMART FPR = 0.0078
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 5
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0133
+ INFO :: Rate of insertion: 199.947per second
+ RESULT :: SMART FP = 10
+ RESULT :: SMART FPR = 0.002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0132
+ INFO :: Rate of insertion: 199.947per second
+ RESULT :: SMART FP = 10
+ RESULT :: SMART FPR = 0.002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0252
+ INFO :: Rate of insertion: 199.899per second
+ RESULT :: SMART FP = 10
+ RESULT :: SMART FPR = 0.002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 1
+ INFO :: BATCH OPERATIONS: 1000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 50.0123
+ INFO :: Rate of insertion: 199.951per second
+ RESULT :: SMART FP = 10
+ RESULT :: SMART FPR = 0.002
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 20
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.0067
+ INFO :: Rate of insertion: 399.892per second
+ RESULT :: SMART FP = 114
+ RESULT :: SMART FPR = 0.0228
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.0064
+ INFO :: Rate of insertion: 399.898per second
+ RESULT :: SMART FP = 114
+ RESULT :: SMART FPR = 0.0228
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 5
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.0073
+ INFO :: Rate of insertion: 399.883per second
+ RESULT :: SMART FP = 50
+ RESULT :: SMART FPR = 0.01
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.007
+ INFO :: Rate of insertion: 399.888per second
+ RESULT :: SMART FP = 50
+ RESULT :: SMART FPR = 0.01
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.0066
+ INFO :: Rate of insertion: 399.894per second
+ RESULT :: SMART FP = 50
+ RESULT :: SMART FPR = 0.01
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 1
+ INFO :: BATCH OPERATIONS: 2000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 25.0066
+ INFO :: Rate of insertion: 399.894per second
+ RESULT :: SMART FP = 50
+ RESULT :: SMART FPR = 0.01
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 20
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Time elapsed in for loop: 15.0049
+ INFO :: Rate of insertion: 666.448per second
+ RESULT :: SMART FP = 295
+ RESULT :: SMART FPR = 0.059
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 15.0063
+ INFO :: Rate of insertion: 666.388per second
+ RESULT :: SMART FP = 114
+ RESULT :: SMART FPR = 0.0228
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 5
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 15.0049
+ INFO :: Rate of insertion: 666.451per second
+ RESULT :: SMART FP = 204
+ RESULT :: SMART FPR = 0.0408
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 15.0056
+ INFO :: Rate of insertion: 666.419per second
+ RESULT :: SMART FP = 204
+ RESULT :: SMART FPR = 0.0408
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 15.0056
+ INFO :: Rate of insertion: 666.419per second
+ RESULT :: SMART FP = 204
+ RESULT :: SMART FPR = 0.0408
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 10000
+ INFO :: REFRESH RATE: 1
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 200000
+
+ INFO :: TABLE SIZE CHOSEN : 25000
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 15.0065
+ INFO :: Rate of insertion: 666.376per second
+ RESULT :: SMART FP = 204
+ RESULT :: SMART FPR = 0.0408
+ -----------------------------------------------------------
+

@@ -24,7 +24,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 3 
+#define SLEEP_TIME 5 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -305,12 +305,68 @@ void varyHashes() {
  * RETURNS: void
  ******************************************************************************/
 void varyRefreshRate() {
-  refreshRateVsOpsPerSec(1000, 6250, 3, 20, 325, 500);
-  refreshRateVsOpsPerSec(1000, 6250, 3, 10, 325, 500);
-  refreshRateVsOpsPerSec(1000, 6250, 3, 5, 325, 500);
-  refreshRateVsOpsPerSec(1000, 6250, 3, 3, 325, 500);
-  refreshRateVsOpsPerSec(1000, 6250, 3, 2, 325, 500);
-  refreshRateVsOpsPerSec(1000, 6250, 3, 1, 325, 500);
+  /*
+   * 50 Ops per second
+   */
+  /*
+  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 250, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 250, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 250, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 250, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 250, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 300, 5000);
+  */
+  /*
+   * 100 Ops per second
+   */
+  /*
+  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 500, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 500, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 500, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 500, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 500, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 500, 5000);
+  */
+  /* 
+   * 200 
+   */ 
+  /*
+  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 1000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 1000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 1000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 1000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 1000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 1000, 5000);
+  */
+  /*
+   * 400 
+   */
+  /*
+  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 2000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 2000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 2000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 2000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 2000, 5000);
+  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 2000, 5000);
+  */
+  /*
+   * 1000
+   */
+  refreshRateVsOpsPerSec(40000, 250000, 3, 20, 5500, 40000);
+  refreshRateVsOpsPerSec(40000, 250000, 3, 10, 5500, 40000);
+  refreshRateVsOpsPerSec(40000, 250000, 3, 5, 5500, 40000);
+  refreshRateVsOpsPerSec(40000, 250000, 3, 3, 5500, 40000);
+  refreshRateVsOpsPerSec(40000, 250000, 3, 2, 5500, 40000);
+  refreshRateVsOpsPerSec(40000, 250000, 3, 1, 5500, 40000);
+  /*
+   * 10000
+   */
+  refreshRateVsOpsPerSec(200000, 250000, 3, 20, 50000, 100000);
+  refreshRateVsOpsPerSec(200000, 250000, 3, 10, 50000, 100000);
+  refreshRateVsOpsPerSec(200000, 250000, 3, 5, 50000, 100000);
+  refreshRateVsOpsPerSec(200000, 250000, 3, 3, 50000, 100000);
+  refreshRateVsOpsPerSec(200000, 250000, 3, 2, 50000, 100000);
+  refreshRateVsOpsPerSec(200000, 250000, 3, 1, 50000, 100000);
 }
 
 /*
