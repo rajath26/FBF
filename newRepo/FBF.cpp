@@ -76,6 +76,7 @@ public:
     for ( int counter = 0; counter < MINIMUM_NUM_OF_BFS; counter++ ) { 
       fbf[counter] = baseBF;
     }
+    newBF = baseBF;
 
     cout<<" INFO :: FBFs initialized " <<endl;
   }
