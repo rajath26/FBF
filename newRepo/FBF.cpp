@@ -14,6 +14,14 @@
  */
 #define MINIMUM_NUM_OF_BFS 3
 #define DEFAULT_NUM_OF_HASH_FUNCTIONS 3
+#define FUTURE 0
+
+/*
+ * Global variables
+ */
+unsigned int future = FUTURE;
+unsigned int present = FUTURE + 1;
+unsigned int past = MINIMUM_NUM_OF_BFS - 1;
 
 using namespace std;
 
@@ -51,10 +59,6 @@ public:
    * after each refresh time
    */
   bloom_filter newBF;
-
-  unsigned int future = 0;
-  unsigned int present = future + 1;
-  unsigned int past = MINIMUM_NUM_OF_BFS - 1; // or present + 1
 
   /************************************************************ 
    * FUNCTION NAME: FBF 

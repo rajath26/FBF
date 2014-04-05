@@ -13,7 +13,15 @@
 /*
  * Macros
  */
-#define DEF_VEC_RESERVE_SIZE 30
+#define DEF_NUM_OF_BFS 5 
+#define DFUTURE 0
+
+/* 
+ * Global variables
+ */ 
+int dfuture = DFUTURE;
+int dpresent = DFUTURE + 1;
+int pastStart = DFUTURE + 2;
 
 using namespace std;
 
@@ -47,7 +55,9 @@ public:
    * Past, Present and Future BFs
    * The vector can accomodate multiple past BFs as well
    */
-  vector<bloom_filter> dyn_fbf;
+  //vector<bloom_filter> dyn_fbf;
+  bloom_filter dyn_fbf[DEF_NUM_OF_BFS];
+
   /* 
    * New BF to create a new future BF 
    * after each refresh time
@@ -55,9 +65,6 @@ public:
   bloom_filter newBF;
 
   unsigned int numberOfBFs;
-  unsigned int future = 0;
-  unsigned int present = future + 1;
-  unsigned int pastStart = present + 1; // or present + 1
   unsigned int pastEnd;
 
   /************************************************************ 
@@ -75,12 +82,9 @@ public:
    * 
    * RETURNS: NA 
    ************************************************************/
-  dynFBF(unsigned int numberBFs, 
+  dynFBF(unsigned long numberBFs, 
          unsigned long long int tableSize, 
          unsigned int numOfHashes) { 
-    //dyn_fbf.resize(numberBFs);
-    dyn_fbf.reserve(numberBFs);
-    
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -90,25 +94,12 @@ public:
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
-
-    // Resize the vector if required
-    /*
-    if ( numberBFs > DEF_VEC_RESERVE_SIZE ) {
-      dyn_fbf.resize(numberBFs);
-    }
-    */
     for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
-      //cout<<" DEBUG :: Value of counter: " <<counter <<endl;
-      //cout<<" DEBUG :: Calling push_back " <<endl;
-      //dyn_fbf[counter] = baseBF;
-      dyn_fbf.push_back(baseBF);
-      //cout<<" DEBUG :: Returning from push_back " <<endl;
+      dyn_fbf[counter] = baseBF;
     }
-    
-    //dyn_fbf.assign(numberBFs, baseBF);
     newBF = baseBF;
 
-    // Update the class memebers
+    // Update the class members
     numberOfBFs = numberBFs;
     pastEnd = numberOfBFs - 1;
 
@@ -122,9 +113,7 @@ public:
    *
    * RETURNS: NA
    ************************************************************/
-  ~dynFBF() {
-    dyn_fbf.clear();
-  }
+  ~dynFBF() {}
 
   /************************************************************
    * FUNCTION NAME: refresh
@@ -136,7 +125,7 @@ public:
   void refresh() { 
     //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
-    for ( j = (dyn_fbf.size()); j > 0; j-- ) { 
+    for ( j = (numberOfBFs - 1); j > 0; j-- ) { 
       dyn_fbf[j] = dyn_fbf[j - 1];
     }
     dyn_fbf[j] &= newBF;
@@ -159,8 +148,8 @@ public:
    * RETURNS: void
    ************************************************************/
   void insert(unsigned long long int element) { 
-    dyn_fbf[present].insert(element);
-    dyn_fbf[future].insert(element);
+    dyn_fbf[dpresent].insert(element);
+    dyn_fbf[dfuture].insert(element);
   }
 
   /************************************************************
@@ -179,14 +168,14 @@ public:
     unsigned long long int smartFP = 0;
     double smartFPR = 0.0;
     unsigned int counter = 0;
-    long long int i = -1;
+    long long int i = 5000;
     unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
-      if ( (dyn_fbf[future].contains(i) && dyn_fbf[present].contains(i)) ) {
+      if ( (dyn_fbf[dfuture].contains(i) && dyn_fbf[dpresent].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (dyn_fbf[present].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
+      else if ( (dyn_fbf[dpresent].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
 	smartFP++;
       }
       else if ( (dyn_fbf[pastEnd].contains(i)) ) {
@@ -201,7 +190,7 @@ public:
         }
       }
 
-      i--;
+      i++;
       counter++;
     }
 
