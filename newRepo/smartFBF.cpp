@@ -364,10 +364,20 @@ void varyNumElements() {
  * RETURNS: void
  ******************************************************************************/
 void varyBFsize() {
-  smartFBFvsDumbFBF(5000, 1250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
+  unsigned long long int numE = 5000;
+  unsigned long long int batO = 1250;
+  unsigned long long int invT = 2500;
+  //smartFBFvsDumbFBF(5000, 1250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   //smartFBFvsDumbFBF(5000, 2500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
-  smartFBFvsDumbFBF(5000, 3750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
-  //smartFBFvsDumbFBF(2000, 5000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  smartFBFvsDumbFBF(numE, 3750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 6250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 8750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 12500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 15000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 25000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  smartFBFvsDumbFBF(numE, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, batO, invT);
+  /*
+  //smartFBFvsDumbFBF(000, 5000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(5000, 6250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   //smartFBFvsDumbFBF(2000, 8750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   //smartFBFvsDumbFBF(2000, 10000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
@@ -377,6 +387,7 @@ void varyBFsize() {
   //smartFBFvsDumbFBF(2000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(5000, 37500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   smartFBFvsDumbFBF(5000, 62500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
+  */
 }
 
 /******************************************************************************
