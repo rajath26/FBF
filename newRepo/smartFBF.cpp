@@ -382,12 +382,16 @@ void varyHashes() {
   unsigned long long int num = 2000;
   unsigned long long int bat = 500;
   unsigned long long int inv = 2000;
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 3, DEF_REFRESH_RATE, bat, inv);
+  for ( unsigned int i = 3; i < 8; i++ ) {
+    smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, i, DEF_REFRESH_RATE, bat, inv);
+  }
+  /*
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 5, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 7, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 9, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 11, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 13, DEF_REFRESH_RATE, bat, inv);
+  */
 }
 
 /******************************************************************************
