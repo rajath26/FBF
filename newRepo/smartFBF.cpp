@@ -381,13 +381,13 @@ void varyBFsize() {
 void varyHashes() {
   unsigned long long int num = 1000;
   unsigned long long int bat = 500;
-  unsigned long long int inv = 750;
+  unsigned long long int inv = 1000;
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 3, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 6, DEF_REFRESH_RATE, bat, inv);
+  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 5, DEF_REFRESH_RATE, bat, inv);
+  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 7, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 9, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 12, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 15, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 18, DEF_REFRESH_RATE, bat, inv);
+  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 11, DEF_REFRESH_RATE, bat, inv);
+  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 13, DEF_REFRESH_RATE, bat, inv);
 }
 
 /******************************************************************************
