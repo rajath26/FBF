@@ -382,7 +382,7 @@ void varyHashes() {
   unsigned long long int num = 2000;
   unsigned long long int bat = 500;
   unsigned long long int inv = 2000;
-  for ( unsigned int i = 3; i < 8; i++ ) {
+  for ( unsigned int i = 3; i < 18; i++ ) {
     smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, i, DEF_REFRESH_RATE, bat, inv);
   }
   /*
