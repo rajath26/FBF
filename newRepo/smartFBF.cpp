@@ -379,9 +379,9 @@ void varyBFsize() {
  * RETURNS: void
  ******************************************************************************/
 void varyHashes() {
-  unsigned long long int num = 1000;
+  unsigned long long int num = 2000;
   unsigned long long int bat = 500;
-  unsigned long long int inv = 1000;
+  unsigned long long int inv = 2000;
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 3, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 5, DEF_REFRESH_RATE, bat, inv);
   smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 7, DEF_REFRESH_RATE, bat, inv);
