@@ -152,7 +152,6 @@ public:
     double smartFPR = 0.0;
     unsigned int counter = 0;
     long long int i = -1;
-    unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
       if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) {
@@ -192,7 +191,6 @@ public:
     double dumbFPR = 0.0;
     unsigned int counter = 0;
     long long int i = -1;
-    unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
       if ( (fbf[past].contains(i) || fbf[present].contains(i) || fbf[future].contains(i)) ) {

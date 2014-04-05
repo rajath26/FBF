@@ -25,7 +25,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 5 
+#define SLEEP_TIME 2 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -523,8 +523,48 @@ void varyRefreshRate() {
  * 
  * RETURNS: void
  ******************************************************************************/
-void varyBFsize() { 
-  numberOfBFsVsOpsPerSec(3, 50000, 50000, 3, 5, 500, 25000);
+void varyConstituentBFNumbers() { 
+  /*
+   * 100 Ops per second
+   */
+  numberOfBFsVsOpsPerSec(3, 12500, 12500, 3, 5, 500, 6250);
+  numberOfBFsVsOpsPerSec(6, 12500, 12500, 3, 5, 500, 6250);
+  numberOfBFsVsOpsPerSec(12, 12500, 12500, 3, 5, 500, 6250);
+  numberOfBFsVsOpsPerSec(24, 12500, 12500, 3, 5, 500, 6250);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
+
+  /* 
+   * 1000 Ops per second 
+   */
+  numberOfBFsVsOpsPerSec(3, 12500, 12500, 3, 5, 5000, 6250);
+  numberOfBFsVsOpsPerSec(6, 12500, 12500, 3, 5, 5000, 6250);
+  numberOfBFsVsOpsPerSec(12, 12500, 12500, 3, 5, 5000, 6250);
+  numberOfBFsVsOpsPerSec(24, 12500, 12500, 3, 5, 5000, 6250);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 5000, 25000);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 5000, 25000);
+
+  /* 
+   * 5000 Ops per second
+   */
+  numberOfBFsVsOpsPerSec(3, 12500, 12500, 3, 5, 10000, 25000);
+  numberOfBFsVsOpsPerSec(6, 12500, 12500, 3, 5, 10000, 25000);
+  numberOfBFsVsOpsPerSec(12, 12500, 12500, 3, 5, 10000, 25000);
+  numberOfBFsVsOpsPerSec(24, 12500, 12500, 3, 5, 10000, 25000);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 25000, 25000);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 25000, 25000);
+
+  /* 
+   * 10000 Ops per second 
+   */
+  /*
+  numberOfBFsVsOpsPerSec(3, 50000, 50000, 3, 5, 50000, 25000);
+  numberOfBFsVsOpsPerSec(6, 50000, 50000, 3, 5, 50000, 25000);
+  numberOfBFsVsOpsPerSec(12, 50000, 50000, 3, 5, 50000, 25000);
+  numberOfBFsVsOpsPerSec(24, 50000, 50000, 3, 5, 50000, 25000);
+  */
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
+  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
 }
 
 /*
@@ -536,7 +576,7 @@ int main(int argc, char *argv[]) {
   //varyBFsize();
   //varyHashes();
   //varyRefreshRate();
-  varyBFsize();
+  varyConstituentBFNumbers();
 
   return SUCCESS;
 

@@ -13,6 +13,7 @@
 /*
  * Macros
  */
+#define DEF_VEC_RESERVE_SIZE 30
 
 using namespace std;
 
@@ -75,8 +76,11 @@ public:
    * RETURNS: NA 
    ************************************************************/
   dynFBF(unsigned int numberBFs, 
-      unsigned long long int tableSize, 
-      unsigned int numOfHashes) { 
+         unsigned long long int tableSize, 
+         unsigned int numOfHashes) { 
+    //dyn_fbf.resize(numberBFs);
+    dyn_fbf.reserve(numberBFs);
+    
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -86,9 +90,22 @@ public:
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
-    for ( int counter = 0; counter < numberBFs; counter++ ) { 
-      dyn_fbf.push_back(baseBF); 
+
+    // Resize the vector if required
+    /*
+    if ( numberBFs > DEF_VEC_RESERVE_SIZE ) {
+      dyn_fbf.resize(numberBFs);
     }
+    */
+    for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
+      //cout<<" DEBUG :: Value of counter: " <<counter <<endl;
+      //cout<<" DEBUG :: Calling push_back " <<endl;
+      //dyn_fbf[counter] = baseBF;
+      dyn_fbf.push_back(baseBF);
+      //cout<<" DEBUG :: Returning from push_back " <<endl;
+    }
+    
+    //dyn_fbf.assign(numberBFs, baseBF);
     newBF = baseBF;
 
     // Update the class memebers
@@ -105,7 +122,9 @@ public:
    *
    * RETURNS: NA
    ************************************************************/
-  ~dynFBF() {}
+  ~dynFBF() {
+    dyn_fbf.clear();
+  }
 
   /************************************************************
    * FUNCTION NAME: refresh
@@ -118,7 +137,7 @@ public:
     //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
     for ( j = (dyn_fbf.size()); j > 0; j-- ) { 
-      dyn_fbf[j] = fbf[j - 1];
+      dyn_fbf[j] = dyn_fbf[j - 1];
     }
     dyn_fbf[j] &= newBF;
 
@@ -167,7 +186,7 @@ public:
       if ( (dyn_fbf[future].contains(i) && dyn_fbf[present].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (dyn_fbf[present].contains(i) && dyn_fbf[past].contains(i)) ) {
+      else if ( (dyn_fbf[present].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
 	smartFP++;
       }
       else if ( (dyn_fbf[pastEnd].contains(i)) ) {
