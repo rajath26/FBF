@@ -77,7 +77,6 @@ public:
   dynFBF(unsigned int numberBFs, 
       unsigned long long int tableSize, 
       unsigned int numOfHashes) { 
-    numberOfBFs = numberBFs;
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -91,6 +90,10 @@ public:
       dyn_fbf.push_back(baseBF); 
     }
     newBF = baseBF;
+
+    // Update the class memebers
+    numberOfBFs = numberBFs;
+    pastEnd = numberOfBFs - 1;
 
     cout<<" INFO :: FBFs initialized " <<endl;
   }
@@ -161,14 +164,22 @@ public:
     unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
-      if ( (dyn_fbf[future].contains(i) && fbf[present].contains(i)) ) {
+      if ( (dyn_fbf[future].contains(i) && dyn_fbf[present].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (fbf[present].contains(i) && fbf[past].contains(i)) ) {
+      else if ( (dyn_fbf[present].contains(i) && dyn_fbf[past].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (fbf[past].contains(i)) ) {
+      else if ( (dyn_fbf[pastEnd].contains(i)) ) {
 	smartFP++;
+      }
+      else { 
+        for ( j = pastStart; j < pastEnd; j++ ) {
+          if ( (dyn_fbf[j].contains(i) && dyn_fbf[j + 1].contains(i)) ) {
+            smartFP++;
+            break;
+          }
+        }
       }
 
       i--;
@@ -180,43 +191,6 @@ public:
     cout<<" RESULT :: SMART FP = " <<smartFP <<endl;
     cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
   }
-  */
-
-  /************************************************************
-   * FUNCTION NAME: checkDumbFBF_FPR
-   * 
-   * This function checks the False Positives (FPs) and the 
-   * False Positive Rate (FPR) of the FBF using NAIVE RULES
-   * 
-   * PARAMETERS: 
-   *            numberOfInvalids: Number of invalid membership 
-   *                              checks to be made
-   * 
-   * RETURNS: void
-   ***********************************************************/
-  /*
-  void checkDumbFBF_FPR(unsigned long long int numberOfInvalids) { 
-    unsigned long long int dumbFP = 0;
-    double dumbFPR = 0.0;
-    unsigned int counter = 0;
-    long long int i = -1;
-    unsigned int j;
-
-    while ( counter != numberOfInvalids ) { 
-      if ( (fbf[past].contains(i) || fbf[present].contains(i) || fbf[future].contains(i)) ) {
-	dumbFP++;
-      }
-
-      i--;
-      counter++;
-    }
-
-    dumbFPR = (double) dumbFP/numberOfInvalids;
-
-    cout<<" RESULT :: DUMB FP = " <<dumbFP <<endl;
-    cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
-  }
-  */
 
 }; // End of dynFBF class
 
