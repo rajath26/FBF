@@ -162,7 +162,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   cout<<" INFO :: Test Execution Info " <<endl;
   cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<endl;
   // Table size and number of hash functions printed by compute_optimal function
-  // in FBF constructor. Dont print here 
+  // in FBF constructor. Dont print here nnnnnn
   cout<<" INFO :: REFRESH RATE: " <<refreshRate <<endl;
   cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<endl;
 
@@ -223,6 +223,107 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
    * STEP 4: Check for FPR using smart rules
    */
   simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
+
+  cout<<" -----------------------------------------------------------" <<endl <<endl;
+
+}
+
+/******************************************************************************
+ * FUNCTION NAME: numberOfBFsVsOpsPerSec
+ * 
+ * This function maps the false positive rate for a given number of constituent
+ * number of BFs in the FBF and also keeps a tab on the operations per second
+ * 
+ * PARAMETERS: 
+ *            numberOfBFs: Number of constituent BFs in the FBF
+ *            numElements: Number of elements to be inserted into the
+ *                         FBF
+ *            tableSize: constituent BFs size i.e. number of bits 
+ *            numOfHashes: Number of hashes in each constituent BFs in 
+ *                         FBF
+ *            refreshRate: time in seconds after which the FBF is 
+ *                         refreshed
+ *            batchOps: number of inserts after which a sleep should be 
+ *                      induced to simulate real world scenario
+ *            numberOfInvalids: number of invalid membership checks to 
+ *                              be made
+ *
+ * RETURNS: void
+ ******************************************************************************/
+void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
+                            unsigned long long int numElements, 
+                            unsigned long long int tableSize,
+		            unsigned int numOfHashes,
+		            unsigned long refreshRate,
+		            unsigned long long int batchOps,
+		            unsigned long long int numberOfInvalids) { 
+
+  cout<<" ----------------------------------------------------------- " <<endl;
+  cout<<" INFO :: Test Execution Info " <<endl;
+  cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<endl;
+  // Table size and number of hash functions printed by compute_optimal function
+  // in FBF constructor. Number of BFs in FBF printed in constructor.
+  // Dont print here 
+  cout<<" INFO :: REFRESH RATE: " <<refreshRate <<endl;
+  cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<endl;
+
+  // Timer to refresh the constituent BFs in FBF
+  Timer t;
+  // Timer to keep a tab on the operations per second
+  Timer loopTime;
+
+  unsigned long long int i;
+
+  /*
+   * STEP 1: CREATE THE DYNAMIC FBF
+   */
+  dynFBF dyn_FBF(numberOfBFs, tableSize, numOfHashes);
+
+  // Start the timer
+  t.start();
+  cout<<" INFO :: Timer started " <<endl;
+
+  /* 
+   * STEP 2: Insert some numbers in to the FBF
+   */
+  loopTime.start();
+  for ( i = 0; i < numElements; i++ ) {
+
+    /* 
+     * Check for elapsed time and refresh the FBF
+     */
+    if ( t.getElapsedTime() >= refreshRate ) {
+      dyn_FBF.refresh();
+      // Restart the timer after the refresh
+      t.start();
+    }
+
+    /*
+     * For every batch operations done induce some 
+     * sleep time
+     */
+    if ( 0 == i% batchOps ) { 
+      sleep(SLEEP_TIME);
+    }
+
+    /* 
+     * Insert number into the FBF
+     */
+    dyn_FBF.insert(i);
+
+  } // End of for that inserts elements into the FBF
+
+  /* 
+   * STEP 3: Measure the operations per second done 
+   */
+  double elapsedLoopTime = loopTime.getElapsedTime();
+  cout<<" INFO :: Time elapsed in for loop: " <<elapsedLoopTime <<endl;
+  cout<<" INFO :: Rate of insertion: " <<(double)numElements/elapsedLoopTime <<"per second" <<endl;
+
+  /*
+   * STEP 4: Check for FPR using smart rules
+   */
+  dyn_FBF.checkSmartFBF_FPR(numberOfInvalids);
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
@@ -372,7 +473,9 @@ void varyRefreshRate() {
   refreshRateVsOpsPerSec(200000, 250000, 3, 2, 50000, 100000);
   refreshRateVsOpsPerSec(200000, 250000, 3, 1, 50000, 100000);
   */
-
+  /*
+   * 100 Ops per second
+   */
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 500, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 500, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
@@ -380,6 +483,9 @@ void varyRefreshRate() {
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 500, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 500, 25000);
 
+  /* 
+   * 1000 Ops per second 
+   */
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 5000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 5000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 5000, 25000);
@@ -387,6 +493,9 @@ void varyRefreshRate() {
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 5000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 5000, 25000);
 
+  /* 
+   * 5000 Ops per second
+   */
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 25000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 25000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 25000, 25000);
@@ -394,12 +503,28 @@ void varyRefreshRate() {
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 25000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 25000, 25000);
 
+  /* 
+   * 10000 Ops per second 
+   */
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 50000, 25000);
+}
+
+/******************************************************************************
+ * FUNCTION NAME: varyBFsize
+ *
+ * This function runs the test case where the operations per second is varied 
+ * while the rest is kept constant. This is to check how false positive rate 
+ * reacts for different number of constituent BFs in the FBF
+ * 
+ * RETURNS: void
+ ******************************************************************************/
+void varyBFsize() { 
+  numberOfBFsVsOpsPerSec(3, 50000, 50000, 3, 5, 500, 25000);
 }
 
 /*
@@ -410,7 +535,8 @@ int main(int argc, char *argv[]) {
   //varyNumElements();
   //varyBFsize();
   //varyHashes();
-  varyRefreshRate();
+  //varyRefreshRate();
+  varyBFsize();
 
   return SUCCESS;
 

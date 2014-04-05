@@ -60,7 +60,7 @@ public:
   unsigned int pastEnd;
 
   /************************************************************ 
-   * FUNCTION NAME: FBF 
+   * FUNCTION NAME: dynFBF 
    *
    * Constructor of the FBF class
    * 
@@ -111,19 +111,16 @@ public:
    * 
    * RETURNS: void 
    ************************************************************/
-  /*
   void refresh() { 
     //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
-    for ( j = (MINIMUM_NUM_OF_BFS - 1); j > 0; j-- ) { 
-      //cout<<" DEBUG :: Inside for loop. Iteration number: " <<j <<endl;
-      fbf[j] = fbf[j - 1];
+    for ( j = (dyn_fbf.size()); j > 0; j-- ) { 
+      dyn_fbf[j] = fbf[j - 1];
     }
-    fbf[j] &= newBF;
+    dyn_fbf[j] &= newBF;
 
     cout<<" INFO :: Refreshed FBF" <<endl;
   }
-  */
 
   /************************************************************
    * FUNCTION NAME: insert
@@ -139,12 +136,10 @@ public:
    * 
    * RETURNS: void
    ************************************************************/
-  /*
   void insert(unsigned long long int element) { 
-    fbf[present].insert(element);
-    fbf[future].insert(element);
+    dyn_fbf[present].insert(element);
+    dyn_fbf[future].insert(element);
   }
-  */
 
   /************************************************************
    * FUNCTION NAME: checkSmartFBF_FPR
@@ -158,7 +153,6 @@ public:
    * 
    * RETURNS: void
    ***********************************************************/
-  /*
   void checkSmartFBF_FPR(unsigned long long int numberOfInvalids) { 
     unsigned long long int smartFP = 0;
     double smartFPR = 0.0;
@@ -167,7 +161,7 @@ public:
     unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
-      if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) {
+      if ( (dyn_fbf[future].contains(i) && fbf[present].contains(i)) ) {
 	smartFP++;
       }
       else if ( (fbf[present].contains(i) && fbf[past].contains(i)) ) {
@@ -224,7 +218,7 @@ public:
   }
   */
 
-}; // End of FBF class
+}; // End of dynFBF class
 
 /* 
  * EOF
