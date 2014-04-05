@@ -1,0 +1,144 @@
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 10000
+
+ INFO :: TABLE SIZE CHOSEN : 1250
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 2007
+ RESULT :: SMART FPR = 0.8028
+ RESULT :: DUMB FP = 2147
+ RESULT :: DUMB FPR = 0.8588
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 30000
+
+ INFO :: TABLE SIZE CHOSEN : 3750
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 523
+ RESULT :: SMART FPR = 0.2092
+ RESULT :: DUMB FP = 703
+ RESULT :: DUMB FPR = 0.2812
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 213
+ RESULT :: SMART FPR = 0.0852
+ RESULT :: DUMB FP = 289
+ RESULT :: DUMB FPR = 0.1156
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 100000
+
+ INFO :: TABLE SIZE CHOSEN : 12500
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 33
+ RESULT :: SMART FPR = 0.0132
+ RESULT :: DUMB FP = 55
+ RESULT :: DUMB FPR = 0.022
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 1
+ RESULT :: SMART FPR = 0.0004
+ RESULT :: DUMB FP = 1
+ RESULT :: DUMB FPR = 0.0004
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 1250
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 500000
+
+ INFO :: TABLE SIZE CHOSEN : 62500
+ INFO :: NUMBER OF CONSTITUENT BFs in FBF: 3
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 0
+ RESULT :: SMART FPR = 0
+ RESULT :: DUMB FP = 0
+ RESULT :: DUMB FPR = 0
+ -----------------------------------------------------------
+

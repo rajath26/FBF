@@ -365,8 +365,8 @@ void varyNumElements() {
  ******************************************************************************/
 void varyBFsize() {
   smartFBFvsDumbFBF(5000, 1250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
-  smartFBFvsDumbFBF(5000, 2500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
-  //smartFBFvsDumbFBF(2000, 3750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
+  //smartFBFvsDumbFBF(5000, 2500, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
+  smartFBFvsDumbFBF(5000, 3750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   //smartFBFvsDumbFBF(2000, 5000, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(5000, 6250, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   //smartFBFvsDumbFBF(2000, 8750, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
@@ -577,8 +577,8 @@ void varyConstituentBFNumbers() {
  */
 int main(int argc, char *argv[]) { 
 
-  varyNumElements();
-  //varyBFsize();
+  //varyNumElements();
+  varyBFsize();
   //varyHashes();
   //varyRefreshRate();
   //varyConstituentBFNumbers();
