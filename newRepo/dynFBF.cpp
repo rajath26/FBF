@@ -85,6 +85,8 @@ public:
   dynFBF(unsigned long numberBFs, 
          unsigned long long int tableSize, 
          unsigned int numOfHashes) { 
+    //dyn_fbf.clear();
+    //dyn_fbf.resize(30);
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -95,7 +97,8 @@ public:
     bloom_filter baseBF(parameters);
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
     for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
-      dyn_fbf[counter] = baseBF;
+      //dyn_fbf[counter] = baseBF;
+      dyn_fbf[counter] = (baseBF);
     }
     newBF = baseBF;
 

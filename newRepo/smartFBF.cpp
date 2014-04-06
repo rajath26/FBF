@@ -25,7 +25,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 3 
+#define SLEEP_TIME 5 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -385,13 +385,6 @@ void varyHashes() {
   for ( unsigned int i = 3; i < 18; i++ ) {
     smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, i, DEF_REFRESH_RATE, bat, inv);
   }
-  /*
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 5, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 7, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 9, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 11, DEF_REFRESH_RATE, bat, inv);
-  smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, 13, DEF_REFRESH_RATE, bat, inv);
-  */
 }
 
 /******************************************************************************
@@ -404,72 +397,6 @@ void varyHashes() {
  * RETURNS: void
  ******************************************************************************/
 void varyRefreshRate() {
-  /*
-   * 50 Ops per second
-   */
-  /*
-  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 250, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 250, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 250, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 250, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 250, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 300, 5000);
-  */
-  /*
-   * 100 Ops per second
-   */
-  /*
-  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 500, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 500, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 500, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 500, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 500, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 500, 5000);
-  */
-  /* 
-   * 200 
-   */ 
-  /*
-  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 1000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 1000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 1000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 1000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 1000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 1000, 5000);
-  */
-  /*
-   * 400 
-   */
-  /*
-  refreshRateVsOpsPerSec(10000, 25000, 3, 20, 2000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 10, 2000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 5, 2000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 3, 2000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 2, 2000, 5000);
-  refreshRateVsOpsPerSec(10000, 25000, 3, 1, 2000, 5000);
-  */
-  /*
-   * 1000
-   */
-  /*
-  refreshRateVsOpsPerSec(40000, 250000, 3, 20, 5500, 40000);
-  refreshRateVsOpsPerSec(40000, 250000, 3, 10, 5500, 40000);
-  refreshRateVsOpsPerSec(40000, 250000, 3, 5, 5500, 40000);
-  refreshRateVsOpsPerSec(40000, 250000, 3, 3, 5500, 40000);
-  refreshRateVsOpsPerSec(40000, 250000, 3, 2, 5500, 40000);
-  refreshRateVsOpsPerSec(40000, 250000, 3, 1, 5500, 40000);
-  */
-  /*
-   * 10000
-   */
-  /*
-  refreshRateVsOpsPerSec(200000, 250000, 3, 20, 50000, 100000);
-  refreshRateVsOpsPerSec(200000, 250000, 3, 10, 50000, 100000);
-  refreshRateVsOpsPerSec(200000, 250000, 3, 5, 50000, 100000);
-  refreshRateVsOpsPerSec(200000, 250000, 3, 3, 50000, 100000);
-  refreshRateVsOpsPerSec(200000, 250000, 3, 2, 50000, 100000);
-  refreshRateVsOpsPerSec(200000, 250000, 3, 1, 50000, 100000);
-  */
   /*
    * 100 Ops per second
    */
@@ -521,16 +448,19 @@ void varyRefreshRate() {
  * RETURNS: void
  ******************************************************************************/
 void varyConstituentBFNumbers() { 
+  
+  unsigned long long int num = 6250;
+  unsigned long long int bat = 1562;
+  unsigned long long int inv = 3125;
+  unsigned int bf = 3;
+
   /*
-   * 100 Ops per second
+   * 100 ops per sec
    */
-  numberOfBFsVsOpsPerSec(3, 1000, 6250, 5, 3, 200, 1000);
-  numberOfBFsVsOpsPerSec(5, 1000, 6250, 5, 3, 300, 1000);
-  //numberOfBFsVsOpsPerSec(5, 50000, 50000, 3, 3, 500, 25000);
-  //numberOfBFsVsOpsPerSec(7, 50000, 50000, 3, 3, 500, 25000);
-  //numberOfBFsVsOpsPerSec(9, 50000, 50000, 3, 3, 500, 25000);
-  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
-  //numberOfBFsVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
+  for ( unsigned i = 0; i < 4; i++ ) { 
+    numberOfBFsVsOpsPerSec(bf, num, 6250, 3, 3, bat, inv);
+    bf += 2;
+  }
 
   /* 
    * 1000 Ops per second 
@@ -576,9 +506,9 @@ int main(int argc, char *argv[]) {
 
   //varyNumElements();
   //varyBFsize();
-  varyHashes();
+  //varyHashes();
   //varyRefreshRate();
-  //varyConstituentBFNumbers();
+  varyConstituentBFNumbers();
 
   return SUCCESS;
 
