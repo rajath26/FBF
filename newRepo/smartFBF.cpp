@@ -449,7 +449,7 @@ void varyRefreshRate() {
  ******************************************************************************/
 void varyConstituentBFNumbers() { 
   
-  unsigned long long int num = 6250;
+  unsigned long long int num = 250;
   unsigned long long int bat = 1562;
   unsigned long long int inv = 3125;
   unsigned int bf = 3;
