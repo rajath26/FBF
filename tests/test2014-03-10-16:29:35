@@ -1,0 +1,148 @@
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 5000
+ INFO :: BATCH OPERATIONS: 200
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 100000
+
+OPTIMAL TABLE SIZE CHOSEN : 12500
+Timer started...
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+The number of FPs in a Smart FBF : 1
+The number of FPs in a Dumb FBF : 5
+
+---------------------------------
+
+ INFO :: PROGRAM RUN PARAMETERS: 
+ INFO :: REFRESH TIME: 1
+ INFO :: NUMBER OF ELEMENTS: 7500
+ INFO :: BATCH OPERATIONS: 200
+
+OPTIMAL NUMBER OF HASH CHOSEN : 5
+
+TABLE SIZE: 100000
+
+OPTIMAL TABLE SIZE CHOSEN : 12500
+Timer started...
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 
+ INFO :: Timeout reached while inserting. Copying BFs 
+ INFO :: Batch number of ops reached. Sleeping 

@@ -1,0 +1,232 @@
+/*
+ * Header files
+ */
+#include<iostream>
+#include<time.h>
+#include<sys/time.h>
+#include<unistd.h>
+
+/*
+ * Bloom Filter Library
+ */
+#include "bloom_filter.hpp"
+
+/* 
+ * Macros
+ */
+#define SUCCESS 0
+#define FAILURE -1
+#define NUM_OF_BFS 10
+#define TOTAL_NUM_OF_ELEMENTS 100000
+#define INITIAL_NUM_OF_BFS 3
+#define REFRESH_TIME 5
+#define DEFAULT_BATCH_OPS 1000
+#define SLEEP_TIME 4
+#define FP_CHECK_COUNTER 10000
+#define DEFAULT_FPR 0.1
+#define NUM_INSERTS_CHK_FP 20000
+#define MINIMUM_REFRESH_TIME 1
+#define NUM_OF_ARGS 2
+
+/*
+ * Global variables
+ */
+int numberOfBFs = INITIAL_NUM_OF_BFS;
+int refreshTime = REFRESH_TIME;
+int batchOps = DEFAULT_BATCH_OPS;
+int future = 0;
+int present = 1;
+int pastStart = NUM_OF_BFS - 1;
+int pastEnd = numberOfBFs;
+double appGivenFPR = DEFAULT_FPR;
+
+/* 
+ * Timer class
+ */
+class Timer {
+
+private: 
+  struct timeval startTime;
+  double startSeconds;
+
+public:
+  void start() { 
+    gettimeofday(&startTime, NULL);
+    startSeconds = startTime.tv_sec + (startTime.tv_usec/1000000.0);
+  }
+
+  double getElapsedTime() {
+    struct timeval now;
+    gettimeofday(&now, NULL);
+    double nowSeconds = now.tv_sec + (now.tv_usec/1000000.0);
+    return (nowSeconds - startSeconds);
+  }
+
+}; // End of Timer class
+
+/*
+ * FBF class
+ */
+class FBF {
+
+public: 
+  bloom_parameters parameters;
+  // Family of bloom filters forming the FBF
+  bloom_filter fbf[NUM_OF_BFS];
+  bloom_filter newBF;
+
+  FBF() {
+    parameters.projected_element_count = 100000;
+    parameters.false_positive_probability = 0.0001;
+    parameters.random_seed = 0xA5A5A5A5;
+    if (!parameters) {
+      std::cout<<" ERROR :: Invalid set of bloom filter parameters " <<std::endl;
+    }
+    parameters.compute_optimal_parameters();
+    bloom_filter baseBF(parameters);
+    for ( int counter = 0; counter < NUM_OF_BFS; counter++ ) { 
+      fbf[counter] = baseBF;
+    }
+    newBF = baseBF;
+
+    std::cout<< " INFO:: FBFs initialized " <<std::endl;
+  }
+ 
+  ~FBF() {}
+
+  void refresh() { 
+    int j;
+    for ( j = (numberOfBFs - 1); j > 0; j-- ) {
+      fbf[j] = fbf[j-1];
+    } 
+    fbf[j] &= newBF;
+
+    std::cout<< " INFO:: Refreshed FBF " <<std::endl;
+  } // End of refresh()
+
+  void insert(unsigned long long element) { 
+    fbf[present].insert(element);
+    fbf[future].insert(element);
+  } // End of insert()
+
+  int checkFPR() {
+    static long long i = -1;
+    unsigned long long FP = 0;
+    double FPR = 0.0;
+    int counter = 1;
+    int j;
+
+    while (counter != FP_CHECK_COUNTER) {
+      if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) 
+	FP++;
+      if ( (fbf[present].contains(i) && fbf[pastStart].contains(i)) )
+	FP++;
+      for ( j = pastStart; j < pastEnd; j++ ) { 
+	if ( (fbf[pastStart].contains(i) && fbf[pastStart + 1].contains(i)) )
+	  FP++;
+      }
+      if ( (fbf[pastEnd].contains(i)) ) 
+	FP++;
+
+      i--;
+      counter++;
+    }
+
+    FPR = FP / FP_CHECK_COUNTER;
+
+    std::cout<< " INFO:: Current FPR: " <<FPR <<std::endl;
+    std::cout<< " INFO:: Current FBF size: " <<numberOfBFs <<std::endl;
+    std::cout<< " INFO:: Current refres time: " <<refreshTime <<std::endl;
+
+    if ( FPR < appGivenFPR )
+      return SUCCESS;
+    else 
+      return FAILURE;
+  } // End of checkFPR()
+
+  void adjust() {
+    if ( numberOfBFs < NUM_OF_BFS ) {
+      numberOfBFs++;
+      std::cout<<" INFO:: Increasing BFs in FBF to: " <<numberOfBFs <<std::endl;
+    }
+    if ( refreshTime > MINIMUM_REFRESH_TIME ) {
+      refreshTime--;
+      std::cout<<" INFO:: Decreasing refresh time to: " <<refreshTime <<std::endl;
+    }
+  } // End of adjust()
+
+}; // End of FBF class    
+
+/*
+ * Main function
+ */
+int main(int argc, char *argv[]) {
+
+  int rc;
+
+  Timer t;
+
+  FBF oFBF;
+
+  if ( argc != NUM_OF_ARGS ) { 
+    std::cout<< " ERROR:: Usage: ./" <<argv[0] <<" <target_FPR> " <<std::endl;
+    return FAILURE;
+  }
+
+  appGivenFPR = (double) atof(argv[1]);
+  std::cout<<" INFO:: Target FPR to meet: " <<appGivenFPR <<std::endl;
+
+  t.start();
+  std::cout<<" INFO :: Timer started " <<std::endl;
+
+  /*
+   * Insert some number into the FBF
+   */
+  for (unsigned long long i = 0; i < TOTAL_NUM_OF_ELEMENTS; i++ ) {
+
+    /* 
+     * Check if we have BFs left to expand 
+     * and refresh time to reduce
+     */
+    if ( (numberOfBFs == NUM_OF_BFS) && (refreshTime == MINIMUM_REFRESH_TIME) ) {
+      std::cout<<" INFO:: Number of bloom filters in FBF and refresh time limit reached " <<std::endl;
+      break;
+    }
+
+    /* 
+     * Check for refresh time and refresh the FBF
+     */
+    if ( t.getElapsedTime() >= refreshTime ) {
+      oFBF.refresh();
+      t.start();
+    } 
+
+    /* 
+     * For every batchOps number of inserts induce a sleep
+     */
+    if ( 0 == i % batchOps ) { 
+      sleep(SLEEP_TIME);
+    }
+
+    /*
+     * Insert elements into the FBF
+     */
+    oFBF.insert(i);
+
+    if ( 0 == i % NUM_INSERTS_CHK_FP ) {
+      /* 
+       * Check the False Positive Rate
+       */
+      rc = oFBF.checkFPR();
+
+      /*
+       * Adjust FBF size and refresh time if required
+       */
+      if ( FAILURE == rc ) { 
+        oFBF.adjust();
+      } 
+    }
+
+  } // End of for to insert elements
+
+} // End of main()
