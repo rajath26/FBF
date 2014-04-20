@@ -13,7 +13,7 @@
  * FBF classes
  */
 #include "FBF.cpp"
-#include "dynFBF.cpp"
+#include "dynFBF_vector.cpp"
 
 /* 
  * Timer class
@@ -450,7 +450,7 @@ void varyRefreshRate() {
 void varyConstituentBFNumbers() { 
   
   unsigned long long int num = 6250;
-  unsigned long long int bat = 3125;
+  unsigned long long int bat = 2000;
   unsigned long long int inv = 6250;
   unsigned int bf = 3;
 
