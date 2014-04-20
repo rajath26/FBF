@@ -25,7 +25,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 5 
+#define SLEEP_TIME 3 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -449,17 +449,17 @@ void varyRefreshRate() {
  ******************************************************************************/
 void varyConstituentBFNumbers() { 
   
-  unsigned long long int num = 250;
-  unsigned long long int bat = 1562;
-  unsigned long long int inv = 3125;
+  unsigned long long int num = 6250;
+  unsigned long long int bat = 3125;
+  unsigned long long int inv = 6250;
   unsigned int bf = 3;
 
   /*
    * 100 ops per sec
    */
-  for ( unsigned i = 0; i < 4; i++ ) { 
-    numberOfBFsVsOpsPerSec(bf, num, 6250, 3, 3, bat, inv);
-    bf += 2;
+  for ( unsigned i = 0; i < 5; i++ ) { 
+    numberOfBFsVsOpsPerSec(bf, num, 6250, 5, 3, bat, inv);
+    bf += 3;
   }
 
   /* 

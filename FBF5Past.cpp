@@ -18,8 +18,8 @@
 #define SUCCESS 0
 #define NUM_ARGS 4 
 #define FP_CHECK_MULTIPLIER 5
-#define SLEEP_TIME 3
-#define ELEMENTS_AFTER_TRY 2500 
+#define SLEEP_TIME 3 
+#define ELEMENTS_AFTER_TRY 5000 
 
 /*
  * Timer Class

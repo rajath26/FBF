@@ -8,7 +8,7 @@
 /*
  * Bloom Filter Library
  */
-#include "bloom_filter.hpp"
+#include "bloom_filter_vector.hpp"
 
 /*
  * Macros
@@ -19,11 +19,9 @@
 /* 
  * Global variables
  */ 
-unsigned int dfuture = DFUTURE;
-unsigned int dpresent = DFUTURE + 1;
-unsigned int pastStart = DFUTURE + 2;
-unsigned int numberOfBFs;
-unsigned int pastEnd;
+int dfuture = DFUTURE;
+int dpresent = DFUTURE + 1;
+int pastStart = DFUTURE + 2;
 
 using namespace std;
 
@@ -57,13 +55,16 @@ public:
    * Past, Present and Future BFs
    * The vector can accomodate multiple past BFs as well
    */
-  bloom_filter dyn_fbf[DEF_NUM_OF_BFS];
+  vector<bloom_filter> dyn_fbf;
 
   /* 
    * New BF to create a new future BF 
    * after each refresh time
    */
   bloom_filter newBF;
+
+  unsigned int numberOfBFs;
+  unsigned int pastEnd;
 
   /************************************************************ 
    * FUNCTION NAME: dynFBF 
@@ -84,6 +85,8 @@ public:
          unsigned long long int tableSize, 
          unsigned int numOfHashes) { 
 
+    dyn_fbf.reserve(100);
+
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -93,9 +96,9 @@ public:
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
-
     for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
-      dyn_fbf[counter] = baseBF;
+      dyn_fbf.push_back(baseBF);
+      //dyn_fbf[counter] = baseBF;
     }
     newBF = baseBF;
 
@@ -173,7 +176,7 @@ public:
     unsigned long long int smartFP = 0;
     double smartFPR = 0.0;
     unsigned int counter = 0;
-    long long int i = -1;
+    long long int i = 1000;
     unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
@@ -195,7 +198,7 @@ public:
         }
       }
 
-      i--;
+      i++;
       counter++;
     }
 

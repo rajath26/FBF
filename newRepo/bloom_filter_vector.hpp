@@ -239,7 +239,10 @@ public:
      inserted_element_count_(0),
      random_seed_(0),
      desired_false_positive_probability_(0.0)
-   {}
+   {
+     bit_table_ = new cell_type[1];
+     std::cout<<" INFO :: ALLOCATED SHIT HERE " <<std::endl <<std::endl <<std::endl;
+   }
 
    bloom_filter(const bloom_parameters& p)
    : bit_table_(0),
@@ -258,7 +261,7 @@ public:
 
    bloom_filter(const bloom_filter& filter)
    {
-      this->operator=(filter);
+      this->operator=(filter, 0);
    }
 
    inline bool operator == (const bloom_filter& f) const
@@ -296,7 +299,29 @@ public:
          inserted_element_count_ = f.inserted_element_count_;
          random_seed_ = f.random_seed_;
          desired_false_positive_probability_ = f.desired_false_positive_probability_;
-         delete[] bit_table_;
+	 if ( bit_table_ != NULL ) 
+           delete[] bit_table_;
+         bit_table_ = new cell_type[static_cast<std::size_t>(raw_table_size_)];
+         std::copy(f.bit_table_,f.bit_table_ + raw_table_size_,bit_table_);
+         salt_ = f.salt_;
+      }
+      return *this;
+   }
+
+   inline bloom_filter& operator = (const bloom_filter& f, int flag) { 
+     if ( this != &f ) { 
+       salt_count_ = f.salt_count_;
+         table_size_ = f.table_size_;
+         raw_table_size_ = f.raw_table_size_;
+         projected_element_count_ = f.projected_element_count_;
+         inserted_element_count_ = f.inserted_element_count_;
+         random_seed_ = f.random_seed_;
+         desired_false_positive_probability_ = f.desired_false_positive_probability_;
+	 if ( flag ) { 
+	   if ( bit_table_ ) {
+             delete[] bit_table_;
+	   }
+	 }
          bit_table_ = new cell_type[static_cast<std::size_t>(raw_table_size_)];
          std::copy(f.bit_table_,f.bit_table_ + raw_table_size_,bit_table_);
          salt_ = f.salt_;
