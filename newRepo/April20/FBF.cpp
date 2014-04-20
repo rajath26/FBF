@@ -12,39 +12,37 @@
 /*
  * Macros
  */
-#define DEF_NUM_OF_BFS 100 
-#define DFUTURE 0
+#define MINIMUM_NUM_OF_BFS 3
+#define DEFAULT_NUM_OF_HASH_FUNCTIONS 3
+#define FUTURE 0
 
-/* 
+/*
  * Global variables
- */ 
-unsigned int dfuture = DFUTURE;
-unsigned int dpresent = DFUTURE + 1;
-unsigned int pastStart = DFUTURE + 2;
-unsigned int numberOfBFs;
-unsigned int pastEnd;
+ */
+unsigned int future = FUTURE;
+unsigned int present = FUTURE + 1;
+unsigned int past = MINIMUM_NUM_OF_BFS - 1;
 
 using namespace std;
 
 /*
- * Dynamic FBF class
+ * FBF class
  */
 /*******************************************************************
  *******************************************************************
- ** CLASS NAME: dynFBF (Forgetful Bloom Filter)
+ ** CLASS NAME: FBF (Forgetful Bloom Filter)
  **
- ** NOTE: This class implements the dynamic FBF ie it contains the 
+ ** NOTE: This class implements the basic FBF ie it contains the 
  **       minimum THREE constituent bloom filters (BF) namely:
  **       i) Past BF
  **       ii) Present BF
  **       iii) Future BF
- **       but can dynamically expand by adding multiple past BFs as
- **       the load increases
  **
- ** The class is mainly used to compare to run dynamic resizing tests 
+ ** The class is mainly used to compare a smart FBF v/s 
+ ** dumb/naive FBF
  *******************************************************************
  *******************************************************************/
-class dynFBF { 
+class FBF { 
 
 public:
   /* 
@@ -54,10 +52,8 @@ public:
   /* 
    * Constituent BFs of the FBF
    * Past, Present and Future BFs
-   * The vector can accomodate multiple past BFs as well
    */
-  bloom_filter dyn_fbf[DEF_NUM_OF_BFS];
-
+  bloom_filter fbf[MINIMUM_NUM_OF_BFS];
   /* 
    * New BF to create a new future BF 
    * after each refresh time
@@ -65,24 +61,20 @@ public:
   bloom_filter newBF;
 
   /************************************************************ 
-   * FUNCTION NAME: dynFBF 
+   * FUNCTION NAME: FBF 
    *
    * Constructor of the FBF class
    * 
    * PARAMETERS: 
-   *            numberOfBFs: gives the number of constituent BFs
-   *                         to be initialized in the FBF
-   *            tableSize: gives the number of bits in each of the 
-   *                       constituent BFs in the FBF
-   *            numOfHashes: gives the number of hashes to be used 
-   *                         by the constituent BFs in the FBF
-   * 
+   *            tableSize: Gives the number of bits in the 
+   *                       constituent BFs of the FBF
+   *            numOfHashes: gives the number of hashes to be
+   *                         used by the constituent BFs
+   *
    * RETURNS: NA 
    ************************************************************/
-  dynFBF(unsigned long numberBFs, 
-         unsigned long long int tableSize, 
-         unsigned int numOfHashes) { 
-
+  FBF(unsigned long long int tableSize, 
+      unsigned int numOfHashes) { 
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
@@ -91,21 +83,11 @@ public:
     }
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
-    cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
-
-    for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
-      dyn_fbf[counter] = baseBF;
+    cout<<" INFO :: NUMBER OF CONSTITUENT BFs in FBF: " <<MINIMUM_NUM_OF_BFS <<endl;
+    for ( int counter = 0; counter < MINIMUM_NUM_OF_BFS; counter++ ) { 
+      fbf[counter] = baseBF;
     }
     newBF = baseBF;
-
-    // Update the class members
-    numberOfBFs = numberBFs;
-    pastEnd = numberBFs - 1;
-
-    cout<<" INFO :: dfuture: " <<dfuture <<endl;
-    cout<<" INFO :: dpresent: " <<dpresent <<endl;
-    cout<<" INFO :: pastStart: " <<pastStart <<endl;
-    cout<<" INFO :: pastEnd: " <<pastEnd <<endl;
 
     cout<<" INFO :: FBFs initialized " <<endl;
   }
@@ -117,7 +99,7 @@ public:
    *
    * RETURNS: NA
    ************************************************************/
-  ~dynFBF() {}
+  ~FBF() {}
 
   /************************************************************
    * FUNCTION NAME: refresh
@@ -129,10 +111,11 @@ public:
   void refresh() { 
     //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
-    for ( j = (numberOfBFs - 1); j > 0; j-- ) { 
-      dyn_fbf[j] = dyn_fbf[j - 1];
+    for ( j = (MINIMUM_NUM_OF_BFS - 1); j > 0; j-- ) { 
+      //cout<<" DEBUG :: Inside for loop. Iteration number: " <<j <<endl;
+      fbf[j] = fbf[j - 1];
     }
-    dyn_fbf[j] &= newBF;
+    fbf[j] &= newBF;
 
     cout<<" INFO :: Refreshed FBF" <<endl;
   }
@@ -152,8 +135,8 @@ public:
    * RETURNS: void
    ************************************************************/
   void insert(unsigned long long int element) { 
-    dyn_fbf[dpresent].insert(element);
-    dyn_fbf[dfuture].insert(element);
+    fbf[present].insert(element);
+    fbf[future].insert(element);
   }
 
   /************************************************************
@@ -173,25 +156,16 @@ public:
     double smartFPR = 0.0;
     unsigned int counter = 0;
     long long int i = -1;
-    unsigned int j;
 
     while ( counter != numberOfInvalids ) { 
-      if ( (dyn_fbf[dfuture].contains(i) && dyn_fbf[dpresent].contains(i)) ) {
+      if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (dyn_fbf[dpresent].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
+      else if ( (fbf[present].contains(i) && fbf[past].contains(i)) ) {
 	smartFP++;
       }
-      else if ( (dyn_fbf[pastEnd].contains(i)) ) {
+      else if ( (fbf[past].contains(i)) ) {
 	smartFP++;
-      }
-      else { 
-        for ( j = pastStart; j < pastEnd; j++ ) {
-          if ( (dyn_fbf[j].contains(i) && dyn_fbf[j + 1].contains(i)) ) {
-            smartFP++;
-            break;
-          }
-        }
       }
 
       i--;
@@ -204,7 +178,40 @@ public:
     cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
   }
 
-}; // End of dynFBF class
+  /************************************************************
+   * FUNCTION NAME: checkDumbFBF_FPR
+   * 
+   * This function checks the False Positives (FPs) and the 
+   * False Positive Rate (FPR) of the FBF using NAIVE RULES
+   * 
+   * PARAMETERS: 
+   *            numberOfInvalids: Number of invalid membership 
+   *                              checks to be made
+   * 
+   * RETURNS: void
+   ***********************************************************/
+  void checkDumbFBF_FPR(unsigned long long int numberOfInvalids) { 
+    unsigned long long int dumbFP = 0;
+    double dumbFPR = 0.0;
+    unsigned int counter = 0;
+    long long int i = -1;
+
+    while ( counter != numberOfInvalids ) { 
+      if ( (fbf[past].contains(i) || fbf[present].contains(i) || fbf[future].contains(i)) ) {
+	dumbFP++;
+      }
+
+      i--;
+      counter++;
+    }
+
+    dumbFPR = (double) dumbFP/numberOfInvalids;
+
+    cout<<" RESULT :: DUMB FP = " <<dumbFP <<endl;
+    cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
+  }
+
+}; // End of FBF class
 
 /* 
  * EOF
