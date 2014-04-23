@@ -253,10 +253,10 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
 void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
                             unsigned long long int numElements, 
                             unsigned long long int tableSize,
-		            unsigned int numOfHashes,
-		            unsigned long refreshRate,
-		            unsigned long long int batchOps,
-		            unsigned long long int numberOfInvalids) { 
+		                        unsigned int numOfHashes,
+		                        unsigned long refreshRate,
+		                        unsigned long long int batchOps,
+		                        unsigned long long int numberOfInvalids) { 
 
   cout<<" ----------------------------------------------------------- " <<endl;
   cout<<" INFO :: Test Execution Info " <<endl;
@@ -468,15 +468,16 @@ void varyConstituentBFNumbers() {
   */
 
   numberOfBFsVsOpsPerSec(3, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(4, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(5, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(4, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(5, 6250, 6250, 5, 3, 2000, 3125);
   numberOfBFsVsOpsPerSec(6, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(7, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(8, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(9, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(10, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(11, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(7, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(8, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(9, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(10, 6250, 6250, 5, 3, 2000, 3125);
+  //numberOfBFsVsOpsPerSec(11, 6250, 6250, 5, 3, 2000, 3125);
   numberOfBFsVsOpsPerSec(12, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(24, 6250, 6250, 5, 3, 2000, 3125);
 
   /* 
    * 1000 Ops per second 
