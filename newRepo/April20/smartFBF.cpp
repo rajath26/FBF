@@ -13,7 +13,7 @@
  * FBF classes
  */
 #include "FBF.cpp"
-#include "dynFBF_vector.cpp"
+#include "dynFBF.cpp"
 
 /* 
  * Timer class
@@ -339,12 +339,15 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
  * RETURNS: void
  ******************************************************************************/
 void varyNumElements() {
+  /*
   smartFBFvsDumbFBF(100, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 25, 500);
   smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 250, 1000);
   smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(5000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   smartFBFvsDumbFBF(8000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2000, 4000);
   smartFBFvsDumbFBF(10000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2500, 5000);
+  */
+  smartFBFvsDumbFBF(6250, 6250, 5, 3, 2000, 3125);
 }
 
 /******************************************************************************
@@ -449,18 +452,26 @@ void varyRefreshRate() {
  ******************************************************************************/
 void varyConstituentBFNumbers() { 
   
-  unsigned long long int num = 6250;
+  unsigned long long int num = 10000;
   unsigned long long int bat = 2000;
-  unsigned long long int inv = 6250;
+  unsigned long long int inv = 5000;
   unsigned int bf = 3;
 
   /*
    * 100 ops per sec
    */
+  /*
   for ( unsigned i = 0; i < 5; i++ ) { 
     numberOfBFsVsOpsPerSec(bf, num, 6250, 5, 3, bat, inv);
     bf += 3;
   }
+  */
+
+  numberOfBFsVsOpsPerSec(3, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(4, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(5, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(6, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(7, 6250, 6250, 5, 3, 2000, 3125);
 
   /* 
    * 1000 Ops per second 

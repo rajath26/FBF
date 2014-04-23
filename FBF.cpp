@@ -151,7 +151,7 @@ int main(int argc, char *argv[]) {
   /* 
    * Check for false positives in the smart FBF
    */
-  for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
+  for ( unsigned long long i = -1 ; i > ( -1 - (numElements / 2) ); i-- ) {
     /*
     if ( (presentBF.contains(i) && (pastBF.contains(i) || futureBF.contains(i))) ) {
       //std::cout<<"FOUND FP"<<std::endl;

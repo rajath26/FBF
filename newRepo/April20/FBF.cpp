@@ -75,14 +75,17 @@ public:
    ************************************************************/
   FBF(unsigned long long int tableSize, 
       unsigned int numOfHashes) { 
+
     parameters.projected_element_count = 10000;
     parameters.false_positive_probability = 0.0001;
     parameters.random_seed = 0xA5A5A5A5;
     if ( !parameters ) { 
       cout<<" ERROR :: Invalid set of bloom filter parameters " <<endl;
     }
+
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
     bloom_filter baseBF(parameters);
+    
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs in FBF: " <<MINIMUM_NUM_OF_BFS <<endl;
     for ( int counter = 0; counter < MINIMUM_NUM_OF_BFS; counter++ ) { 
       fbf[counter] = baseBF;

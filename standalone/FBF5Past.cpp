@@ -152,10 +152,14 @@ int main(int argc, char *argv[]) {
   std::cout<< " INFO :: Time elapses in for loop: " <<elapTime <<std::endl;
   std::cout<< " INFO :: Rate of insertion: " <<numElements/elapTime << "per second" <<std::endl;
 
+  long long int i = -1;
+  unsigned counter = 0;
+
   /* 
    * Check for false positives in the smart FBF
    */
-  for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
+  //for ( unsigned long long i = numElements; i < numElements + ELEMENTS_AFTER_TRY; i++ ) {
+  while ( counter != (numElements / 2) ) { 
     if ( (futureBF.contains(i) && presentBF.contains(i)) ) {
       FPCountSFBF++;
     }
@@ -171,11 +175,14 @@ int main(int argc, char *argv[]) {
     else if ( (past2BF.contains(i)) ) {
       FPCountSFBF++;
     }
+
+    i--; 
+    counter++;
   }
 
   // Print results  
   std::cout<< " INFO :: The number of FPs in a Smart FBF : " <<FPCountSFBF <<std::endl;
-  std::cout<< " INFO :: The FPR (False Positive Rate) of the SMART FBF is : " <<(double)FPCountSFBF/ELEMENTS_AFTER_TRY <<std::endl;
+  std::cout<< " INFO :: The FPR (False Positive Rate) of the SMART FBF is : " <<(double)FPCountSFBF/counter <<std::endl;
   
   return 0;
 

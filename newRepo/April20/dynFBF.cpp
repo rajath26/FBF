@@ -173,18 +173,34 @@ public:
     double smartFPR = 0.0;
     unsigned int counter = 0;
     long long int i = -1;
-    unsigned int j;
+    unsigned int j = 0;
+    int found = 0;
 
     while ( counter != numberOfInvalids ) { 
+      /*
       if ( (dyn_fbf[dfuture].contains(i) && dyn_fbf[dpresent].contains(i)) ) {
-	smartFP++;
+	      smartFP++;
       }
       else if ( (dyn_fbf[dpresent].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
-	smartFP++;
+	      smartFP++;
+      }
+      else if ( pastStart < pastEnd ) { 
+        //std::cout<<" INFO :: pastStart at this stage is : " <<pastStart <<std::endl;
+        //std::cout<<" INFO :: pastEnd at this stage is : " <<pastEnd <<std::endl;
+        j = pastStart;
+        while ( j <= (pastEnd - 1) ) { 
+            if ( (dyn_fbf[j].contains(i) && dyn_fbf[j+1].contains(i)) ) { 
+              smartFP++;
+              goto next;
+            }
+            j++;
+        }
       }
       else if ( (dyn_fbf[pastEnd].contains(i)) ) {
-	smartFP++;
-      }
+        smartFP++;
+      } 
+      */
+      /*
       else { 
         for ( j = pastStart; j < pastEnd; j++ ) {
           if ( (dyn_fbf[j].contains(i) && dyn_fbf[j + 1].contains(i)) ) {
@@ -193,9 +209,62 @@ public:
           }
         }
       }
+      */
+      /*
+      next: 
+        i--;
+        counter++;
+      */
+
+      /*
+      std::cout<<" INFO :: PRESENT Value is : " <<dpresent <<std::endl;
+      std::cout<<" INFO :: PAST END Value is : " <<pastEnd <<std::endl;
+
+      for ( j = dpresent; j <= pastEnd; j++ )  {
+        if ( (dyn_fbf[j-1].contains(i) && dyn_fbf[j].contains(i)) ) { 
+          smartFP++;
+          found = 1;
+          break;
+        }
+      }
+
+      if ( 0 == found ) { 
+        if ( dyn_fbf[pastEnd].contains(i) ) { 
+          smartFP++;
+        }
+      }
 
       i--;
       counter++;
+      */
+
+      if ( (dyn_fbf[dfuture].contains(i) && dyn_fbf[dpresent].contains(i)) ) {
+        smartFP++;
+      }
+      else if ( (dyn_fbf[dpresent].contains(i) && dyn_fbf[pastStart].contains(i)) ) {
+        smartFP++;
+      }
+      else if ( pastEnd > pastStart ) {
+        j = pastStart;
+        while ( j <= (pastEnd - 1) ) {
+          if ( (dyn_fbf[j].contains(i) && dyn_fbf[j+1].contains(i)) ) {
+            smartFP++;
+            found = 1;
+          }
+          j++;
+          if ( 1 == found ) {
+            goto next;
+          }
+        }
+      }
+      else if ( dyn_fbf[pastEnd].contains(i) ) {
+        smartFP++;
+      }
+
+      next:
+        i--;
+        counter++;
+
     }
 
     smartFPR = (double) smartFP/numberOfInvalids;
