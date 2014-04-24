@@ -95,6 +95,7 @@ public:
 
     for ( unsigned int counter = 0; counter < numberBFs; counter++ ) { 
       dyn_fbf[counter] = baseBF;
+      dyn_fbf[counter].clear();
     }
     newBF = baseBF;
 
@@ -129,10 +130,14 @@ public:
   void refresh() { 
     //cout<<" DEBUG :: Just entered refresh function " <<endl;
     unsigned int j;
-    for ( j = (numberOfBFs - 1); j > 0; j-- ) { 
+    for ( j = (numberOfBFs - 1); j > 0; j-- ) {
+      dyn_fbf[j].clear();
       dyn_fbf[j] = dyn_fbf[j - 1];
+      //std::cout<<" INFO :: " <<j-1 <<" copied into " <<j <<std::endl;
     }
-    dyn_fbf[j] &= newBF;
+    //std::cout<<" INFO :: Value of j being refreshed as new: " <<j <<std::endl;
+    dyn_fbf[j].clear();
+    dyn_fbf[j] = newBF;
 
     cout<<" INFO :: Refreshed FBF" <<endl;
   }
@@ -245,6 +250,7 @@ public:
         smartFP++;
       }
       else if ( pastEnd > pastStart ) {
+        /*
         j = pastStart;
         while ( j <= (pastEnd - 1) ) {
           if ( (dyn_fbf[j].contains(i) && dyn_fbf[j+1].contains(i)) ) {
@@ -252,6 +258,16 @@ public:
             found = 1;
           }
           j++;
+          if ( 1 == found ) {
+            goto next;
+          }
+        }
+        */
+        for ( j = pastStart; j <= (pastEnd - 1); j++ ) {
+          if ( (dyn_fbf[j].contains(i) && dyn_fbf[j+1].contains(i)) ) {
+            smartFP++;
+            found = 1;
+          }
           if ( 1 == found ) {
             goto next;
           }
@@ -271,6 +287,37 @@ public:
 
     cout<<" RESULT :: SMART FP = " <<smartFP <<endl;
     cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
+  }
+
+  /************************************************************
+   * FUNCTION NAME: checkEffectiveFPR
+   *
+   * This function checks the effective FPR
+   *
+   * RETURNS: void
+   ***********************************************************/
+  void checkEffectiveFPR() {
+    unsigned int counter = 0;
+    unsigned int temp = 0;
+    double effectiveFPR = 0.0;
+    double out = 0.0;
+
+    cout<<" RESULT :: Effective FPP of future BF: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
+    cout<<" RESULT :: Effective FPP of present BF: " <<dyn_fbf[dpresent].effective_fpp() <<endl;
+    cout<<" RESULT :: Effective FPP of past BF: " <<dyn_fbf[pastEnd].effective_fpp() <<endl;
+
+    for ( counter = dpresent; counter <= (pastEnd - 1); counter++ ) {
+      temp = counter + 1;
+      effectiveFPR += dyn_fbf[counter].effective_fpp() * dyn_fbf[temp].effective_fpp();
+    }
+
+    effectiveFPR += dyn_fbf[counter].effective_fpp();
+
+    cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
+
+    out = dyn_fbf[0].effective_fpp() * dyn_fbf[1].effective_fpp() + dyn_fbf[1].effective_fpp() * dyn_fbf[2].effective_fpp() + dyn_fbf[2].effective_fpp();
+    cout<<" RESULT :: The effective FPR of the FBF ouside of for loop: " <<out <<endl;
+
   }
 
 }; // End of dynFBF class

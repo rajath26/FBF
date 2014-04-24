@@ -25,7 +25,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 3 
+#define SLEEP_TIME 2 
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -330,6 +330,112 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
 }
 
 /******************************************************************************
+ * FUNCTION NAME: FPRComparison
+ *
+ * This function compares the FPR calculated emperically/mathematically
+ * versus the FPR calculated practically
+ *
+ * PARAMETERS:
+ *            numberOfBFs: Number of constituent BFs in the FBF
+ *            numElements: Number of elements to be inserted into the
+ *                         FBF
+ *            tableSize: constituent BFs size i.e. number of bits
+ *            numOfHashes: Number of hashes in each constituent BFs in
+ *                         FBF
+ *            refreshRate: time in seconds after which the FBF is
+ *                         refreshed
+ *            batchOps: number of inserts after which a sleep should be
+ *                      induced to simulate real world scenario
+ *            numberOfInvalids: number of invalid membership checks to
+ *                              be made
+ *
+ * RETURNS: void
+ ******************************************************************************/
+void FPRComparison(unsigned long numberOfBFs,
+                   unsigned long long int numElements,
+                   unsigned long long int tableSize,
+		           unsigned int numOfHashes,
+		           unsigned long refreshRate,
+		           unsigned long long int batchOps,
+		           unsigned long long int numberOfInvalids) {
+
+	  cout<<" ----------------------------------------------------------- " <<endl;
+	  cout<<" INFO :: Test Execution Info " <<endl;
+	  cout<<" INFO :: NUMBER OF ELEMENTS: " <<numElements <<endl;
+	  // Table size and number of hash functions printed by compute_optimal function
+	  // in FBF constructor. Number of BFs in FBF printed in constructor.
+	  // Dont print here
+	  cout<<" INFO :: REFRESH RATE: " <<refreshRate <<endl;
+	  cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<endl;
+
+	  // Timer to refresh the constituent BFs in FBF
+	  Timer t;
+	  // Timer to keep a tab on the operations per second
+	  Timer loopTime;
+
+	  unsigned long long int i;
+
+	  /*
+	   * STEP 1: CREATE THE DYNAMIC FBF
+	   */
+	  dynFBF dyn_FBF(numberOfBFs, tableSize, numOfHashes);
+
+	  // Start the timer
+	  t.start();
+	  cout<<" INFO :: Timer started " <<endl;
+
+	  /*
+	   * STEP 2: Insert some numbers in to the FBF
+	   */
+	  loopTime.start();
+	  for ( i = 0; i < numElements; i++ ) {
+
+	    /*
+	     * Check for elapsed time and refresh the FBF
+	     */
+	    if ( t.getElapsedTime() >= refreshRate ) {
+	      dyn_FBF.refresh();
+	      // Restart the timer after the refresh
+	      t.start();
+	    }
+
+	    /*
+	     * For every batch operations done induce some
+	     * sleep time
+	     */
+	    if ( 0 == i% batchOps ) {
+	      sleep(SLEEP_TIME);
+	    }
+
+	    /*
+	     * Insert number into the FBF
+	     */
+	    dyn_FBF.insert(i);
+
+	  } // End of for that inserts elements into the FBF
+
+	  /*
+	   * STEP 3: Measure the operations per second done
+	   */
+	  double elapsedLoopTime = loopTime.getElapsedTime();
+	  cout<<" INFO :: Time elapsed in for loop: " <<elapsedLoopTime <<endl;
+	  cout<<" INFO :: Rate of insertion: " <<(double)numElements/elapsedLoopTime <<"per second" <<endl;
+
+	  /*
+	   * STEP 4: Check for FPR using smart rules
+	   */
+	  dyn_FBF.checkSmartFBF_FPR(numberOfInvalids);
+
+	  /*
+	   *  STEP 5: Check effective FPR
+	   */
+	  dyn_FBF.checkEffectiveFPR();
+
+	  cout<<" -----------------------------------------------------------" <<endl <<endl;
+
+}
+
+/******************************************************************************
  * FUNCTION NAME: varyNumElements
  * 
  * This function runs the test case where the number of elements are varied 
@@ -451,11 +557,6 @@ void varyRefreshRate() {
  * RETURNS: void
  ******************************************************************************/
 void varyConstituentBFNumbers() { 
-  
-  unsigned long long int num = 10000;
-  unsigned long long int bat = 2000;
-  unsigned long long int inv = 5000;
-  unsigned int bf = 3;
 
   /*
    * 100 ops per sec
@@ -467,18 +568,60 @@ void varyConstituentBFNumbers() {
   }
   */
 
-  numberOfBFsVsOpsPerSec(3, 6250, 6250, 5, 3, 2000, 3125);
+  /* 
+   * Initial Tests
+   */
+  /*
+  numberOfBFsVsOpsPerSec(3, 19250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(4, 6250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(5, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(6, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(6, 19250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(7, 6250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(8, 6250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(9, 6250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(10, 6250, 6250, 5, 3, 2000, 3125);
   //numberOfBFsVsOpsPerSec(11, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(12, 6250, 6250, 5, 3, 2000, 3125);
-  numberOfBFsVsOpsPerSec(24, 6250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(12, 19250, 6250, 5, 3, 2000, 3125);
+  numberOfBFsVsOpsPerSec(24, 19250, 6250, 5, 3, 2000, 3125);
+  */
 
+  /*
+   * 100 ops per sec
+   */
+  unsigned long long int num = 50000;
+  unsigned long long int bat = 200;
+  unsigned long long int inv = 25000;
+  unsigned long long int tableSize = 25000;
+  unsigned int numHashes = 5;
+  unsigned int refreshRate = 5;
+  unsigned int bf = 3;
+
+  /*
+  for ( unsigned int counter = 0; counter < 4; counter++) {
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, bat, inv);
+    bf *= 2;
+  } 
+  */ 
+
+  bf = 3;
+  for ( unsigned int counter = 0; counter < 4; counter++) {
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 2000, inv);
+    refreshRate -= 1;
+    bf += 1;
+  }  
+
+  bf = 3;
+  for ( unsigned int counter = 0; counter < 4; counter++) {
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 10000, inv);
+    bf += 1;
+  }  
+
+  bf = 3;
+  for ( unsigned int counter = 0; counter < 4; counter++) {
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 20000, inv);
+    bf += 1;
+  }  
+  
   /* 
    * 1000 Ops per second 
    */
@@ -516,6 +659,24 @@ void varyConstituentBFNumbers() {
   */
 }
 
+/******************************************************************************
+ * FUNCTION NAME: effectiveFPRvsActualFPR
+ *
+ * This function runs the test case where the effective FPR of the FBF
+ * calculated mathematically is compared with the FPR calculated
+ * practically
+ *
+ * RETURNS: void
+ ******************************************************************************/
+void effectiveFPRvsActualFPR() {
+    FPRComparison(3, 1000, 6250, 3, 3, 200, 500);
+    FPRComparison(3, 2000, 6250, 3, 3, 200, 1000);
+    FPRComparison(3, 3000, 6250, 3, 3, 200, 1500);
+    FPRComparison(3, 4000, 6250, 3, 3, 200, 2000);
+    FPRComparison(3, 5000, 6250, 3, 3, 200, 2500);
+	FPRComparison(3, 6250, 6250, 3, 3, 200, 3125);
+}
+
 /*
  * Main function
  */
@@ -525,7 +686,8 @@ int main(int argc, char *argv[]) {
   //varyBFsize();
   //varyHashes();
   //varyRefreshRate();
-  varyConstituentBFNumbers();
+  //varyConstituentBFNumbers();
+  effectiveFPRvsActualFPR();
 
   return SUCCESS;
 

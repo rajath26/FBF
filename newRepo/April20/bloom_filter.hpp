@@ -27,7 +27,7 @@
 #include <string>
 #include <vector>
 
-
+using namespace std;
 static const std::size_t bits_per_char = 0x08;    // 8 bits in 1 char(unsigned)
 static const unsigned char bit_mask[bits_per_char] = {
                                                        0x01,  //00000001
@@ -147,7 +147,7 @@ public:
 
       optp.number_of_hashes = 3;
 
-      std::cout<<std::endl<<"OPTIMAL NUMBER OF HASH CHOSEN : " <<optp.number_of_hashes <<std::endl;
+      std::cout<<"\nOPTIMAL NUMBER OF HASH CHOSEN : " <<optp.number_of_hashes <<"\n";
 
       if (optp.table_size < minimum_size)
          optp.table_size = minimum_size;
@@ -156,9 +156,9 @@ public:
 
       optp.table_size = 6250;
 
-      std::cout<<std::endl<<"TABLE SIZE: "<<sizeof(unsigned long long int)*optp.table_size <<std::endl;
+      std::cout<<"\nTABLE SIZE: "<<sizeof(unsigned long long int)*optp.table_size <<"\n";
 
-      std::cout<<std::endl<<"OPTIMAL TABLE SIZE CHOSEN : " <<optp.table_size <<std::endl;
+      std::cout<<"\nOPTIMAL TABLE SIZE CHOSEN : " <<optp.table_size <<"\n";
       return true;
    }
 
@@ -213,9 +213,9 @@ public:
 
       optp.table_size = tableSize;
 
-      std::cout<<std::endl<<" INFO :: TABLE SIZE IN BYTES: "<<sizeof(unsigned long long int)*optp.table_size <<std::endl;
+      std::cout<<"\n INFO :: TABLE SIZE IN BYTES: "<<sizeof(unsigned long long int)*optp.table_size <<"\n";
 
-      std::cout<<std::endl<<" INFO :: TABLE SIZE CHOSEN : " <<optp.table_size <<std::endl;
+      std::cout<<"\n INFO :: TABLE SIZE CHOSEN : " <<optp.table_size <<"\n";
       return true;
    }
 

@@ -214,6 +214,28 @@ public:
     cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
   }
 
+  /************************************************************
+   * FUNCTION NAME: checkEffectiveFPR
+   *
+   * This function checks the effective FPR
+   *
+   * RETURNS: void
+   ***********************************************************/
+  void checkEffectiveFPR() {
+      unsigned int counter = 0;
+      unsigned int temp = 0;
+      double effectiveFPR = 0.0;
+      double out = 0.0;
+
+      cout<<" RESULT :: Effective FPP of future BF: " <<fbf[future].effective_fpp() <<endl;
+      cout<<" RESULT :: Effective FPP of present BF: " <<fbf[present].effective_fpp() <<endl;
+      cout<<" RESULT :: Effective FPP of past BF: " <<fbf[past].effective_fpp() <<endl;
+
+      out = fbf[0].effective_fpp() * fbf[1].effective_fpp() + fbf[1].effective_fpp() * fbf[2].effective_fpp() + fbf[2].effective_fpp();
+      cout<<" RESULT :: The effective FPR of the FBF outside of for loop: " <<out <<endl;
+
+  }
+
 }; // End of FBF class
 
 /* 
