@@ -25,7 +25,7 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 5
+#define SLEEP_TIME 4
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -180,7 +180,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   /* 
    * STEP 1: CREATE THE FBF
    */
-  FBF simpleFBF(tableSize, numOfHashes);
+  dynFBF simpleFBF(6, tableSize, numOfHashes);
 
   // Start the timer
   t.start();
@@ -227,6 +227,11 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
    * STEP 4: Check for FPR using smart rules
    */
   simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
+
+  /*
+   * STEP 5: Check for FPR using mathematical probability
+   */
+  simpleFBF.checkEffectiveFPR();
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
@@ -510,42 +515,42 @@ void varyRefreshRate() {
   /*
    * 100 Ops per second
    */
-  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 500, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 500, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 500, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 500, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 500, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 500, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 400, 25000);
 
   /* 
    * 1000 Ops per second 
    */
-  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 5000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 5000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 5000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 5000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 5000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 5000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 4000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 4000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 4000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 4000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 4000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 4000, 25000);
 
   /* 
    * 5000 Ops per second
    */
-  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 25000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 25000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 25000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 25000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 25000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 25000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 20000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 20000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 20000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 20000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 20000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 20000, 25000);
 
   /* 
    * 10000 Ops per second 
    */
-  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 50000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 50000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 50000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 50000, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 50000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 20, 40000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 40000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 40000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 40000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 2, 40000, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 1, 40000, 25000);
 }
 
 /******************************************************************************
@@ -685,8 +690,8 @@ int main(int argc, char *argv[]) {
 
   //varyNumElements();
   //varyBFsize();
-  varyHashes();
-  //varyRefreshRate();
+  //varyHashes();
+  varyRefreshRate();
   //varyConstituentBFNumbers();
   //effectiveFPRvsActualFPR();
 
