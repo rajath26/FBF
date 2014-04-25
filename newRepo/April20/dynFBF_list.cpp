@@ -217,6 +217,8 @@ public:
     cout<<" RESULT :: SMART FPR = " <<smartFPR <<endl;
   }
 
+  void checkEffectiveFPR() {}
+
 }; // End of dynFBF class
 
 /* 

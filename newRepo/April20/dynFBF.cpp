@@ -51,10 +51,11 @@ public:
    * Bloom Filter parameters 
    */
   bloom_parameters parameters;
+
   /* 
    * Constituent BFs of the FBF
    * Past, Present and Future BFs
-   * The vector can accomodate multiple past BFs as well
+   * The vector can accommodate multiple past BFs as well
    */
   bloom_filter dyn_fbf[DEF_NUM_OF_BFS];
 
@@ -90,6 +91,7 @@ public:
       cout<<" ERROR :: Invalid set of bloom filter parameters " <<endl;
     }
     parameters.compute_optimal_parameters(tableSize, numOfHashes);
+
     bloom_filter baseBF(parameters);
     cout<<" INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: " <<numberBFs <<endl;
 
@@ -128,14 +130,13 @@ public:
    * RETURNS: void 
    ************************************************************/
   void refresh() { 
-    //cout<<" DEBUG :: Just entered refresh function " <<endl;
+
     unsigned int j;
     for ( j = (numberOfBFs - 1); j > 0; j-- ) {
       dyn_fbf[j].clear();
       dyn_fbf[j] = dyn_fbf[j - 1];
-      //std::cout<<" INFO :: " <<j-1 <<" copied into " <<j <<std::endl;
     }
-    //std::cout<<" INFO :: Value of j being refreshed as new: " <<j <<std::endl;
+
     dyn_fbf[j].clear();
     dyn_fbf[j] = newBF;
 
@@ -290,9 +291,50 @@ public:
   }
 
   /************************************************************
+   * FUNCTION NAME: checkDumbFBF_FPR
+   *
+   * This function checks the False Positives (FPs) and the
+   * False Positive Rate (FPR) of the FBF using NAIVE RULES
+   *
+   * PARAMETERS:
+   *            numberOfInvalids: Number of invalid membership
+   *                              checks to be made
+   *
+   * RETURNS: void
+   ***********************************************************/
+  void checkDumbFBF_FPR(unsigned long long int numberOfInvalids) {
+	unsigned long long int dumbFP = 0;
+	double dumbFPR = 0.0;
+	unsigned int counter = 0;
+	long long int i = -1;
+	//int found = 0;
+
+	while ( counter != numberOfInvalids ) {
+      for ( unsigned int j = dfuture; j <= pastEnd; j++ ) {
+        if ( dyn_fbf[j].contains(i) ) {
+          dumbFP++;
+          //found = 1;
+          break;
+        }
+        /*if ( 1 == found ) {
+          goto next;
+        }*/
+      }
+      //next:
+        i--;
+        counter++;
+    }
+
+	dumbFPR = (double) dumbFP/numberOfInvalids;
+
+	cout<<" RESULT :: DUMB FP = " <<dumbFP <<endl;
+	cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
+  }
+
+  /************************************************************
    * FUNCTION NAME: checkEffectiveFPR
    *
-   * This function checks the effective FPR
+   * This function checks the effective FPR of the FBF
    *
    * RETURNS: void
    ***********************************************************/
@@ -300,24 +342,22 @@ public:
     unsigned int counter = 0;
     unsigned int temp = 0;
     double effectiveFPR = 0.0;
-    double out = 0.0;
 
-    cout<<" RESULT :: Effective FPP of future BF: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
-    cout<<" RESULT :: Effective FPP of present BF: " <<dyn_fbf[dpresent].effective_fpp() <<endl;
-    cout<<" RESULT :: Effective FPP of past BF: " <<dyn_fbf[pastEnd].effective_fpp() <<endl;
-
-    for ( counter = dpresent; counter <= (pastEnd - 1); counter++ ) {
-      temp = counter + 1;
-      effectiveFPR += dyn_fbf[counter].effective_fpp() * dyn_fbf[temp].effective_fpp();
+    cout<<endl<<" INFO :: Individual FPP here: " <<endl;
+    cout<<" INFO :: Future BF FPP: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
+    for ( unsigned int i = present; i <= pastEnd; i++ ) {
+      cout<<" INFO :: " <<i <<"BF FPP: " <<dyn_fbf[i].effective_modified_fpp() <<endl;
     }
 
-    effectiveFPR += dyn_fbf[counter].effective_fpp();
+    effectiveFPR = dyn_fbf[dfuture].effective_fpp() * dyn_fbf[dpresent].effective_modified_fpp();
+    for ( counter = dpresent; counter <= (pastEnd - 1); counter++ ) {
+      temp = counter + 1;
+      effectiveFPR += dyn_fbf[counter].effective_modified_fpp() * dyn_fbf[temp].effective_modified_fpp();
+    }
+
+    effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
 
     cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
-
-    out = dyn_fbf[0].effective_fpp() * dyn_fbf[1].effective_fpp() + dyn_fbf[1].effective_fpp() * dyn_fbf[2].effective_fpp() + dyn_fbf[2].effective_fpp();
-    cout<<" RESULT :: The effective FPR of the FBF ouside of for loop: " <<out <<endl;
-
   }
 
 }; // End of dynFBF class

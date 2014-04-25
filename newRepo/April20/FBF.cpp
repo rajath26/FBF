@@ -112,13 +112,15 @@ public:
    * RETURNS: void 
    ************************************************************/
   void refresh() { 
-    //cout<<" DEBUG :: Just entered refresh function " <<endl;
+
     unsigned int j;
     for ( j = (MINIMUM_NUM_OF_BFS - 1); j > 0; j-- ) { 
-      //cout<<" DEBUG :: Inside for loop. Iteration number: " <<j <<endl;
+      fbf[j].clear();
       fbf[j] = fbf[j - 1];
     }
-    fbf[j] &= newBF;
+
+    fbf[j].clear();
+    fbf[j] = newBF;
 
     cout<<" INFO :: Refreshed FBF" <<endl;
   }
@@ -162,13 +164,13 @@ public:
 
     while ( counter != numberOfInvalids ) { 
       if ( (fbf[future].contains(i) && fbf[present].contains(i)) ) {
-	smartFP++;
+	    smartFP++;
       }
       else if ( (fbf[present].contains(i) && fbf[past].contains(i)) ) {
-	smartFP++;
+	    smartFP++;
       }
       else if ( (fbf[past].contains(i)) ) {
-	smartFP++;
+	    smartFP++;
       }
 
       i--;
@@ -201,7 +203,7 @@ public:
 
     while ( counter != numberOfInvalids ) { 
       if ( (fbf[past].contains(i) || fbf[present].contains(i) || fbf[future].contains(i)) ) {
-	dumbFP++;
+	    dumbFP++;
       }
 
       i--;
@@ -212,28 +214,6 @@ public:
 
     cout<<" RESULT :: DUMB FP = " <<dumbFP <<endl;
     cout<<" RESULT :: DUMB FPR = " <<dumbFPR <<endl;
-  }
-
-  /************************************************************
-   * FUNCTION NAME: checkEffectiveFPR
-   *
-   * This function checks the effective FPR
-   *
-   * RETURNS: void
-   ***********************************************************/
-  void checkEffectiveFPR() {
-      unsigned int counter = 0;
-      unsigned int temp = 0;
-      double effectiveFPR = 0.0;
-      double out = 0.0;
-
-      cout<<" RESULT :: Effective FPP of future BF: " <<fbf[future].effective_fpp() <<endl;
-      cout<<" RESULT :: Effective FPP of present BF: " <<fbf[present].effective_fpp() <<endl;
-      cout<<" RESULT :: Effective FPP of past BF: " <<fbf[past].effective_fpp() <<endl;
-
-      out = fbf[0].effective_fpp() * fbf[1].effective_fpp() + fbf[1].effective_fpp() * fbf[2].effective_fpp() + fbf[2].effective_fpp();
-      cout<<" RESULT :: The effective FPR of the FBF outside of for loop: " <<out <<endl;
-
   }
 
 }; // End of FBF class

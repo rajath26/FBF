@@ -25,13 +25,14 @@
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 2 
+#define SLEEP_TIME 5
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
 #define DEF_REFRESH_RATE 3 
 #define DEF_BATCH_OPS 200
 #define DEF_NUM_INVALIDS 2500
+#define SIMPLE_FBF 3
 
 using namespace std;
 
@@ -58,10 +59,10 @@ using namespace std;
  ***********************************************************************/
 void smartFBFvsDumbFBF(unsigned long long int numElements, 
                        unsigned long long int tableSize,
-		       unsigned int numOfHashes,
-		       unsigned long refreshRate,
-		       unsigned long long int batchOps,
-		       unsigned long long int numberOfInvalids) { 
+		               unsigned int numOfHashes,
+		               unsigned long refreshRate,
+		               unsigned long long int batchOps,
+		               unsigned long long int numberOfInvalids) {
 
   cout<<" ----------------------------------------------------------- " <<endl;
   cout<<" INFO :: Test Execution Info " <<endl;
@@ -79,7 +80,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   /*
    * STEP 1: Create the FBF 
    */
-  FBF simpleFBF(tableSize, numOfHashes);
+  dynFBF simpleFBF(6, tableSize, numOfHashes);
 
   // Start the timer
   t.start();
@@ -94,8 +95,6 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
      * Check for elapsed time and refresh the FBF
      */
     if ( t.getElapsedTime() >= refreshRate ) { 
-      //cout<<" DEBUG :: Yes I am inside the refresh if condition " <<endl;
-      //cout<<" DEBUG :: Calling refresh function " <<endl;
       simpleFBF.refresh();
       // Restart the timer
       t.start();
@@ -125,6 +124,11 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
    * STEP 4: Check for False Positives (FPs) using dumb rules
    */ 
   simpleFBF.checkDumbFBF_FPR(numberOfInvalids);
+
+  /*
+   * STEP 5: Check the False Positives (FPs) using mathematical formula
+   */
+  simpleFBF.checkEffectiveFPR();
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
   
@@ -445,15 +449,12 @@ void FPRComparison(unsigned long numberOfBFs,
  * RETURNS: void
  ******************************************************************************/
 void varyNumElements() {
-  /*
   smartFBFvsDumbFBF(100, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 25, 500);
   smartFBFvsDumbFBF(1000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 250, 1000);
   smartFBFvsDumbFBF(2000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 500, 1000);
   smartFBFvsDumbFBF(5000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 1250, 2500);
   smartFBFvsDumbFBF(8000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2000, 4000);
   smartFBFvsDumbFBF(10000, DEF_TABLE_SIZE, DEF_NUM_OF_HASH, DEF_REFRESH_RATE, 2500, 5000);
-  */
-  smartFBFvsDumbFBF(6250, 6250, 5, 3, 2000, 3125);
 }
 
 /******************************************************************************
@@ -682,12 +683,12 @@ void effectiveFPRvsActualFPR() {
  */
 int main(int argc, char *argv[]) { 
 
-  //varyNumElements();
+  varyNumElements();
   //varyBFsize();
   //varyHashes();
   //varyRefreshRate();
   //varyConstituentBFNumbers();
-  effectiveFPRvsActualFPR();
+  //effectiveFPRvsActualFPR();
 
   return SUCCESS;
 

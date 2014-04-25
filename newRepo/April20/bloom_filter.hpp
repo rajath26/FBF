@@ -442,6 +442,10 @@ public:
       return std::pow(1.0 - std::exp(-1.0 * salt_.size() * inserted_element_count_ / size()), 1.0 * salt_.size());
    }
 
+   inline double effective_modified_fpp() const {
+	   return std::pow(1.0 - std::exp(-1.0 * salt_.size() * (inserted_element_count_ / 2) / size()), 1.0 * salt_.size());
+   }
+
    inline bloom_filter& operator &= (const bloom_filter& f)
    {
       /* intersection */
