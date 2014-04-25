@@ -1,0 +1,238 @@
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 42
+ RESULT :: SMART FPR = 0.028
+ RESULT :: DUMB FP = 66
+ RESULT :: DUMB FPR = 0.044
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0275405
+ INFO :: 1BF FPP: 0.0275405
+ INFO :: 2BF FPP: 0.0276323
+ RESULT :: The effective FPR of the FBF is: 0.0291518
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 4
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 66
+ RESULT :: SMART FPR = 0.044
+ RESULT :: DUMB FP = 115
+ RESULT :: DUMB FPR = 0.0766667
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.021032
+ INFO :: 1BF FPP: 0.021032
+ INFO :: 2BF FPP: 0.0211197
+ RESULT :: The effective FPR of the FBF is: 0.0220062
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 5
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 283
+ RESULT :: SMART FPR = 0.188667
+ RESULT :: DUMB FP = 411
+ RESULT :: DUMB FPR = 0.274
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0186069
+ INFO :: 1BF FPP: 0.0186069
+ INFO :: 2BF FPP: 0.0186978
+ RESULT :: The effective FPR of the FBF is: 0.0193919
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 6
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 319
+ RESULT :: SMART FPR = 0.212667
+ RESULT :: DUMB FP = 501
+ RESULT :: DUMB FPR = 0.334
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0181797
+ INFO :: 1BF FPP: 0.0181797
+ INFO :: 2BF FPP: 0.0182794
+ RESULT :: The effective FPR of the FBF is: 0.0189422
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 7
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 31
+ RESULT :: SMART FPR = 0.0206667
+ RESULT :: DUMB FP = 63
+ RESULT :: DUMB FPR = 0.042
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0190282
+ INFO :: 1BF FPP: 0.0190282
+ INFO :: 2BF FPP: 0.019142
+ RESULT :: The effective FPR of the FBF is: 0.0198683
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 8
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 421
+ RESULT :: SMART FPR = 0.280667
+ RESULT :: DUMB FP = 642
+ RESULT :: DUMB FPR = 0.428
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0208988
+ INFO :: 1BF FPP: 0.0208988
+ INFO :: 2BF FPP: 0.0210322
+ RESULT :: The effective FPR of the FBF is: 0.0219085
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 3000
+ INFO :: REFRESH RATE: 3
+ INFO :: BATCH OPERATIONS: 750
+
+ INFO :: NUMBER OF HASHES CHOSEN : 9
+
+ INFO :: TABLE SIZE IN BYTES: 50000
+
+ INFO :: TABLE SIZE CHOSEN : 6250
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ RESULT :: SMART FP = 322
+ RESULT :: SMART FPR = 0.214667
+ RESULT :: DUMB FP = 490
+ RESULT :: DUMB FPR = 0.326667
+
+ INFO :: Individual FPP here: 
+ INFO :: Future BF FPP: 0.0237352
+ INFO :: 1BF FPP: 0.0237352
+ INFO :: 2BF FPP: 0.0238941
+ RESULT :: The effective FPR of the FBF is: 0.0250246
+ -----------------------------------------------------------
+

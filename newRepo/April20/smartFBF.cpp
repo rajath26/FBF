@@ -489,10 +489,10 @@ void varyBFsize() {
  * RETURNS: void
  ******************************************************************************/
 void varyHashes() {
-  unsigned long long int num = 2000;
-  unsigned long long int bat = 500;
-  unsigned long long int inv = 2000;
-  for ( unsigned int i = 3; i < 18; i++ ) {
+  unsigned long long int num = 3000;
+  unsigned long long int bat = 750;
+  unsigned long long int inv = 1500;
+  for ( unsigned int i = 3; i < 10; i++ ) {
     smartFBFvsDumbFBF(num, DEF_TABLE_SIZE, i, DEF_REFRESH_RATE, bat, inv);
   }
 }
@@ -684,8 +684,8 @@ void effectiveFPRvsActualFPR() {
 int main(int argc, char *argv[]) { 
 
   //varyNumElements();
-  varyBFsize();
-  //varyHashes();
+  //varyBFsize();
+  varyHashes();
   //varyRefreshRate();
   //varyConstituentBFNumbers();
   //effectiveFPRvsActualFPR();
