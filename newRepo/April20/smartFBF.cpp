@@ -683,8 +683,8 @@ void effectiveFPRvsActualFPR() {
  */
 int main(int argc, char *argv[]) { 
 
-  varyNumElements();
-  //varyBFsize();
+  //varyNumElements();
+  varyBFsize();
   //varyHashes();
   //varyRefreshRate();
   //varyConstituentBFNumbers();
