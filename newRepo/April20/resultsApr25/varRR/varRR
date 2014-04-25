@@ -916,7 +916,7 @@
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 20
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -930,8 +930,8 @@
  INFO :: pastEnd: 2
  INFO :: FBFs initialized 
  INFO :: Timer started 
- INFO :: Time elapsed in for loop: 12.0258
- INFO :: Rate of insertion: 4157.72per second
+ INFO :: Time elapsed in for loop: 8.01965
+ INFO :: Rate of insertion: 6234.68per second
  RESULT :: SMART FP = 7402
  RESULT :: SMART FPR = 0.29608
 
@@ -946,7 +946,7 @@
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 10
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -960,24 +960,23 @@
  INFO :: pastEnd: 2
  INFO :: FBFs initialized 
  INFO :: Timer started 
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 12.0293
- INFO :: Rate of insertion: 4156.53per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 8.02045
+ INFO :: Rate of insertion: 6234.06per second
+ RESULT :: SMART FP = 7402
+ RESULT :: SMART FPR = 0.29608
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
+ INFO :: Future BF FPP: 0.857952
  INFO :: 1BF FPP: 0.468862
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.5443
+ INFO :: 2BF FPP: 0
+ RESULT :: The effective FPR of the FBF is: 0.402261
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 5
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -992,23 +991,23 @@
  INFO :: FBFs initialized 
  INFO :: Timer started 
  INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 12.0236
- INFO :: Rate of insertion: 4158.47per second
- RESULT :: SMART FP = 4351
- RESULT :: SMART FPR = 0.17404
+ INFO :: Time elapsed in for loop: 8.0199
+ INFO :: Rate of insertion: 6234.5per second
+ RESULT :: SMART FP = 4239
+ RESULT :: SMART FPR = 0.16956
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.581537
+ INFO :: Future BF FPP: 0.444296
  INFO :: 1BF FPP: 0.468862
- INFO :: 2BF FPP: 0.0918488
- RESULT :: The effective FPR of the FBF is: 0.407574
+ INFO :: 2BF FPP: 0.158863
+ RESULT :: The effective FPR of the FBF is: 0.441661
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 3
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1024,24 +1023,23 @@
  INFO :: Timer started 
  INFO :: Refreshed FBF
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 12.0216
- INFO :: Rate of insertion: 4159.18per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 8.0215
+ INFO :: Rate of insertion: 6233.25per second
+ RESULT :: SMART FP = 4239
+ RESULT :: SMART FPR = 0.16956
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.208956
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.431742
+ INFO :: Future BF FPP: 0.444296
+ INFO :: 1BF FPP: 0.468837
+ INFO :: 2BF FPP: 0.158863
+ RESULT :: The effective FPR of the FBF is: 0.441646
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 2
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1057,24 +1055,23 @@
  INFO :: Timer started 
  INFO :: Refreshed FBF
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 12.0237
- INFO :: Rate of insertion: 4158.45per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 8.02956
+ INFO :: Rate of insertion: 6226.99per second
+ RESULT :: SMART FP = 4239
+ RESULT :: SMART FPR = 0.16956
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.208956
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.431742
+ INFO :: Future BF FPP: 0.444296
+ INFO :: 1BF FPP: 0.468837
+ INFO :: 2BF FPP: 0.158863
+ RESULT :: The effective FPR of the FBF is: 0.441646
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 1
- INFO :: BATCH OPERATIONS: 20000
+ INFO :: BATCH OPERATIONS: 26000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1090,24 +1087,23 @@
  INFO :: Timer started 
  INFO :: Refreshed FBF
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 12.0216
- INFO :: Rate of insertion: 4159.19per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 8.03746
+ INFO :: Rate of insertion: 6220.87per second
+ RESULT :: SMART FP = 4239
+ RESULT :: SMART FPR = 0.16956
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.208956
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.431742
+ INFO :: Future BF FPP: 0.444296
+ INFO :: 1BF FPP: 0.468837
+ INFO :: 2BF FPP: 0.158863
+ RESULT :: The effective FPR of the FBF is: 0.441646
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 20
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1121,8 +1117,8 @@
  INFO :: pastEnd: 2
  INFO :: FBFs initialized 
  INFO :: Timer started 
- INFO :: Time elapsed in for loop: 8.02322
- INFO :: Rate of insertion: 6231.91per second
+ INFO :: Time elapsed in for loop: 4.01813
+ INFO :: Rate of insertion: 12443.6per second
  RESULT :: SMART FP = 7402
  RESULT :: SMART FPR = 0.29608
 
@@ -1137,7 +1133,7 @@
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 10
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1151,8 +1147,8 @@
  INFO :: pastEnd: 2
  INFO :: FBFs initialized 
  INFO :: Timer started 
- INFO :: Time elapsed in for loop: 8.0238
- INFO :: Rate of insertion: 6231.46per second
+ INFO :: Time elapsed in for loop: 4.01955
+ INFO :: Rate of insertion: 12439.2per second
  RESULT :: SMART FP = 7402
  RESULT :: SMART FPR = 0.29608
 
@@ -1167,7 +1163,7 @@
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 5
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1181,24 +1177,23 @@
  INFO :: pastEnd: 2
  INFO :: FBFs initialized 
  INFO :: Timer started 
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 8.02105
- INFO :: Rate of insertion: 6233.6per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 4.02078
+ INFO :: Rate of insertion: 12435.4per second
+ RESULT :: SMART FP = 7402
+ RESULT :: SMART FPR = 0.29608
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
+ INFO :: Future BF FPP: 0.857952
  INFO :: 1BF FPP: 0.468862
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.5443
+ INFO :: 2BF FPP: 0
+ RESULT :: The effective FPR of the FBF is: 0.402261
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 3
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1213,24 +1208,23 @@
  INFO :: FBFs initialized 
  INFO :: Timer started 
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 8.01958
- INFO :: Rate of insertion: 6234.74per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 4.02614
+ INFO :: Rate of insertion: 12418.8per second
+ RESULT :: SMART FP = 7402
+ RESULT :: SMART FPR = 0.29608
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.468837
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.54429
+ INFO :: Future BF FPP: 0.857944
+ INFO :: 1BF FPP: 0.468862
+ INFO :: 2BF FPP: 0
+ RESULT :: The effective FPR of the FBF is: 0.402257
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 2
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1245,24 +1239,23 @@
  INFO :: FBFs initialized 
  INFO :: Timer started 
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 8.01822
- INFO :: Rate of insertion: 6235.8per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 4.02668
+ INFO :: Rate of insertion: 12417.2per second
+ RESULT :: SMART FP = 7402
+ RESULT :: SMART FPR = 0.29608
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.468837
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.54429
+ INFO :: Future BF FPP: 0.857944
+ INFO :: 1BF FPP: 0.468862
+ INFO :: 2BF FPP: 0
+ RESULT :: The effective FPR of the FBF is: 0.402257
  -----------------------------------------------------------
 
  ----------------------------------------------------------- 
  INFO :: Test Execution Info 
  INFO :: NUMBER OF ELEMENTS: 50000
  INFO :: REFRESH RATE: 1
- INFO :: BATCH OPERATIONS: 40000
+ INFO :: BATCH OPERATIONS: 50000
 
  INFO :: NUMBER OF HASHES CHOSEN : 3
 
@@ -1277,16 +1270,15 @@
  INFO :: FBFs initialized 
  INFO :: Timer started 
  INFO :: Refreshed FBF
- INFO :: Refreshed FBF
- INFO :: Time elapsed in for loop: 8.02086
- INFO :: Rate of insertion: 6233.75per second
- RESULT :: SMART FP = 5465
- RESULT :: SMART FPR = 0.2186
+ INFO :: Time elapsed in for loop: 4.02304
+ INFO :: Rate of insertion: 12428.4per second
+ RESULT :: SMART FP = 7402
+ RESULT :: SMART FPR = 0.29608
 
  INFO :: Individual FPP here: 
- INFO :: Future BF FPP: 0.0918287
- INFO :: 1BF FPP: 0.468837
- INFO :: 2BF FPP: 0.341248
- RESULT :: The effective FPR of the FBF is: 0.54429
+ INFO :: Future BF FPP: 0.857944
+ INFO :: 1BF FPP: 0.468862
+ INFO :: 2BF FPP: 0
+ RESULT :: The effective FPR of the FBF is: 0.402257
  -----------------------------------------------------------
 
