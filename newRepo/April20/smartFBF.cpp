@@ -180,7 +180,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   /* 
    * STEP 1: CREATE THE FBF
    */
-  dynFBF simpleFBF(6, tableSize, numOfHashes);
+  dynFBF simpleFBF(3, tableSize, numOfHashes);
 
   // Start the timer
   t.start();
@@ -515,26 +515,22 @@ void varyRefreshRate() {
   /*
    * 100 Ops per second
    */
-  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 400, 25000);
-  */
 
   /* 
    * 1000 Ops per second 
    */
-  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 4000, 25000);
-  */
 
   /* 
    * 5000 Ops per second
