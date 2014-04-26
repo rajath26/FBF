@@ -334,6 +334,11 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
    */
   dyn_FBF.checkSmartFBF_FPR(numberOfInvalids);
 
+  /*
+   * STEP 5: Check for probabilistic FPR
+   */
+  dyn_FBF.checkEffectiveFPR();
+
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
 }
@@ -594,12 +599,12 @@ void varyConstituentBFNumbers() {
   /*
    * 100 ops per sec
    */
-  unsigned long long int num = 50000;
+  unsigned long long int num = 12500;
   unsigned long long int bat = 200;
-  unsigned long long int inv = 25000;
-  unsigned long long int tableSize = 25000;
-  unsigned int numHashes = 5;
-  unsigned int refreshRate = 5;
+  unsigned long long int inv = 6250;
+  unsigned long long int tableSize = 12500;
+  unsigned int numHashes = 3;
+  unsigned int refreshRate = 3;
   unsigned int bf = 3;
 
   /*
@@ -611,22 +616,22 @@ void varyConstituentBFNumbers() {
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 2000, inv);
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, bat, inv);
     refreshRate -= 1;
-    bf += 1;
+    bf *= 2;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 10000, inv);
-    bf += 1;
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 2000, inv);
+    bf *= 2;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 20000, inv);
-    bf += 1;
-  }  
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 12500, inv);
+    bf *= 2;
+  }
   
   /* 
    * 1000 Ops per second 
@@ -691,8 +696,8 @@ int main(int argc, char *argv[]) {
   //varyNumElements();
   //varyBFsize();
   //varyHashes();
-  varyRefreshRate();
-  //varyConstituentBFNumbers();
+  //varyRefreshRate();
+  varyConstituentBFNumbers();
   //effectiveFPRvsActualFPR();
 
   return SUCCESS;
