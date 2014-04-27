@@ -599,10 +599,10 @@ void varyConstituentBFNumbers() {
   /*
    * 100 ops per sec
    */
-  unsigned long long int num = 12500;
-  unsigned long long int bat = 200;
-  unsigned long long int inv = 6250;
-  unsigned long long int tableSize = 12500;
+  unsigned long long int num = 37500;
+  unsigned long long int bat = 400;
+  unsigned long long int inv = 18750;
+  unsigned long long int tableSize = 37500;
   unsigned int numHashes = 3;
   unsigned int refreshRate = 3;
   unsigned int bf = 3;
@@ -623,13 +623,13 @@ void varyConstituentBFNumbers() {
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 2000, inv);
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 4000, inv);
     bf *= 2;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 12500, inv);
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 40000, inv);
     bf *= 2;
   }
   
