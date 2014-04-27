@@ -617,7 +617,6 @@ void varyConstituentBFNumbers() {
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
     numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, bat, inv);
-    refreshRate -= 1;
     bf *= 2;
   }  
 
