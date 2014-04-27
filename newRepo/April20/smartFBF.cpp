@@ -617,19 +617,19 @@ void varyConstituentBFNumbers() {
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
     numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, bat, inv);
-    bf *= 2;
+    bf += 2;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
     numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 4000, inv);
-    bf *= 2;
+    bf += 2;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
     numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 40000, inv);
-    bf *= 2;
+    bf += 2;
   }
   
   /* 
