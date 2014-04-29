@@ -3,7 +3,7 @@
  */
 #include <iostream>
 #include <unistd.h>
-
+#include <vector>
 /*
  * Bloom Filter Library
  */
@@ -14,6 +14,9 @@
  */
 #define DEF_NUM_OF_BFS 100 
 #define DFUTURE 0
+#define FPR_THRESHOLD_RATIO 0.9
+#define BF_INCREASE_FACTOR 2
+#define RR_INCREASE_FACTOR 1
 
 /* 
  * Global variables
@@ -336,28 +339,90 @@ public:
    *
    * This function checks the effective FPR of the FBF
    *
+   * PARAMETERS:
+   *            elapsedTime: Time that has elapsed since the
+   *                         last refresh
+   *            refreshRate: The current refresh rate of the
+   *                         FBF
+   *
    * RETURNS: void
    ***********************************************************/
-  void checkEffectiveFPR() {
+  double checkEffectiveFPR(double elapsedTime,
+		                 unsigned long refreshRate) {
     unsigned int counter = 0;
     unsigned int temp = 0;
+
     double effectiveFPR = 0.0;
 
+    vector<double> fbfFprVec;
+    fbfFprVec.clear();
+
+    /*
+     * STEP 1: Calculate individual constituent bloom filter FPP
+     *         and print and push them into a vector
+     */
     cout<<endl<<" INFO :: Individual FPP here: " <<endl;
+
+    // Future bloom filter
     cout<<" INFO :: Future BF FPP: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
-    for ( unsigned int i = present; i <= pastEnd; i++ ) {
+    fbfFprVec.push_back(dyn_fbf[dfuture].effective_fpp());
+
+    // Present bloom filter
+    cout<<" INFO :: Present BF FPP: " <<dyn_fbf[dpresent].effective_time_fpp(elapsedTime, refreshRate) <<endl;
+    fbfFprVec.push_back(dyn_fbf[dpresent].effective_time_fpp(elapsedTime, refreshRate));
+
+    // Past bloom filters
+    for ( unsigned int i = pastStart; i <= pastEnd; i++ ) {
       cout<<" INFO :: " <<i <<"BF FPP: " <<dyn_fbf[i].effective_modified_fpp() <<endl;
+      fbfFprVec.push_back(dyn_fbf[i].effective_modified_fpp());
     }
 
-    effectiveFPR = dyn_fbf[dfuture].effective_fpp() * dyn_fbf[dpresent].effective_modified_fpp();
-    for ( counter = dpresent; counter <= (pastEnd - 1); counter++ ) {
+    /*
+     * STEP 2: Calculate the overall effective FPP of the FBF
+     */
+    effectiveFPR = fbfFprVec[dfuture] * fbfFprVec[dpresent];
+    for (counter = dpresent; counter <= (pastEnd -1); counter++) {
       temp = counter + 1;
-      effectiveFPR += dyn_fbf[counter].effective_modified_fpp() * dyn_fbf[temp].effective_modified_fpp();
+      effectiveFPR = fbfFprVec[counter]*fbfFprVec[temp];
     }
-
-    effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
+    effectiveFPR += fbfFprVec[pastEnd];
 
     cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
+  }
+
+  /************************************************************
+   *  FUNCTION NAME: adjustFBF
+   *
+   *  This function does the dynamic resizing of the FBF
+   *
+   *  RETURN: void
+   ************************************************************/
+  void adjustFBF() {
+    numberOfBFs *= BF_INCREASE_FACTOR;
+  }
+
+  /************************************************************
+   * FUNCTION NAME: checkDynamicResizing
+   *
+   * This function checks the effective FPR and triggers dynamic
+   * resizing if the effective FPR is nearing the target FPR
+   *
+   * PARAMETERS:
+   *            targetFPR: The application provided FPR
+   *            elapsedTime: Time that has elapsed since the
+   *                         last refresh
+   *            refreshRate: The current refresh rate of the
+   *                         FBF
+   *
+   * RETURN: void
+   ************************************************************/
+  void checkDynamicResizing(double targetFPR,
+		                    double elapsedTime,
+		                    unsigned long refreshRate) {
+    double currentEffectiveFPR = checkEffectiveFPR(elapsedTime, refreshRate);
+    if ( (currentEffectiveFPR/targetFPR) >= FPR_THRESHOLD_RATIO ) {
+      adjustFBF();
+    }
   }
 
 }; // End of dynFBF class

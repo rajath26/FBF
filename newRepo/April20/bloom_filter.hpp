@@ -446,6 +446,10 @@ public:
 	   return std::pow(1.0 - std::exp(-1.0 * salt_.size() * (inserted_element_count_ / 2) / size()), 1.0 * salt_.size());
    }
 
+   inline double effective_time_fpp(double elapsedTime, unsigned long refreshRate) {
+	   return std::pow(1.0 - std::exp(-1.0 * salt_.size() * (inserted_element_count_ * (elapsedTime/((double)refreshRate+elapsedTime)) ) / size()), 1.0 * salt_.size());
+   }
+
    inline bloom_filter& operator &= (const bloom_filter& f)
    {
       /* intersection */

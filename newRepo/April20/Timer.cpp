@@ -36,6 +36,31 @@ public:
   }
 
   /*******************************************************
+   * FUNCTION NAME: printStartTime
+   *
+   * Print the the start seconds
+   *
+   * RETURNS: void
+   *******************************************************/
+  void printStartTime() {
+	  std::cout<<" INFO :: Start seconds: " <<startSeconds <<endl;
+  }
+
+  /*******************************************************
+   * FUNCTION NAME: printElapsedTime
+   *
+   * Print the seconds elapsed since start time
+   *
+   * RETURNS: void
+   *******************************************************/
+  void printElapsedTime() {
+	struct timeval now;
+	gettimeofday(&now, NULL);
+	double nowSeconds = now.tv_sec + (now.tv_usec/1000000.0);
+	std::cout<<" INFO :: Elapsed seconds: " <<(nowSeconds - startSeconds) <<endl;
+  }
+
+  /*******************************************************
    * FUNCTION NAME: getElapsedTime
    * 
    * Get the elapsed time

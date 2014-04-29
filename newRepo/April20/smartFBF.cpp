@@ -12,7 +12,7 @@
 /* 
  * FBF classes
  */
-#include "FBF.cpp"
+//#include "FBF.cpp"
 #include "dynFBF.cpp"
 
 /* 
@@ -128,7 +128,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   /*
    * STEP 5: Check the False Positives (FPs) using mathematical formula
    */
-  simpleFBF.checkEffectiveFPR();
+  simpleFBF.checkEffectiveFPR(t.getElapsedTime(), refreshRate);
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
   
@@ -231,7 +231,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   /*
    * STEP 5: Check for FPR using mathematical probability
    */
-  simpleFBF.checkEffectiveFPR();
+  simpleFBF.checkEffectiveFPR(t.getElapsedTime(), refreshRate);
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
@@ -262,10 +262,10 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
 void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
                             unsigned long long int numElements, 
                             unsigned long long int tableSize,
-		                        unsigned int numOfHashes,
-		                        unsigned long refreshRate,
-		                        unsigned long long int batchOps,
-		                        unsigned long long int numberOfInvalids) { 
+		                    unsigned int numOfHashes,
+		                    unsigned long refreshRate,
+		                    unsigned long long int batchOps,
+		                    unsigned long long int numberOfInvalids) {
 
   cout<<" ----------------------------------------------------------- " <<endl;
   cout<<" INFO :: Test Execution Info " <<endl;
@@ -291,6 +291,7 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
   // Start the timer
   t.start();
   cout<<" INFO :: Timer started " <<endl;
+  //t.printStartTime();
 
   /* 
    * STEP 2: Insert some numbers in to the FBF
@@ -302,6 +303,7 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
      * Check for elapsed time and refresh the FBF
      */
     if ( t.getElapsedTime() >= refreshRate ) {
+      //t.printElapsedTime();
       dyn_FBF.refresh();
       // Restart the timer after the refresh
       t.start();
@@ -337,7 +339,8 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
   /*
    * STEP 5: Check for probabilistic FPR
    */
-  dyn_FBF.checkEffectiveFPR();
+  //t.printElapsedTime();
+  dyn_FBF.checkEffectiveFPR(t.getElapsedTime(), refreshRate);
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
@@ -356,15 +359,44 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
  ******************************************************************************/
 void dynamicResizing() {
 
-	Timer t;
-	Timer loopTime;
+  Timer t,
+        loopTime;
 
-	unsigned long long int i;
+  unsigned long long int i;
 
+  /*
+   * STEP 1: Create a simple FBF
+   */
+  dynFBF drFBF(SIMPLE_FBF, 6250, 7);
+
+  t.start();
+  cout<<" INFO :: Timer started" <<endl;
+
+  loopTime.start();
+  for ( i = 0; i < numElements; i++ ) {
 	/*
-	 * STEP 1: Create a simple/basic FBF
+	 * STEP 2: Check if the FBF needs to be dynamically
+	 *         resized
 	 */
-	dynFBF drFBF(SIMPLE_FBF, tableSize, numOfHashes);
+    drFBF.checkDynamicResizing(targetFPR, t.getElapsedTime(), refreshRate);
+
+    /*
+     * STEP 3: Refresh the FBF
+     */
+    if ( t.getElapsedTime() >= refreshRate ) {
+    	drFBF.refresh();
+    	t.start();
+    }
+
+    if ( 0 == i % batchOps ) {
+      sleep(SLEEP_TIME);
+    }
+
+    /*
+     * STEP 4: Insert element into the FBF
+     */
+    drFBF.insert(i);
+  }
 
 }
 
@@ -492,7 +524,7 @@ void varyConstituentBFNumbers() {
    * 100 ops per sec
    */
   unsigned long long int num = 75000;
-  unsigned long long int bat = 400;
+  //unsigned long long int bat = 400;
   unsigned long long int inv = 18750;
   unsigned long long int tableSize = 37500;
   unsigned int numHashes = 3;
@@ -501,9 +533,9 @@ void varyConstituentBFNumbers() {
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, bat, inv);
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 400, inv);
     bf += 2;
-  }  
+  }
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
@@ -541,7 +573,7 @@ int main(int argc, char *argv[]) {
   //varyHashes();
   //varyRefreshRate();
   varyConstituentBFNumbers();
-  dynamicResizingDriverFunction();
+  //dynamicResizingDriverFunction();
 
   return SUCCESS;
 
