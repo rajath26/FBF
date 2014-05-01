@@ -235,7 +235,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   /*
    * STEP 5: Check for FPR using mathematical probability
    */
-  //simpleFBF.checkEffectiveFPR(t.getElapsedTime(), refreshRate);
+  simpleFBF.checkEffectiveFPR();
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
@@ -422,42 +422,70 @@ void varyRefreshRate() {
   /*
    * 100 Ops per second
    */
+  unsigned long refreshRate = 20;
+  for ( int i = 0; i < 6; i++ ) {
+    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 400, 25000);
+    refreshRate /= 2;
+  }
+  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 400, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 10, 400, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 5, 400, 25000);
-  refreshRateVsOpsPerSec(50000, 50000, 3, 3, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 19, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 18, 400, 25000);
+  refreshRateVsOpsPerSec(50000, 50000, 3, 17, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 400, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 400, 25000);
+  */
 
   /* 
    * 1000 Ops per second 
    */
+  refreshRate = 20;
+  for ( int i = 0; i < 6; i++ ) {
+    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 4000, 25000);
+    refreshRate /= 2;
+  }
+  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 4000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 4000, 25000);
+  */
 
   /* 
    * 5000 Ops per second
    */
+  refreshRate = 20;
+  for ( int i = 0; i < 6; i++ ) {
+    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 26000, 25000);
+    refreshRate /= 2;
+  }
+  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 26000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 26000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 26000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 26000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 26000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 26000, 25000);
+  */
 
   /* 
    * 10000 Ops per second 
    */
+  refreshRate = 20;
+  for ( int i = 0; i < 6; i++ ) {
+    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 50000, 25000);
+    refreshRate /= 2;
+  }
+  /*
   refreshRateVsOpsPerSec(50000, 50000, 3, 20, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 10, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 5, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 3, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 2, 50000, 25000);
   refreshRateVsOpsPerSec(50000, 50000, 3, 1, 50000, 25000);
+  */
 }
 
 /******************************************************************************
@@ -510,8 +538,8 @@ int main(int argc, char *argv[]) {
   //varyNumElements();
   //varyBFsize();
   //varyHashes();
-  //varyRefreshRate();
-  varyConstituentBFNumbers();
+  varyRefreshRate();
+  //varyConstituentBFNumbers();
 
   return SUCCESS;
 
