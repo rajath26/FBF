@@ -14,6 +14,8 @@
  */
 #define DEF_NUM_OF_BFS 100 
 #define DFUTURE 0
+#define MUL_INC_BFS 2
+#define ADD_DEC_BFS 1
 
 /* 
  * Global variables
@@ -265,7 +267,7 @@ public:
    *
    * RETURNS: void
    ***********************************************************/
-  void checkEffectiveFPR() {
+  double checkEffectiveFPR() {
     unsigned int counter = 0;
     unsigned int temp = 0;
     double effectiveFPR = 0.0;
@@ -285,7 +287,50 @@ public:
     effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
 
     cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
+
+    return effectiveFPR;
   }
+
+  /************************************************************
+   * FUNCTION NAME: triggerDynamicResizing
+   *
+   * This function does a multiplicative increase of the number
+   * of constituent bloom filter and additive decrease in the
+   * refresh rate
+   *
+   * PARAMETERS:
+   *            NONE
+   *
+   * RETURNS: void
+   ************************************************************/
+  void triggerDynamicResizing() {
+    numberOfBFs *= MUL_INC_BFS;
+    pastEnd = numberOfBFs - 1;
+    // For the prototype refreshRate will be decreased in the
+    // application side
+  }
+
+  /************************************************************
+   * FUNCTION NAME: triggerTrimDown
+   *
+   * This function does a additive decrease of the number of
+   * constituent bloom filter and additive increase in the
+   * refresh rate
+   *
+   * PARAMETERS:
+   *            NONE
+   *
+   * RETURNS: void
+   *************************************************************/
+  void triggerTrimDown() {
+    if ( (numberOfBFs - ADD_DEC_BFS) >= 3 ) {
+      numberOfBFs -= ADD_DEC_BFS;
+      pastEnd = numberOfBFs - 1;
+      // For the prototype refreshRate will be increased in the
+      // application side
+    }
+  }
+
 
 }; // End of dynFBF class
 
