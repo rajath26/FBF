@@ -1,0 +1,292 @@
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 76.05
+ INFO :: Rate of insertion: 986.193per second
+ RESULT :: SMART FP = 312
+ RESULT :: SMART FPR = 0.01664
+ INFO :: probability: 1.92565
+ RESULT :: The effective FPR of the FBF is: -0.793118
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 5
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 4
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 76.0436
+ INFO :: Rate of insertion: 986.277per second
+ RESULT :: SMART FP = 155
+ RESULT :: SMART FPR = 0.00826667
+ INFO :: probability: 2.98095
+ RESULT :: The effective FPR of the FBF is: -7.77356
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 7
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 6
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 76.0439
+ INFO :: Rate of insertion: 986.272per second
+ RESULT :: SMART FP = 155
+ RESULT :: SMART FPR = 0.00826667
+ INFO :: probability: 4.03563
+ RESULT :: The effective FPR of the FBF is: -27.9734
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 4000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 9
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 8
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 76.0433
+ INFO :: Rate of insertion: 986.28per second
+ RESULT :: SMART FP = 155
+ RESULT :: SMART FPR = 0.00826667
+ INFO :: probability: 5.0898
+ RESULT :: The effective FPR of the FBF is: -68.4078
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 40000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 8.03112
+ INFO :: Rate of insertion: 9338.67per second
+ RESULT :: SMART FP = 10038
+ RESULT :: SMART FPR = 0.53536
+ INFO :: probability: 0.257661
+ RESULT :: The effective FPR of the FBF is: 0.409079
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 40000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 5
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 4
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 8.0305
+ INFO :: Rate of insertion: 9339.4per second
+ RESULT :: SMART FP = 10038
+ RESULT :: SMART FPR = 0.53536
+ INFO :: probability: 2.25641
+ RESULT :: The effective FPR of the FBF is: -1.9833
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 40000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 7
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 6
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 8.03086
+ INFO :: Rate of insertion: 9338.97per second
+ RESULT :: SMART FP = 10038
+ RESULT :: SMART FPR = 0.53536
+ INFO :: probability: 4.25577
+ RESULT :: The effective FPR of the FBF is: -34.5114
+ -----------------------------------------------------------
+
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 75000
+ INFO :: REFRESH RATE: 2
+ INFO :: BATCH OPERATIONS: 40000
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 300000
+
+ INFO :: TABLE SIZE CHOSEN : 37500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 9
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 8
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Refreshed FBF
+ INFO :: Refreshed FBF
+ INFO :: Time elapsed in for loop: 8.04736
+ INFO :: Rate of insertion: 9319.83per second
+ RESULT :: SMART FP = 10038
+ RESULT :: SMART FPR = 0.53536
+ INFO :: probability: 6.25665
+ RESULT :: The effective FPR of the FBF is: -145.254
+ -----------------------------------------------------------
+

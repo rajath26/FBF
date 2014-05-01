@@ -3,7 +3,6 @@
  */
 #include <iostream>
 #include <unistd.h>
-#include <thread>
 
 /*
  * Bloom Filter Library
@@ -13,20 +12,21 @@
 /* 
  * FBF classes
  */
-#include "FBF.cpp"
+//#include "FBF.cpp"
 #include "dynFBF.cpp"
 
 /* 
  * Timer class
  */
-//#include "Timer.cpp"
+#include "Timer.cpp"
 
 /*
  * Macros
  */
 #define FAILURE -1
 #define SUCCESS 0
-#define SLEEP_TIME 4
+//#define SLEEP_TIME 2 
+#define SLEEP_TIME 1
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -36,8 +36,6 @@
 #define SIMPLE_FBF 3
 
 using namespace std;
-
-void refreshDriver(dynFBF &, unsigned int);
 
 /***********************************************************************
  * FUNCTION NAME: smartFBFvsDumbFBF
@@ -88,6 +86,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
   // Start the timer
   t.start();
   cout<<" INFO :: Timer started " <<endl;
+  t.printStartTime();
 
   /* 
    * STEP 2: Insert some numbers into the FBF
@@ -98,9 +97,11 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
      * Check for elapsed time and refresh the FBF
      */
     if ( t.getElapsedTime() >= refreshRate ) { 
+      t.printElapsedTime();
       simpleFBF.refresh();
       // Restart the timer
       t.start();
+      t.printStartTime();
     }
       
     /*
@@ -229,7 +230,7 @@ void refreshRateVsOpsPerSec(unsigned long long int numElements,
   /* 
    * STEP 4: Check for FPR using smart rules
    */
-  simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
+  //simpleFBF.checkSmartFBF_FPR(numberOfInvalids);
 
   /*
    * STEP 5: Check for FPR using mathematical probability
@@ -279,6 +280,8 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
   cout<<" INFO :: REFRESH RATE: " <<refreshRate <<endl;
   cout<<" INFO :: BATCH OPERATIONS: " <<batchOps <<endl;
 
+  // Timer to refresh the constituent BFs in FBF
+  Timer t;
   // Timer to keep a tab on the operations per second
   Timer loopTime;
 
@@ -289,13 +292,27 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
    */
   dynFBF dyn_FBF(numberOfBFs, tableSize, numOfHashes);
 
-  thread refereshThread (refreshDriver, dyn_FBF, refreshRate);
+  // Start the timer
+  t.start();
+  cout<<" INFO :: Timer started " <<endl;
+  //t.printStartTime();
 
   /* 
    * STEP 2: Insert some numbers in to the FBF
    */
   loopTime.start();
   for ( i = 0; i < numElements; i++ ) {
+
+    /* 
+     * Check for elapsed time and refresh the FBF
+     */
+    if ( t.getElapsedTime() >= refreshRate ) {
+      //t.printElapsedTime();
+      dyn_FBF.refresh();
+      // Restart the timer after the refresh
+      t.start();
+      //t.printStartTime();
+    }
 
     /*
      * For every batch operations done induce some 
@@ -322,81 +339,17 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
   /*
    * STEP 4: Check for FPR using smart rules
    */
-  dyn_FBF.checkSmartFBF_FPR(numberOfInvalids);
+  //dyn_FBF.checkSmartFBF_FPR(numberOfInvalids);
 
   /*
    * STEP 5: Check for probabilistic FPR
    */
+  //t.printElapsedTime();
   dyn_FBF.checkEffectiveFPR();
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
 }
-
-void refreshDriver(dynFBF &obj, unsigned int refreshRate) {
-  obj.refreshDriverFunc(refreshRate);
-}
-
-/******************************************************************************
- * FUNCTION NAME: dynamicResizing
- *
- *  This function dynamically resizes the number of constituent bloom filters
- *  and the refresh rate to ensure that the FBF meets a target false positive
- *  rate
- *
- *  PARAMETERS:
- *
- *  RETURN: void
- ******************************************************************************/
-/*
-void dynamicResizing() {
-
-  Timer t,
-        loopTime;
-
-  unsigned long long int i;
-*/
-  /*
-   * STEP 1: Create a simple FBF
-   */
-/*
-  dynFBF drFBF(SIMPLE_FBF, 6250, 7);
-
-  t.start();
-  cout<<" INFO :: Timer started" <<endl;
-
-  loopTime.start();
-  for ( i = 0; i < numElements; i++ ) {
-  */
-	/*
-	 * STEP 2: Check if the FBF needs to be dynamically
-	 *         resized
-	 */
-/*
-    drFBF.checkDynamicResizing(targetFPR, t.getElapsedTime(), refreshRate);
-*/
-    /*
-     * STEP 3: Refresh the FBF
-     */
-/*
-    if ( t.getElapsedTime() >= refreshRate ) {
-    	drFBF.refresh();
-    	t.start();
-    }
-
-    if ( 0 == i % batchOps ) {
-      sleep(SLEEP_TIME);
-    }
-*/
-    /*
-     * STEP 4: Insert element into the FBF
-     */
-/*
-    drFBF.insert(i);
-  }
-
-}
-*/
 
 /******************************************************************************
  * FUNCTION NAME: varyNumElements
@@ -521,61 +474,44 @@ void varyConstituentBFNumbers() {
   /*
    * 100 ops per sec
    */
-  unsigned long long int num = 75000;
+  unsigned long long int num = 6250;
   //unsigned long long int bat = 400;
-  unsigned long long int inv = 18750;
-  unsigned long long int tableSize = 37500;
+  unsigned long long int inv = 3125;
+  unsigned long long int tableSize = 6250;
   unsigned int numHashes = 3;
-  unsigned int refreshRate = 2;
+  unsigned int refreshRate = 3;
   unsigned int bf = 3;
 
-  /*
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 400, inv);
-    bf += 2;
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 30, inv);
+    bf += 3;
   }
-  */
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 4000, inv);
-    bf += 2;
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 300, inv);
+    bf += 3;
   }  
 
   bf = 3;
   for ( unsigned int counter = 0; counter < 4; counter++) {
-    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 40000, inv);
-    bf += 2;
+    numberOfBFsVsOpsPerSec(bf, num, tableSize, numHashes, refreshRate, 3000, inv);
+    bf += 3;
   }
 
 }
-
-/******************************************************************************
- * FUNCTION NAME: dynamicResizingDriverFunction
- *
- * This function is the driver function to run the experiments for the
- * dynamic resizing ability of the FBF
- *
- * RETURNS: void
- ******************************************************************************/
-/*
-void dynamicResizingDriverFunction() {
-  dynamicResizing();
-}
-*/
 
 /*
  * Main function
  */
 int main(int argc, char *argv[]) { 
 
-  varyNumElements();
+  //varyNumElements();
   //varyBFsize();
   //varyHashes();
   //varyRefreshRate();
-  //varyConstituentBFNumbers();
-  //dynamicResizingDriverFunction();
+  varyConstituentBFNumbers();
 
   return SUCCESS;
 

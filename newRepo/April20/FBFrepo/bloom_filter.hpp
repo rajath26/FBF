@@ -450,22 +450,6 @@ public:
 	   return std::pow(1.0 - std::exp(-1.0 * salt_.size() * (inserted_element_count_ * (elapsedTime/((double)refreshRate+elapsedTime)) ) / size()), 1.0 * salt_.size());
    }
 
-   inline double oneMinusOneByMToPowerK_full() {
-	   return std::pow( ( 1.0 - (1.0 / size()) ), (1.0 * salt_.size() * inserted_element_count_) );
-   }
-
-   inline double oneMinusOneByMToPowerK_fraction(double elapsedTime, unsigned long refreshRate) {
-	   return std::pow( ( 1.0 - (1.0 / size()) ), ( 1.0 * salt_.size() * ( inserted_element_count_ * ( elapsedTime/((double)refreshRate+elapsedTime) ) ) ) );
-   }
-
-   inline double oneMinusOneByMToPowerK_half() {
-   	   return std::pow( ( 1.0 - (1.0 / size()) ), ( 1.0 * salt_.size() * ( inserted_element_count_ * 0.5 ) ) );
-   }
-
-   inline double retEffectiveFPR(double oneMinusProb) {
-     return std::pow( oneMinusProb, ( 1.0 * salt_.size() ) );
-   }
-
    inline bloom_filter& operator &= (const bloom_filter& f)
    {
       /* intersection */

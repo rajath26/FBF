@@ -4,12 +4,10 @@
 #include <iostream>
 #include <unistd.h>
 #include <vector>
-#include <mutex>
 /*
  * Bloom Filter Library
  */
 #include "bloom_filter.hpp"
-#include "Timer.cpp"
 
 /*
  * Macros
@@ -70,11 +68,6 @@ public:
    */
   bloom_filter newBF;
 
-  /*
-   * Mutex for the future and present bloom filters
-   */
-  std::mutex mtx;
-
   /************************************************************ 
    * FUNCTION NAME: dynFBF 
    *
@@ -133,26 +126,6 @@ public:
   ~dynFBF() {}
 
   /************************************************************
-   * FUNCTION NAME: refreshDriveFunc
-   *
-   * This function is the driver function of refresh
-   *
-   * PARAMETERS:
-   *            refreshRate: The refresh rate of the FBF
-   *
-   * RETURNS: void
-   ************************************************************/
-  void refreshDriverFunc(unsigned long refreshRate) {
-    Timer t;
-    t.start();
-    cout<<" INFO :: Timer started " <<endl;
-    while( t.getElapsedTime() >= refreshRate ) {
-      refresh();
-      t.start();
-    }
-  }
-
-  /************************************************************
    * FUNCTION NAME: refresh
    * 
    * This function refreshes the FBF
@@ -163,14 +136,8 @@ public:
 
     unsigned int j;
     for ( j = (numberOfBFs - 1); j > 0; j-- ) {
-      if ( 0 == j || 1 == j ) {
-    	  mtx.lock();
-      }
       dyn_fbf[j].clear();
       dyn_fbf[j] = dyn_fbf[j - 1];
-      if ( 0 == j || 1 == j ) {
-        mtx.unlock();
-      }
     }
 
     dyn_fbf[j].clear();
@@ -193,11 +160,9 @@ public:
    * 
    * RETURNS: void
    ************************************************************/
-  void insert(unsigned long long int element) {
-	mtx.lock();
+  void insert(unsigned long long int element) { 
     dyn_fbf[dpresent].insert(element);
     dyn_fbf[dfuture].insert(element);
-    mtx.unlock();
   }
 
   /************************************************************
@@ -489,6 +454,7 @@ public:
         cout<<" INFO :: " <<i <<"BF FPP: " <<dyn_fbf[i].effective_modified_fpp() <<endl;
       }
 
+      // commented from here ---- this is working 
       effectiveFPR = dyn_fbf[dfuture].effective_fpp() * dyn_fbf[dpresent].effective_modified_fpp();
       for ( counter = dpresent; counter <= (pastEnd - 1); counter++ ) {
         temp = counter + 1;
@@ -496,6 +462,20 @@ public:
       }
 
       effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
+      // till here 
+
+      // trying something new 
+      /*
+      effectiveFPR = dyn_fbf[dfuture].effective_fpp() * dyn_fbf[dpresent].effective_time_fpp(elapsedTime, refreshRate);
+      effectiveFPR += dyn_fbf[dpresent].effective_time_fpp(refreshRate, elapsedTime) * dyn_fbf[pastStart].effective_modified_fpp();
+      for ( unsigned int i = pastStart; i <= pastEnd; i++ ) { 
+	temp = counter + 1;
+	effectiveFPR += dyn_fbf[counter].effective_modified_fpp() * dyn_fbf[temp].effective_modified_fpp();
+      }
+
+      effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
+      */
+      // end of try new
 
       cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
     }
