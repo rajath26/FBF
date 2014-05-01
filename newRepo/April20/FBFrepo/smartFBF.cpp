@@ -422,9 +422,15 @@ void varyRefreshRate() {
   /*
    * 100 Ops per second
    */
+  unsigned long long int num = 6250;
+  //unsigned long long int bat = 400;
+  unsigned long long int inv = 3125;
+  unsigned long long int tableSize = 6250;
+  unsigned int numHashes = 3;
+
   unsigned long refreshRate = 20;
-  for ( int i = 0; i < 6; i++ ) {
-    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 400, 25000);
+  for ( int i = 0; i < 5; i++ ) {
+    refreshRateVsOpsPerSec(num, tableSize, numHashes, refreshRate, 30, inv);
     refreshRate /= 2;
   }
   /*
@@ -440,8 +446,8 @@ void varyRefreshRate() {
    * 1000 Ops per second 
    */
   refreshRate = 20;
-  for ( int i = 0; i < 6; i++ ) {
-    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 4000, 25000);
+  for ( int i = 0; i < 5; i++ ) {
+    refreshRateVsOpsPerSec(num, tableSize, numHashes, refreshRate, 300, inv);
     refreshRate /= 2;
   }
   /*
@@ -457,8 +463,8 @@ void varyRefreshRate() {
    * 5000 Ops per second
    */
   refreshRate = 20;
-  for ( int i = 0; i < 6; i++ ) {
-    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 26000, 25000);
+  for ( int i = 0; i < 5; i++ ) {
+    refreshRateVsOpsPerSec(num, tableSize, numHashes, refreshRate, 3000, inv);
     refreshRate /= 2;
   }
   /*
@@ -474,8 +480,8 @@ void varyRefreshRate() {
    * 10000 Ops per second 
    */
   refreshRate = 20;
-  for ( int i = 0; i < 6; i++ ) {
-    refreshRateVsOpsPerSec(50000, 50000, 3, refreshRate, 50000, 25000);
+  for ( int i = 0; i < 5; i++ ) {
+    refreshRateVsOpsPerSec(num, tableSize, numHashes, refreshRate, 6000, inv);
     refreshRate /= 2;
   }
   /*
