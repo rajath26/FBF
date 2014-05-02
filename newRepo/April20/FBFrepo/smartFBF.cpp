@@ -26,7 +26,7 @@
 #define FAILURE -1
 #define SUCCESS 0
 //#define SLEEP_TIME 2 
-#define SLEEP_TIME 1
+#define SLEEP_TIME 2
 #define DEF_NUM_INSERTS 2000
 #define DEF_TABLE_SIZE 6250 
 #define DEF_NUM_OF_HASH 3
@@ -102,6 +102,7 @@ void smartFBFvsDumbFBF(unsigned long long int numElements,
      */
     if ( t.getElapsedTime() >= refreshRate ) { 
       t.printElapsedTime();
+      cout<<endl<<endl<<"REFRESHING FBF"<<endl<<endl;
       simpleFBF.refresh();
       // Restart the timer
       t.start();
@@ -367,13 +368,13 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
  ***********************************************************************/
 void dynamicResizing(double targetFPR) {
 
-  unsigned long long int numElements = 0;
+  unsigned long long int numElements = 6250;
   unsigned long long int tableSize = 12500;
   unsigned int numOfHashes = 3;
-  unsigned long refreshRate = 20;
-  unsigned long long int batchOps;
-  unsigned long long int numberOfInvalids;
+  unsigned long refreshRate = 10;
+  unsigned long long int batchOps = 400;
   double currentFPR = 0.0;
+  int didScaleDown = 0;
 
   cout<<" ----------------------------------------------------------- " <<endl;
   cout<<" INFO :: Test Execution Info " <<endl;
@@ -391,7 +392,7 @@ void dynamicResizing(double targetFPR) {
   /*
    * STEP 1: Create the FBF
    */
-  dynFBF drFBF(SIMPLE_FBF, tableSize, numOfHashes);
+  dynFBF drFBF(3, tableSize, numOfHashes);
 
   // Start the timer
   t.start();
@@ -405,14 +406,18 @@ void dynamicResizing(double targetFPR) {
 
 	currentFPR = drFBF.checkEffectiveFPR();
 	if ( currentFPR >= THRESHOLD_FRACTION * targetFPR ) {
-      drFBF.triggerDynamicResizing();
-      if ( refreshRate - ADD_DEC_RR >= MIN_RR ) {
-        refreshRate -= ADD_DEC_RR;
-      }
+	  drFBF.triggerDynamicResizing();
+	  if ( refreshRate - ADD_DEC_RR >= MIN_RR ) {
+	    refreshRate -= ADD_DEC_RR;
+	    cout<<endl<<endl<<"Refresh rate after dynamic resizing: " <<refreshRate<<endl<<endl;
+	  }
 	}
 	else if( currentFPR <= 0.5 * targetFPR ) {
-      drFBF.triggerTrimDown();
-      refreshRate += ADD_INC_RR;
+	  didScaleDown = drFBF.triggerTrimDown();
+	  if ( didScaleDown && refreshRate <= 30 ) {
+		  refreshRate++;
+	  }
+	  cout<<endl<<"Refresh rate: " <<refreshRate<<endl;
 	}
 
     /*
@@ -443,7 +448,7 @@ void dynamicResizing(double targetFPR) {
 
   cout<<" -----------------------------------------------------------" <<endl <<endl;
 
-} // End of smartFBFvsDumbFBFvarNumElements()
+} // End of dynamicResizing()
 
 /******************************************************************************
  * FUNCTION NAME: varyNumElements
@@ -644,7 +649,7 @@ void varyConstituentBFNumbers() {
  * RETURNS: void
  ******************************************************************************/
 void dynamicResizingStart() {
-  dynamicResizing(0.01);
+  dynamicResizing(0.001);
 }
 
 /*
@@ -656,7 +661,7 @@ int main(int argc, char *argv[]) {
   //varyBFsize();
   //varyHashes();
   //varyRefreshRate();
-  varyConstituentBFNumbers();
+  //varyConstituentBFNumbers();
   dynamicResizingStart();
 
   return SUCCESS;

@@ -12,10 +12,12 @@
 /*
  * Macros
  */
-#define DEF_NUM_OF_BFS 100 
+#define DEF_NUM_OF_BFS 300
 #define DFUTURE 0
 #define MUL_INC_BFS 2
 #define ADD_DEC_BFS 1
+#define FALSE 0
+#define TRUE 1
 
 /* 
  * Global variables
@@ -142,7 +144,7 @@ public:
     dyn_fbf[j].clear();
     dyn_fbf[j] = newBF;
 
-    cout<<" INFO :: Refreshed FBF" <<endl;
+    cout<<endl<<endl<<endl<<endl <<" INFO :: Refreshed FBF" <<endl<<endl<<endl<<endl;
   }
 
   /************************************************************
@@ -304,10 +306,17 @@ public:
    * RETURNS: void
    ************************************************************/
   void triggerDynamicResizing() {
+	unsigned int newNumberOfBFs = numberOfBFs * MUL_INC_BFS;
+	cout<<endl<<endl<<endl<<"Trigerring dynamic resizing"<<endl<<endl;
+	for ( unsigned int counter = pastEnd; counter < newNumberOfBFs; counter++ ) {
+	  dyn_fbf[counter] = newBF;
+      dyn_fbf[counter].clear();
+	}
     numberOfBFs *= MUL_INC_BFS;
     pastEnd = numberOfBFs - 1;
     // For the prototype refreshRate will be decreased in the
     // application side
+    refresh();
   }
 
   /************************************************************
@@ -322,13 +331,19 @@ public:
    *
    * RETURNS: void
    *************************************************************/
-  void triggerTrimDown() {
-    if ( (numberOfBFs - ADD_DEC_BFS) >= 3 ) {
+  int triggerTrimDown() {
+	if ( numberOfBFs < 4 ) {
+      return FALSE;
+	}
+	else if ( (numberOfBFs - ADD_DEC_BFS) >= 3 ) {
+	  cout<<endl<<endl<<endl<<"Trigerring trim down"<<endl<<endl<<endl;
       numberOfBFs -= ADD_DEC_BFS;
       pastEnd = numberOfBFs - 1;
       // For the prototype refreshRate will be increased in the
       // application side
+      return TRUE;
     }
+	return FALSE;
   }
 
 
