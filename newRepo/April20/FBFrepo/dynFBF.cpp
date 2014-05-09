@@ -274,10 +274,10 @@ public:
     unsigned int temp = 0;
     double effectiveFPR = 0.0;
 
-    cout<<endl<<" INFO :: Individual FPP here: " <<endl;
-    cout<<" INFO :: Future BF FPP: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
+    //cout<<endl<<" INFO :: Individual FPP here: " <<endl;
+    //cout<<" INFO :: Future BF FPP: " <<dyn_fbf[dfuture].effective_fpp() <<endl;
     for ( unsigned int i = dpresent; i <= pastEnd; i++ ) {
-      cout<<" INFO :: " <<i <<"BF FPP: " <<dyn_fbf[i].effective_modified_fpp() <<endl;
+      //cout<<" INFO :: " <<i <<"BF FPP: " <<dyn_fbf[i].effective_modified_fpp() <<endl;
     }
 
     effectiveFPR = dyn_fbf[dfuture].effective_fpp() * dyn_fbf[dpresent].effective_modified_fpp();
@@ -288,7 +288,7 @@ public:
 
     effectiveFPR += dyn_fbf[pastEnd].effective_modified_fpp();
 
-    cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
+    //cout<<" RESULT :: The effective FPR of the FBF is: " <<effectiveFPR <<endl;
 
     return effectiveFPR;
   }
@@ -344,6 +344,21 @@ public:
       return TRUE;
     }
 	return FALSE;
+  }
+
+  /*************************************************************
+   * FUNCTION NAME: retNumOfBFs
+   *
+   * This function return the number of constituent BFs in the
+   * FBF
+   *
+   * PARAMETERS:
+   *            NONE
+   *
+   * RETURN: void
+   *************************************************************/
+  unsigned int retNumOfBFs() {
+    return numberOfBFs;
   }
 
 
