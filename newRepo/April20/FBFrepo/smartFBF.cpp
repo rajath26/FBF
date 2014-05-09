@@ -40,6 +40,7 @@
 #define ADD_DEC_RR 1
 #define MIN_RR 1
 #define ADD_INC_RR 1
+#define MUL_DEC_RR 2
 #define LONG_BUF_SZ 4096
 
 using namespace std;
@@ -371,8 +372,8 @@ void numberOfBFsVsOpsPerSec(unsigned long numberOfBFs,
  ***********************************************************************/
 void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
 
-  unsigned long long int numElements = 20000;
-  unsigned long long int tableSize = 25000;
+  unsigned long long int numElements = 8000;
+  unsigned long long int tableSize = 12500;
   unsigned int numOfHashes = 3;
   unsigned long refreshRate = 10;
   unsigned long long int batchOps = 400;
@@ -426,7 +427,8 @@ void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
 	if ( currentFPR >= THRESHOLD_FRACTION * targetFPR ) {
 	  drFBF.triggerDynamicResizing();
 	  if ( refreshRate - ADD_DEC_RR >= MIN_RR ) {
-	    refreshRate -= ADD_DEC_RR;
+	    //refreshRate -= ADD_DEC_RR;
+		refreshRate /= MUL_DEC_RR;
 	    cout<<endl<<endl<<"Refresh rate after dynamic resizing: " <<refreshRate<<endl<<endl;
 	    //fprintf(results, "DynamicResizing increase\n");
 	    //fprintf(results, "FPR %f ; ops per second : %lf\n", currentFPR, i/(loopTime.getElapsedTime()));
@@ -484,7 +486,7 @@ void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
       sleep(SLEEP_TIME);
     }
 
-    if ( 4000 == i ) {
+    if ( 1000 == i ) {
     	cout<<" INFO :: Upping operations per second " <<endl;
     	batchOps *= 10;
     	//fprintf(results, "FPR %f ; ops per second : %lf\n", currentFPR, i/(loopTime.getElapsedTime()));
@@ -493,7 +495,7 @@ void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
     	cout<<" RESULTS :: ELAPSED TIME: " <<loopTime.getElapsedTime() <<endl;
         cout<<" RESULTS :: FBF state: NumOfBFs: " <<drFBF.retNumOfBFs() <<"; Refresh Rate: " <<refreshRate <<"\n\n";
     }
-    else if ( 8000 == i ) {
+    else if ( 2000 == i ) {
     	cout<<" INFO :: Upping operations per second " <<endl;
     	batchOps *= 2;
     	//fprintf(results, "FPR %f ; ops per second : %lf\n", currentFPR, i/(loopTime.getElapsedTime()));
@@ -502,7 +504,7 @@ void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
     	cout<<" RESULTS :: ELAPSED TIME: " <<loopTime.getElapsedTime() <<endl;
     	cout<<" RESULTS :: FBF state: NumOfBFs: " <<drFBF.retNumOfBFs() <<"; Refresh Rate: " <<refreshRate <<"\n\n";
     }
-    else if ( 12000 == i ) {
+    else if ( 4000 == i ) {
     	cout<<" INFO :: Reducing operations per second " <<endl;
         batchOps /= 10;
         //fprintf(results, "FPR %f ; ops per second : %lf\n", currentFPR, i/(loopTime.getElapsedTime()));
@@ -511,7 +513,7 @@ void dynamicResizing(double targetFPR, char fileName[LONG_BUF_SZ]) {
         cout<<" RESULTS :: ELAPSED TIME: " <<loopTime.getElapsedTime() <<endl;
         cout<<" RESULTS :: FBF state: NumOfBFs: " <<drFBF.retNumOfBFs() <<"; Refresh Rate: " <<refreshRate <<"\n\n";
     }
-    else if ( 16000 == i ) {
+    else if ( 6000 == i ) {
     	cout<<" INFO :: Upping operations per second " <<endl;
     	batchOps *= 2;
     	//fprintf(results, "FPR %f ; ops per second : %lf\n", currentFPR, i/(loopTime.getElapsedTime()));

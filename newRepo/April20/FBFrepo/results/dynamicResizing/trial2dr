@@ -1,0 +1,1023 @@
+ ----------------------------------------------------------- 
+ INFO :: Test Execution Info 
+ INFO :: NUMBER OF ELEMENTS: 8000
+ INFO :: REFRESH RATE: 10
+ INFO :: BATCH OPERATIONS: 400
+
+ INFO :: NUMBER OF HASHES CHOSEN : 3
+
+ INFO :: TABLE SIZE IN BYTES: 100000
+
+ INFO :: TABLE SIZE CHOSEN : 12500
+ INFO :: NUMBER OF CONSTITUENT BFs initialized in the FBF: 3
+ INFO :: dfuture: 0
+ INFO :: dpresent: 1
+ INFO :: pastStart: 2
+ INFO :: pastEnd: 2
+ INFO :: FBFs initialized 
+ INFO :: Timer started 
+ INFO :: Start seconds: 1.39965e+09
+ RESULTS :: FIRST TIME in teh for loop 
+ RESULTS :: FPR: 0; ops per second : 0.499762
+ RESULTS :: ELAPSED TIME: 2.001
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 10
+
+ INFO :: Upping operations per second 
+ RESULTS :: FPR: 1.40464e-05; ops per second : 166.502
+ RESULTS :: ELAPSED TIME: 6.00596
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 10
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 5
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 8.02749e-05; ops per second : 230.038
+ RESULTS :: ELAPSED TIME: 6.00772
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 5
+
+ INFO :: Elapsed seconds: 6.00785
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+ INFO :: Start seconds: 1.39965e+09
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27365e-05; ops per second : 230.194
+ RESULTS :: ELAPSED TIME: 6.00799
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 6
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27365e-05; ops per second : 230.357
+ RESULTS :: ELAPSED TIME: 6.00806
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 7
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00358156; ops per second : 230.507
+ RESULTS :: ELAPSED TIME: 6.00851
+ RESULTS :: FBF state: NumOfBFs: 8; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.93177e-14; ops per second : 230.67
+ RESULTS :: ELAPSED TIME: 6.00859
+ RESULTS :: FBF state: NumOfBFs: 7; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.93177e-14; ops per second : 230.834
+ RESULTS :: ELAPSED TIME: 6.00867
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.93178e-14; ops per second : 230.997
+ RESULTS :: ELAPSED TIME: 6.00874
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 6
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.9318e-14; ops per second : 231.161
+ RESULTS :: ELAPSED TIME: 6.00882
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 7
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00356883; ops per second : 231.314
+ RESULTS :: ELAPSED TIME: 6.00916
+ RESULTS :: FBF state: NumOfBFs: 8; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.46756e-19; ops per second : 231.477
+ RESULTS :: ELAPSED TIME: 6.00924
+ RESULTS :: FBF state: NumOfBFs: 7; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.82807e-19; ops per second : 231.638
+ RESULTS :: ELAPSED TIME: 6.00938
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.12211e-18; ops per second : 231.802
+ RESULTS :: ELAPSED TIME: 6.00946
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 6
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.57322e-18; ops per second : 231.965
+ RESULTS :: ELAPSED TIME: 6.00953
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 7
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.3819e-11; ops per second : 232.129
+ RESULTS :: ELAPSED TIME: 6.00961
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 8
+
+ INFO :: Upping operations per second 
+ RESULTS :: FPR: 9.06118e-07; ops per second : 332.106
+ RESULTS :: ELAPSED TIME: 6.02222
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 8
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 4
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 8.01546e-05; ops per second : 459.161
+ RESULTS :: ELAPSED TIME: 6.0306
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27364e-05; ops per second : 459.006
+ RESULTS :: ELAPSED TIME: 6.03481
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27364e-05; ops per second : 459.139
+ RESULTS :: ELAPSED TIME: 6.03522
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 6
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 459.267
+ RESULTS :: ELAPSED TIME: 6.03573
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 7
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00359588; ops per second : 459.335
+ RESULTS :: ELAPSED TIME: 6.03701
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.944e-13; ops per second : 459.462
+ RESULTS :: ELAPSED TIME: 6.03751
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33062e-12; ops per second : 459.597
+ RESULTS :: ELAPSED TIME: 6.03791
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33062e-12; ops per second : 459.713
+ RESULTS :: ELAPSED TIME: 6.03858
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00356883; ops per second : 459.182
+ RESULTS :: ELAPSED TIME: 6.04778
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 9.91608e-20; ops per second : 459.295
+ RESULTS :: ELAPSED TIME: 6.04843
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.70599e-19; ops per second : 459.428
+ RESULTS :: ELAPSED TIME: 6.04884
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.68408e-19; ops per second : 459.563
+ RESULTS :: ELAPSED TIME: 6.04924
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+ INFO :: Reducing operations per second 
+ RESULTS :: FPR: 4.21439e-05; ops per second : 659.944
+ RESULTS :: ELAPSED TIME: 6.06116
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 8.03018e-05; ops per second : 685.037
+ RESULTS :: ELAPSED TIME: 6.06843
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27364e-05; ops per second : 684.898
+ RESULTS :: ELAPSED TIME: 6.071
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 684.868
+ RESULTS :: ELAPSED TIME: 6.07272
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 684.986
+ RESULTS :: ELAPSED TIME: 6.07313
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00359593; ops per second : 684.869
+ RESULTS :: ELAPSED TIME: 6.07564
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.95976e-13; ops per second : 684.646
+ RESULTS :: ELAPSED TIME: 6.07908
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 684.741
+ RESULTS :: ELAPSED TIME: 6.07969
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 684.86
+ RESULTS :: ELAPSED TIME: 6.08009
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00358309; ops per second : 684.864
+ RESULTS :: ELAPSED TIME: 6.08153
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 9.91608e-20; ops per second : 684.771
+ RESULTS :: ELAPSED TIME: 6.08382
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.70599e-19; ops per second : 684.887
+ RESULTS :: ELAPSED TIME: 6.08423
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.68408e-19; ops per second : 684.981
+ RESULTS :: ELAPSED TIME: 6.08486
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 8.03018e-05; ops per second : 684.314
+ RESULTS :: ELAPSED TIME: 8.10304
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27364e-05; ops per second : 684.336
+ RESULTS :: ELAPSED TIME: 8.10422
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 684.424
+ RESULTS :: ELAPSED TIME: 8.10469
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 684.504
+ RESULTS :: ELAPSED TIME: 8.10515
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00359593; ops per second : 684.438
+ RESULTS :: ELAPSED TIME: 8.1074
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.95976e-13; ops per second : 684.519
+ RESULTS :: ELAPSED TIME: 8.1079
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 684.36
+ RESULTS :: ELAPSED TIME: 8.11126
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 684.438
+ RESULTS :: ELAPSED TIME: 8.11179
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00358309; ops per second : 684.452
+ RESULTS :: ELAPSED TIME: 8.11308
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 9.91608e-20; ops per second : 684.539
+ RESULTS :: ELAPSED TIME: 8.1135
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.70599e-19; ops per second : 684.623
+ RESULTS :: ELAPSED TIME: 8.11398
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.68408e-19; ops per second : 684.622
+ RESULTS :: ELAPSED TIME: 8.11545
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+ INFO :: Upping operations per second 
+ RESULTS :: FPR: 1.53801e-07; ops per second : 593.014
+ RESULTS :: ELAPSED TIME: 10.1179
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+ INFO :: Elapsed seconds: 6.11259
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+ INFO :: Start seconds: 1.39965e+09
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.000918797; ops per second : 528.12
+ RESULTS :: ELAPSED TIME: 12.1223
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.25164e-14; ops per second : 528.176
+ RESULTS :: ELAPSED TIME: 12.1229
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.25164e-14; ops per second : 528.24
+ RESULTS :: ELAPSED TIME: 12.1233
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.00095e-13; ops per second : 528.299
+ RESULTS :: ELAPSED TIME: 12.1238
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.000905738; ops per second : 528.129
+ RESULTS :: ELAPSED TIME: 12.1297
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.37402e-20; ops per second : 528.192
+ RESULTS :: ELAPSED TIME: 12.1301
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 8.2408e-20; ops per second : 528.248
+ RESULTS :: ELAPSED TIME: 12.1307
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.80218e-19; ops per second : 528.312
+ RESULTS :: ELAPSED TIME: 12.1311
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 8.0301e-05; ops per second : 641.2
+ RESULTS :: ELAPSED TIME: 12.1429
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27364e-05; ops per second : 641.259
+ RESULTS :: ELAPSED TIME: 12.1433
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 641.311
+ RESULTS :: ELAPSED TIME: 12.1439
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.27874e-05; ops per second : 641.292
+ RESULTS :: ELAPSED TIME: 12.1458
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00359593; ops per second : 641.308
+ RESULTS :: ELAPSED TIME: 12.1471
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.95976e-13; ops per second : 641.182
+ RESULTS :: ELAPSED TIME: 12.151
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 641.235
+ RESULTS :: ELAPSED TIME: 12.1516
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 1.33594e-12; ops per second : 641.296
+ RESULTS :: ELAPSED TIME: 12.152
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+
+
+
+Trigerring dynamic resizing
+
+
+
+
+
+ INFO :: Refreshed FBF
+
+
+
+
+
+Refresh rate after dynamic resizing: 3
+
+ RESULTS :: DynamicResizing increase
+ RESULTS :: FPR: 0.00358309; ops per second : 641.31
+ RESULTS :: ELAPSED TIME: 12.1533
+ RESULTS :: FBF state: NumOfBFs: 6; Refresh Rate: 3
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 9.91608e-20; ops per second : 641.366
+ RESULTS :: ELAPSED TIME: 12.1538
+ RESULTS :: FBF state: NumOfBFs: 5; Refresh Rate: 4
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 3.70599e-19; ops per second : 641.425
+ RESULTS :: ELAPSED TIME: 12.1542
+ RESULTS :: FBF state: NumOfBFs: 4; Refresh Rate: 5
+
+
+
+
+Trigerring trim down
+
+
+ RESULTS :: ScaleDown decreas
+ RESULTS :: FPR: 4.68408e-19; ops per second : 641.155
+ RESULTS :: ELAPSED TIME: 12.1609
+ RESULTS :: FBF state: NumOfBFs: 3; Refresh Rate: 6
+
+ -----------------------------------------------------------
+
